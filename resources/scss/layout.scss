@@ -1,0 +1,80 @@
+.authenticated-layout {
+  min-height: 100vh;
+  background-color: var(--background-secondary);
+
+  .logo {
+    font-size: 1.25rem;
+    line-height: 1rem;
+  }
+
+  header {
+    background-color: var(--background);
+  }
+
+  header section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+    max-width: var(--screen-desktop);
+  }
+
+  main {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: var(--screen-desktop);
+    min-height: calc(100vh - 4rem);
+
+    aside {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 8rem;
+
+      a.active {
+        background-color: var(--background);
+        border-color: var(--background-border);
+      }
+
+      hr {
+        border: none;
+        border-bottom: 1px dashed var(--background-border);
+      }
+    }
+
+    .panel {
+      flex: 1;
+      padding: 1.5rem;
+      background-color: var(--background);
+      border-radius: 1rem;
+      box-shadow: var(--background-border) 0px 1px 2px 0px;
+    }
+  }
+}
+
+.guest-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 20rem;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  main {
+    position: relative;
+    min-width: 20rem;
+  }
+
+  .logo-link {
+    position: absolute;
+    bottom: 100%;
+    width: 100%;
+    text-align: center;
+  }
+}

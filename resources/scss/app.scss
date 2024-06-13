@@ -1,0 +1,122 @@
+@import 'normalize.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+  --foreground: #161618;
+  --foreground-hover: #2e353e;
+  --foreground-muted: #64748b;
+  --background: #fff;
+  --background-focus: #f6f8fa;
+  --background-hover: #f6f8fa;
+  --background-border: #e3e8ee;
+  --background-secondary: #f6f8fa;
+  --background-error: #ef4444;
+  --background-warning: #f59e0b;
+  --background-success: #84cc16;
+  --screen-desktop: 1280px
+}
+
+.dark {
+  --foreground: #fff;
+  --foreground-hover: #f6f8fa;
+  --foreground-muted: #d1d5db;
+  --background: #161618;
+  --background-focus: #3a3e44;
+  --background-hover: #0a0a0b;
+  --background-border: #232931;
+  --background-secondary: #0a0a0b;
+}
+
+body {
+  font-size: 14px;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-weight: 400;
+  font-family: "Reddit Sans", Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+small {
+  font-size: 0.8rem;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--background-border);
+}
+
+table {
+  width: 100%;
+
+  thead {
+    background-color: var(--background-secondary);
+
+    th {
+      padding: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 400;
+      text-align: left;
+
+      &:first-child {
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+      }
+
+      &:last-child {
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+      }
+    }
+  }
+
+  td {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid var(--background-border);
+  }
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.75rem;
+}
+
+@import "utils";
+@import "badge";
+@import "dialog";
+@import "dropdown";
+@import "form";
+@import "informative";
+@import "layout";
+@import "rich-text-editor";
+@import "file-input";

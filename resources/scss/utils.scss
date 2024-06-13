@@ -1,0 +1,109 @@
+.text-muted {
+  color: var(--foreground-muted);
+}
+
+.text-error {
+  color: var(--background-error);
+}
+
+.flex,
+.flex-column {
+  display: flex;
+
+  &.gap {
+    gap: 0.5rem;
+  }
+
+  &.gap-large {
+    gap: 1rem;
+  }
+
+  &.justify-start {
+    justify-content: flex-start;
+  }
+
+  &.justify-end {
+    justify-content: flex-end;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.justify-between {
+    justify-content: space-between;
+  }
+
+  &.justify-around {
+    justify-content: space-around;
+  }
+
+  &.justify-evenly {
+    justify-content: space-evenly;
+  }
+
+  &.items-baseline {
+    align-items: baseline;
+  }
+
+  &.items-center {
+    align-items: center;
+  }
+
+  &.items-start {
+    align-items: flex-start;
+  }
+
+  &.items-end {
+    align-items: flex-end;
+  }
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.p-relative {
+  position: relative;
+}
+
+@mixin margin-variant($id: 1) {
+  .m-#{$id} {
+    margin: $id * 0.5rem;
+  }
+
+  .mb-#{$id} {
+    margin-bottom: $id * 0.5rem;
+  }
+
+  .ml-#{$id} {
+    margin-left: $id * 0.5rem;
+  }
+
+  .mr-#{$id} {
+    margin-right: $id * 0.5rem;
+  }
+
+  .mt-#{$id} {
+    margin-top: $id * 0.5rem;
+  }
+
+  .mx-#{$id} {
+    margin-left: $id * 0.5rem;
+    margin-right: $id * 0.5rem;
+  }
+
+  .my-#{$id} {
+    margin-bottom: $id * 0.5rem;
+    margin-top: $id * 0.5rem;
+  }
+}
+
+@include margin-variant(1);
+@include margin-variant(2);
+@include margin-variant(3);
+@include margin-variant(4);

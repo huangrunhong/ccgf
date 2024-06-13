@@ -1,0 +1,21 @@
+.badge {
+  width: fit-content;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.625rem;
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 0.75rem;
+  white-space: nowrap;
+
+  &.success {
+    background-color: var(--background-success);
+  }
+
+  &.warning {
+    background-color: var(--background-warning);
+  }
+
+  &.error {
+    background-color: var(--background-error);
+  }
+}

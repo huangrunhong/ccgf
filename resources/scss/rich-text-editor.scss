@@ -1,0 +1,17 @@
+.rich-text-editor {
+  padding: 0.5rem;
+  background-color: var(--background);
+  border: 1px solid var(--background-border);
+  border-radius: 0.25rem;
+  color: var(--foreground);
+
+  .tiptap {
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+    border-top: 1px solid var(--background-border);
+  }
+
+  &:has(.ProseMirror-focused) {
+    outline: 2px solid var(--background-focus);
+    outline-offset: 1px;
+  }
+}
