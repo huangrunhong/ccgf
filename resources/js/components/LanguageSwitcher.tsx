@@ -23,6 +23,7 @@ const LanguageSwitcher = () => (
         method="post"
         className="button"
         href={route("locale.update", { locale: "zh" })}
+        onClick={() => (document.documentElement.lang = "zh")}
       >
         {languages.zh}
       </Link>
@@ -31,6 +32,7 @@ const LanguageSwitcher = () => (
         method="post"
         className="button"
         href={route("locale.update", { locale: "de" })}
+        onClick={() => (document.documentElement.lang = "de")}
       >
         {languages.de}
       </Link>
@@ -39,6 +41,7 @@ const LanguageSwitcher = () => (
         method="post"
         className="button"
         href={route("locale.update", { locale: "en" })}
+        onClick={() => (document.documentElement.lang = "en")}
       >
         {languages.en}
       </Link>

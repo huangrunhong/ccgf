@@ -1,6 +1,8 @@
 import { RiCloseLine } from "@remixicon/react";
 import clsx from "clsx";
 
+import useMessage from "@/hooks/useMessage";
+
 interface DialogProps {
   children: React.ReactNode;
   onConfirm: () => void;
@@ -10,6 +12,8 @@ interface DialogProps {
 }
 
 const Dialog = ({ children, onConfirm, open, setOpen, title }: DialogProps) => {
+  const message = useMessage();
+
   const close = () => setOpen(false);
   const confirm = () => (setOpen(false), onConfirm());
 
@@ -23,10 +27,10 @@ const Dialog = ({ children, onConfirm, open, setOpen, title }: DialogProps) => {
         {children}
         <div className="flex gap mt-4">
           <button type="button" className="action full" onClick={close}>
-            取消
+            {message.cancel}
           </button>
           <button type="button" className="primary full" onClick={confirm}>
-            确定
+            {message.confirm}
           </button>
         </div>
       </div>

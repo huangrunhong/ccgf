@@ -4,6 +4,7 @@ import { InertiaForm } from "@/types";
 
 interface FileInputProps {
   accept?: string;
+  help?: string;
   label: string;
   name: string;
   inertiaForm: InertiaForm;
@@ -12,6 +13,7 @@ interface FileInputProps {
 const FileInput = ({
   label,
   name,
+  help,
   inertiaForm: form,
   accept = "image/jpeg, image/png, image/svg+xml, image/webp",
 }: FileInputProps) => {
@@ -49,7 +51,7 @@ const FileInput = ({
           onDragLeave={onDragDropFile}
         />
         <RiImageAddLine size={36} />
-        点击或者拖动一个文件到这个区域
+        {help}
       </div>
       {url && (
         <div className="image-preview">

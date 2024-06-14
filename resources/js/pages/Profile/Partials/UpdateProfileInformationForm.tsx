@@ -2,6 +2,7 @@ import { Link, useForm } from "@inertiajs/react";
 
 import { User } from "@/types";
 import Input from "@/components/form/Input";
+import useMessage from "@/hooks/useMessage";
 
 interface UpdateProfileInformationProps {
   user: User;
@@ -18,6 +19,7 @@ const UpdateProfileInformation = ({
     name: user.name,
     email: user.email,
   });
+  const message = useMessage();
 
   const submit: React.FormEventHandler = (e) => {
     e.preventDefault();
@@ -28,14 +30,14 @@ const UpdateProfileInformation = ({
     <form onSubmit={submit}>
       <Input
         required
-        label="Name"
+        label={message.profile.updateProfile.name}
         name="name"
         autoComplete="name"
         inertiaForm={form}
       />
       <Input
         required
-        label="Email"
+        label={message.profile.updateProfile.email}
         name="email"
         autoComplete="email"
         inertiaForm={form}
@@ -43,7 +45,7 @@ const UpdateProfileInformation = ({
       {mustVerifyEmail && !user.email_verified_at && (
         <div className="flex-column gap">
           <small className="text-muted">
-            Your email address is unverified.
+            {message.profile.updateProfile.verifyEmail.info}
           </small>
           <Link
             as="button"
@@ -51,17 +53,17 @@ const UpdateProfileInformation = ({
             className="solid"
             href={route("verification.send")}
           >
-            Click here to re-send the verification email.
+            {message.profile.updateProfile.verifyEmail.resendVerificationEmail}
           </Link>
           {status === "verification-link-sent" && (
             <small className="text-muted">
-              A new verification link has been sent to your email address.
+              {message.profile.updateProfile.verifyEmail.newVerificationLink}
             </small>
           )}
         </div>
       )}
       <button className="primary mt-2" disabled={form.processing}>
-        Update profile
+        {message.profile.updateProfile.button}
       </button>
     </form>
   );

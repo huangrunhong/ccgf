@@ -13,12 +13,6 @@ import useMessage from "@/hooks/useMessage";
 
 type FellowshipsProps = PageProps<{ fellowships: Fellowship[] }>;
 
-const postStatusLabel: Record<PostStatus, string> = {
-  published: "已发布",
-  draft: "草稿",
-  archived: "已存档",
-};
-
 const postStatusType: Record<PostStatus, ResponseStatus | undefined> = {
   published: "success",
   draft: "warning",
@@ -35,7 +29,7 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
         <span className="ml-1">{fellowships.length} Items</span>
         <Link className="button solid" href={route("fellowships.create")}>
           <RiAddFill size={18} />
-          {message.dashboard.fellowships.addFellowship}
+          {message.dashboard.fellowships.post}
         </Link>
       </div>
       <table>
@@ -56,7 +50,7 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
               <td>
                 <Badge
                   status={postStatusType[fellowship.status]}
-                  content={message.postStatus[fellowship.status]}
+                  content={message.dashboard.post.status[fellowship.status]}
                 />
               </td>
               <td>{fellowship.location}</td>

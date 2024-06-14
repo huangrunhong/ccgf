@@ -6,6 +6,7 @@ import Informative from "@/components/base/Informative";
 import Input from "@/components/form/Input";
 import RichTextEditor from "@/components/form/RichTextEditor";
 import Select from "@/components/form/Select";
+import useMessage from "@/hooks/useMessage";
 
 const days = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
 
@@ -62,6 +63,7 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
     description: fellowship?.description ?? "",
     admin_id: fellowship?.admin?.id ?? undefined,
   });
+  const message = useMessage();
 
   const submit = () => {
     const url = fellowship
@@ -84,6 +86,9 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
     submit();
   };
 
+  const header = fellowship
+    ? message.dashboard.fellowships.edit
+    : message.dashboard.fellowships.post;
   const options: SelectOption<number>[] = users.map((user) => ({
     value: user.id,
     label: user.name,
@@ -91,10 +96,15 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
 
   return (
     <form onSubmit={publish}>
-      <Informative header={fellowship ? "编辑团契" : "添加团契"} />
-      <Input required label="名称" name="name" inertiaForm={form} />
+      <Informative header={header} />
+      <Input
+        required
+        label={message.dashboard.fellowships.name}
+        name="name"
+        inertiaForm={form}
+      />
       <div className="flex-column gap">
-        <span>聚会时间</span>
+        <span>{message.dashboard.fellowships.schedule}</span>
         <div className="flex gap">
           <Select name="frequency" values={frequencies} inertiaForm={form} />
           <Select name="day" values={days} inertiaForm={form} />
@@ -102,23 +112,40 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
         </div>
       </div>
       <Select
-        label="联络人"
+        label={message.dashboard.fellowships.contact}
         name="admin_id"
         options={options}
         inertiaForm={form}
       />
-      <Input label="聚会地点" name="location" inertiaForm={form} />
-      <Input label="Zoom账号" name="zoom" inertiaForm={form} />
-      <FileInput name="cover" label="上传封面" inertiaForm={form} />
-      <RichTextEditor name="description" label="内容" inertiaForm={form} />
+      <Input
+        label={message.dashboard.fellowships.location}
+        name="location"
+        inertiaForm={form}
+      />
+      <Input
+        label={message.dashboard.fellowships.zoom}
+        name="zoom"
+        inertiaForm={form}
+      />
+      <FileInput
+        name="cover"
+        label={message.dashboard.fellowships.cover}
+        help={message.dashboard.fellowships.help}
+        inertiaForm={form}
+      />
+      <RichTextEditor
+        name="description"
+        label={message.dashboard.fellowships.description}
+        inertiaForm={form}
+      />
       <div className="flex gap justify-end mt-2">
         <Link className="button action" href={route("fellowships")}>
-          取消
+          {message.dashboard.post.cancel}
         </Link>
         <button type="button" className="action" onClick={saveDraft}>
-          保存为草稿
+          {message.dashboard.post.saveDraft}
         </button>
-        <button className="primary">发布</button>
+        <button className="primary"> {message.dashboard.post.confirm}</button>
       </div>
     </form>
   );

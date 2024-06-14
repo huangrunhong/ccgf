@@ -1,6 +1,7 @@
 import { useForm } from "@inertiajs/react";
 
 import PasswordInput from "@/components/form/PasswordInput";
+import useMessage from "@/hooks/useMessage";
 
 const UpdatePasswordForm = () => {
   const form = useForm({
@@ -8,6 +9,7 @@ const UpdatePasswordForm = () => {
     password: "",
     password_confirmation: "",
   });
+  const message = useMessage();
 
   const updatePassword: React.FormEventHandler = (e) => {
     e.preventDefault();
@@ -18,26 +20,26 @@ const UpdatePasswordForm = () => {
     <form onSubmit={updatePassword}>
       <PasswordInput
         required
-        label="Current Password"
+        label={message.profile.updatePassword.currentPassword}
         name="current_password"
         inertiaForm={form}
       />
       <PasswordInput
         required
-        label="New Password"
+        label={message.profile.updatePassword.newPassword}
         name="password"
         autoComplete="new-password"
         inertiaForm={form}
       />
       <PasswordInput
         required
-        label="Confirm Password"
+        label={message.profile.updatePassword.newPassword}
         name="password_confirmation"
         autoComplete="new-password"
         inertiaForm={form}
       />
       <button className="primary mt-2" disabled={form.processing}>
-        Update password
+        {message.profile.updatePassword.button}
       </button>
     </form>
   );
