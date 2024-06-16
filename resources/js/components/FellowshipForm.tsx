@@ -140,12 +140,12 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
       />
       <div className="flex gap justify-end mt-2">
         <Link className="button action" href={route("fellowships")}>
-          {message.dashboard.post.cancel}
+          {message.cancel}
         </Link>
         <button type="button" className="action" onClick={saveDraft}>
           {message.dashboard.post.saveDraft}
         </button>
-        <button className="primary"> {message.dashboard.post.confirm}</button>
+        <button className="primary"> {message.dashboard.post.publish}</button>
       </div>
     </form>
   );

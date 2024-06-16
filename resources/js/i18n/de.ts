@@ -23,8 +23,7 @@ const de = {
       help: "Klicken oder ziehen Sie eine Datei in diesen Bereich",
     },
     post: {
-      confirm: "Veröffentlichen",
-      cancel: "Stornieren",
+      publish: "Veröffentlichen",
       saveDraft: "Als Entwurf speichern",
       status: {
         published: "veröffentlicht",
@@ -68,6 +67,39 @@ const de = {
         info: "Sobald Ihr Konto gelöscht ist, werden alle Ressourcen und Daten dauerhaft gelöscht. Bitte geben Sie Ihr Passwort ein, um zu bestätigen, dass Sie Ihr Konto dauerhaft löschen möchten.",
         password: "Passwort",
       },
+    },
+  },
+  auth: {
+    email: "Email",
+    password: "Passwort",
+    confirmPassword: {
+      info: "Dies ist ein sicherer Bereich der Anwendung. Bitte bestätigen Sie Ihr Passwort, bevor Sie fortfahren.",
+    },
+    forgetPassword: {
+      info: "Passwort vergessen? Kein Problem. Teilen Sie uns einfach Ihre E-Mail-Adresse mit und wir senden Ihnen per E-Mail einen Link zum Zurücksetzen des Passworts zu, mit dem Sie ein neues auswählen können.",
+      sendLink: "Link zum Zurücksetzen des E-Mail-Passworts senden",
+    },
+    login: {
+      remember: "Erinnere dich an mich",
+      forget: "Passwort vergessen?",
+      button: "Anmelden",
+    },
+    register: {
+      name: "Name",
+      confirmPassword: "Passwort bestätigen",
+      alreadyRegistered: "Bereits registriert?",
+      button: "Registrieren",
+    },
+    resetPassword: {
+      confirmPassword: "Passwort bestätigen",
+      button: "Passwort zurücksetzen",
+    },
+    verifyEmail: {
+      info: "Vielen Dank für Ihre Anmeldung! Bevor Sie beginnen, können Sie Ihre E-Mail-Adresse überprüfen, indem Sie auf den Link klicken, den wir Ihnen gerade per E-Mail zugesandt haben. Wenn Sie die E-Mail nicht erhalten haben, senden wir Ihnen gerne eine neue zu.",
+      verificationLink:
+        "Ein neuer Bestätigungslink wurde an die E-Mail-Adresse gesendet, die Sie bei der Registrierung angegeben haben.",
+      resendEmail: "Bestätigungs-E-Mail erneut senden",
+      logout: "Abmelden",
     },
   },
 };

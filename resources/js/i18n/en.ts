@@ -23,8 +23,7 @@ const en = {
       help: "Click or drag a file into this area",
     },
     post: {
-      confirm: "Publish",
-      cancel: "Cancel",
+      publish: "Publish",
       saveDraft: "Save as Draft",
       status: {
         published: "Published",
@@ -67,6 +66,39 @@ const en = {
         info: "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.",
         password: "Password",
       },
+    },
+  },
+  auth: {
+    email: "Email",
+    password: "Password",
+    confirmPassword: {
+      info: "This is a secure area of the application. Please confirm your password before continuing.",
+    },
+    forgetPassword: {
+      info: "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.",
+      sendLink: " Send Email Password Reset Link",
+    },
+    login: {
+      remember: "Remember me",
+      forget: "Forgot your password?",
+      button: "Log in",
+    },
+    register: {
+      name: "Name",
+      confirmPassword: "Confirm Password",
+      alreadyRegistered: "Already registered?",
+      button: "Register",
+    },
+    resetPassword: {
+      confirmPassword: "Confirm Password",
+      button: "Reset Password",
+    },
+    verifyEmail: {
+      info: "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.",
+      verificationLink:
+        "A new verification link has been sent to the email address you provided during registration.",
+      resendEmail: "Resend Verification Email",
+      logout: "Log Out",
     },
   },
 };

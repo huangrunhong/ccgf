@@ -1,3 +1,6 @@
+import PasswordInput from "@/components/form/PasswordInput";
+import { register } from "module";
+
 const zh = {
   cancel: "取消",
   confirm: "确认",
@@ -23,8 +26,7 @@ const zh = {
       help: "点击或者拖动一个文件到这个区域",
     },
     post: {
-      confirm: "发布",
-      cancel: "取消",
+      publish: "发布",
       saveDraft: "保存为草稿",
       status: {
         published: "已发布",
@@ -64,6 +66,38 @@ const zh = {
         info: "一旦您的帐户被删除，其所有资源和数据将被永久删除。请输入您的密码以确认您想要永久删除您的帐户。",
         password: "密码",
       },
+    },
+  },
+  auth: {
+    email: "邮箱",
+    password: "密码",
+    confirmPassword: {
+      info: "这是应用程序的安全区域。请确认您的密码后再继续。",
+    },
+    forgetPassword: {
+      info: "忘记密码？没问题。只需告诉我们您的电子邮件地址，我们就会通过电子邮件向您发送密码重置链接，以便您选择一个新密码。",
+      sendLink: "发送电子邮件密码重置链接",
+    },
+    login: {
+      remember: "记住我",
+      forget: "忘记密码？",
+      button: "登录",
+    },
+    register: {
+      name: "姓名",
+      confirmPassword: "确认密码",
+      alreadyRegistered: "已经注册？",
+      button: "注册",
+    },
+    resetPassword: {
+      confirmPassword: "确认密码",
+      button: "重置密码",
+    },
+    verifyEmail: {
+      info: "感谢您注册！在开始之前，您能否通过点击我们刚刚通过电子邮件发送给您的链接来验证您的电子邮件地址？如果您没有收到电子邮件，我们很乐意再给您发送一封。",
+      verificationLink: "新的验证链接已发送至您在注册时提供的电子邮件地址。",
+      resendEmail: "重新发送验证邮件",
+      logout: "退出登录",
     },
   },
 };

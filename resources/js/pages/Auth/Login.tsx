@@ -5,6 +5,7 @@ import Checkbox from "@/components/form/Checkbox";
 import GuestLayout from "@/layouts/GuestLayout";
 import Input from "@/components/form/Input";
 import PasswordInput from "@/components/form/PasswordInput";
+import useMessage from "@/hooks/useMessage";
 
 const Login = () => {
   const form = useForm({
@@ -12,6 +13,7 @@ const Login = () => {
     password: "",
     remember: false,
   });
+  const message = useMessage();
 
   useEffect(() => {
     return () => form.reset("password");
@@ -27,20 +29,28 @@ const Login = () => {
       <Head title="Log in" />
       <form onSubmit={submit}>
         <Input
-          label="Email"
+          label={message.auth.email}
           type="email"
           name="email"
           autoComplete="username"
           inertiaForm={form}
         />
-        <PasswordInput label="Password" name="password" inertiaForm={form} />
-        <Checkbox name="remember" label="Remember me" inertiaForm={form} />
+        <PasswordInput
+          label={message.auth.password}
+          name="password"
+          inertiaForm={form}
+        />
+        <Checkbox
+          name="remember"
+          label={message.auth.login.remember}
+          inertiaForm={form}
+        />
         <div className="flex gap mt-2">
           <Link href={route("password.request")} className="button action full">
-            Forgot your password?
+            {message.auth.login.forget}
           </Link>
           <button className="primary full" disabled={form.processing}>
-            Log in
+            {message.auth.login.button}
           </button>
         </div>
       </form>

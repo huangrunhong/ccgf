@@ -2,9 +2,11 @@ import { Head, Link, useForm } from "@inertiajs/react";
 
 import GuestLayout from "@/layouts/GuestLayout";
 import Informative from "@/components/base/Informative";
+import useMessage from "@/hooks/useMessage";
 
 const VerifyEmail = ({ status }: { status?: string }) => {
   const form = useForm({});
+  const message = useMessage();
 
   const submit: React.FormEventHandler = (e) => {
     e.preventDefault();
@@ -15,20 +17,17 @@ const VerifyEmail = ({ status }: { status?: string }) => {
     <GuestLayout>
       <Head title="Email Verification" />
       <Informative className="mb-4">
-        Thanks for signing up! Before getting started, could you verify your
-        email address by clicking on the link we just emailed to you? If you
-        didn't receive the email, we will gladly send you another.
+        {message.auth.verifyEmail.info}
       </Informative>
       {status === "verification-link-sent" && (
         <Informative className="mb-4">
-          A new verification link has been sent to the email address you
-          provided during registration.
+          {message.auth.verifyEmail.verificationLink}
         </Informative>
       )}
       <form onSubmit={submit}>
         <div className="flex gap">
           <button className="primary full" disabled={form.processing}>
-            Resend Verification Email
+            {message.auth.verifyEmail.resendEmail}
           </button>
           <Link
             as="button"
@@ -36,7 +35,7 @@ const VerifyEmail = ({ status }: { status?: string }) => {
             className="action full"
             href={route("logout")}
           >
-            Log Out
+            {message.auth.verifyEmail.logout}
           </Link>
         </div>
       </form>

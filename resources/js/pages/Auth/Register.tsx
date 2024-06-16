@@ -4,6 +4,7 @@ import { Head, Link, useForm } from "@inertiajs/react";
 import GuestLayout from "@/layouts/GuestLayout";
 import Input from "@/components/form/Input";
 import PasswordInput from "@/components/form/PasswordInput";
+import useMessage from "@/hooks/useMessage";
 
 const Register = () => {
   const form = useForm({
@@ -12,6 +13,7 @@ const Register = () => {
     password: "",
     password_confirmation: "",
   });
+  const message = useMessage();
 
   useEffect(() => {
     return () => form.reset("password", "password_confirmation");
@@ -29,34 +31,34 @@ const Register = () => {
         <Input
           autoComplete="name"
           name="name"
-          label="Name"
+          label={message.auth.register.name}
           inertiaForm={form}
         />
         <Input
           autoComplete="username"
           type="email"
           name="email"
-          label="Email"
+          label={message.auth.email}
           inertiaForm={form}
         />
         <PasswordInput
           autoComplete="new-password"
           name="password"
-          label="Password"
+          label={message.auth.password}
           inertiaForm={form}
         />
         <PasswordInput
           autoComplete="new-password"
           name="password_confirmation"
-          label="Confirm Password"
+          label={message.auth.register.confirmPassword}
           inertiaForm={form}
         />
         <div className="flex gap mt-2">
           <Link href={route("login")} className="button action full">
-            Already registered?
+            {message.auth.register.alreadyRegistered}
           </Link>
           <button className="primary full" disabled={form.processing}>
-            Register
+            {message.auth.register.button}
           </button>
         </div>
       </form>
