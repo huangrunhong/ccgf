@@ -44,7 +44,7 @@ const UpdateProfileInformation = ({
       />
       {mustVerifyEmail && !user.email_verified_at && (
         <div className="flex-column gap">
-          <small className="text-muted">
+          <small className="muted">
             {message.profile.updateProfile.verifyEmail.info}
           </small>
           <Link
@@ -56,7 +56,7 @@ const UpdateProfileInformation = ({
             {message.profile.updateProfile.verifyEmail.resendVerificationEmail}
           </Link>
           {status === "verification-link-sent" && (
-            <small className="text-muted">
+            <small className="muted">
               {message.profile.updateProfile.verifyEmail.newVerificationLink}
             </small>
           )}

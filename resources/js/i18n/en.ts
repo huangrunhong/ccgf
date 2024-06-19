@@ -1,6 +1,27 @@
 const en = {
   cancel: "Cancel",
   confirm: "Confirm",
+  page: {
+    home: "Home",
+    createFellowship: "Create Fellowship",
+    editFellowship: "Edit Fellowship",
+    dashboard: "Dashboard",
+    events: "Events",
+    fellowships: "Fellowships",
+    confirmPassword: "Confirm Password",
+    forgetPassword: "Forget Password",
+    resetPassword: "Reset Password",
+    login: "Login",
+    register: "Register",
+    emailVerification: "Email Verification",
+    profile: "Profile",
+  },
+  header: {
+    library: "Library",
+    about: "About",
+    liveStream: "Live Stream",
+    donate: "Donate",
+  },
   dashboard: {
     menu: {
       church: "Church",

@@ -1,6 +1,27 @@
 const de = {
   cancel: "Abbrechen",
   confirm: "Bestätigen",
+  page: {
+    home: "Startseite",
+    createFellowship: "Gemeinschaft hinzufügen",
+    editFellowship: "Gemeinschaft bearbeiten",
+    dashboard: "Dashboard",
+    events: "Termine",
+    fellowships: "Gemeinschaft",
+    confirmPassword: "Passwort bestätigen",
+    forgetPassword: "Passwort vergessen",
+    resetPassword: "Passwort zurücksetzen",
+    login: "Anmelden",
+    register: "Registrieren",
+    emailVerification: "E-Mail-Adresse bestätigen",
+    profile: "Profil",
+  },
+  header: {
+    library: "Bibliothek",
+    about: "Über uns",
+    liveStream: "Liveübertragung",
+    donate: "Spenden",
+  },
   dashboard: {
     menu: {
       church: "Gemeinde",
@@ -80,7 +101,7 @@ const de = {
       sendLink: "Link zum Zurücksetzen des E-Mail-Passworts senden",
     },
     login: {
-      remember: "Erinnere dich an mich",
+      remember: "Angemeldet beleiben",
       forget: "Passwort vergessen?",
       button: "Anmelden",
     },

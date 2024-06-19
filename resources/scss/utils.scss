@@ -1,9 +1,9 @@
-.text-muted {
+.muted {
   color: var(--foreground-muted);
 }
 
-.text-error {
-  color: var(--background-error);
+.danger {
+  color: var(--background-danger);
 }
 
 .flex,
@@ -14,8 +14,12 @@
     gap: 0.5rem;
   }
 
-  &.gap-large {
+  &.gap-1 {
     gap: 1rem;
+  }
+
+  &.gap-2 {
+    gap: 2rem;
   }
 
   &.justify-start {
@@ -71,6 +75,38 @@
   position: relative;
 }
 
+@mixin padding-variant($id: 1) {
+  .p-#{$id} {
+    padding: $id * 0.5rem;
+  }
+
+  .pb-#{$id} {
+    padding-bottom: $id * 0.5rem;
+  }
+
+  .pl-#{$id} {
+    padding-left: $id * 0.5rem;
+  }
+
+  .pr-#{$id} {
+    padding-right: $id * 0.5rem;
+  }
+
+  .pt-#{$id} {
+    padding-top: $id * 0.5rem;
+  }
+
+  .px-#{$id} {
+    padding-left: $id * 0.5rem;
+    padding-right: $id * 0.5rem;
+  }
+
+  .py-#{$id} {
+    padding-bottom: $id * 0.5rem;
+    padding-top: $id * 0.5rem;
+  }
+}
+
 @mixin margin-variant($id: 1) {
   .m-#{$id} {
     margin: $id * 0.5rem;
@@ -107,3 +143,12 @@
 @include margin-variant(2);
 @include margin-variant(3);
 @include margin-variant(4);
+@include margin-variant(5);
+@include margin-variant(6);
+
+@include padding-variant(1);
+@include padding-variant(2);
+@include padding-variant(3);
+@include padding-variant(4);
+@include padding-variant(5);
+@include padding-variant(6);

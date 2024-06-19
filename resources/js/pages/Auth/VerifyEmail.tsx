@@ -1,7 +1,8 @@
-import { Head, Link, useForm } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 
 import GuestLayout from "@/layouts/GuestLayout";
 import Informative from "@/components/base/Informative";
+import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
 const VerifyEmail = ({ status }: { status?: string }) => {
@@ -15,7 +16,7 @@ const VerifyEmail = ({ status }: { status?: string }) => {
 
   return (
     <GuestLayout>
-      <Head title="Email Verification" />
+      <SiteHead title={message.page.emailVerification} />
       <Informative className="mb-4">
         {message.auth.verifyEmail.info}
       </Informative>

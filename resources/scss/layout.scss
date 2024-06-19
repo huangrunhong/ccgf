@@ -11,22 +11,18 @@
     background-color: var(--background);
   }
 
-  header section {
+  header nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 4rem;
     padding: 0 1.5rem;
-    margin: 0 auto;
-    max-width: var(--screen-desktop);
   }
 
   main {
     display: flex;
     gap: 1rem;
     padding: 1rem;
-    margin: 0 auto;
-    max-width: var(--screen-desktop);
     min-height: calc(100vh - 4rem);
 
     aside {

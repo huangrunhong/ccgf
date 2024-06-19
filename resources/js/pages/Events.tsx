@@ -1,12 +1,14 @@
-import { Head } from "@inertiajs/react";
-
-import { PageProps } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
+import SiteHead from "@/components/base/SiteHead";
+import useMessage from "@/hooks/useMessage";
 
-const Events = ({ auth }: PageProps) => (
+const Events = () => {
+  const message = useMessage();
+
+  return (
     <AuthenticatedLayout currentPath="events">
-        <Head title="Events" />
+      <SiteHead title={message.page.events} />
     </AuthenticatedLayout>
-);
-
+  );
+};
 export default Events;

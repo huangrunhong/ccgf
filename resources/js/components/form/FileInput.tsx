@@ -65,7 +65,9 @@ const FileInput = ({
           </button>
         </div>
       )}
-      {form.errors[name] && <small>{form.errors[name]}</small>}
+      {form.errors[name] && (
+        <small className="danger">{form.errors[name]}</small>
+      )}
     </div>
   );
 };

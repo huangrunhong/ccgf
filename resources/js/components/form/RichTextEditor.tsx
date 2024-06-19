@@ -83,9 +83,7 @@ const RichTextEditor = ({
         onUpdate={({ editor }) => form.setData(name, editor.getHTML())}
       />
     </div>
-    {form.errors[name] && (
-      <small className="text-error">{form.errors[name]}</small>
-    )}
+    {form.errors[name] && <small className="danger">{form.errors[name]}</small>}
   </div>
 );
 

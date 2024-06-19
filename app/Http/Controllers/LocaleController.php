@@ -10,9 +10,9 @@ use Inertia\Response;
 
 class LocaleController extends Controller
 {
-    public function chinese(Request $request): Response
+    public function chinese(): Response
     {
-        return $this->setLocale($request, 'zh');
+        return Inertia::render("Home");
     }
 
     public function english(Request $request): Response

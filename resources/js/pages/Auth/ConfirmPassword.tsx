@@ -1,9 +1,10 @@
 import { useEffect, FormEventHandler } from "react";
-import { Head, useForm } from "@inertiajs/react";
+import { useForm } from "@inertiajs/react";
 
 import GuestLayout from "@/layouts/GuestLayout";
 import PasswordInput from "@/components/form/PasswordInput";
 import Informative from "@/components/base/Informative";
+import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
 const ConfirmPassword = () => {
@@ -21,7 +22,7 @@ const ConfirmPassword = () => {
 
   return (
     <GuestLayout>
-      <Head title="Confirm Password" />
+      <SiteHead title={message.page.confirmPassword} />
       <Informative className="mb-2">
         {message.auth.confirmPassword.info}
       </Informative>

@@ -49,7 +49,7 @@ const Select = <N extends string, T extends string | number = string>({
         ))}
       </Dropdown.Menu>
     </Dropdown>
-    {form.errors[name] && <small>{form.errors[name]}</small>}
+    {form.errors[name] && <small className="danger">{form.errors[name]}</small>}
   </div>
 );
 

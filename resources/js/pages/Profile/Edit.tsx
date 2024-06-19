@@ -1,8 +1,7 @@
-import { Head } from "@inertiajs/react";
-
 import { PageProps } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import Informative from "@/components/base/Informative";
+import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
 import DeleteUserForm from "./Partials/DeleteUserForm";
@@ -19,7 +18,7 @@ const Edit = ({ auth, mustVerifyEmail, status }: EditProfileProps) => {
 
   return (
     <AuthenticatedLayout currentPath="profile.edit">
-      <Head title="Profile" />
+      <SiteHead title={message.page.profile} />
       <Informative
         className="mb-4"
         header={message.profile.updateProfile.header}

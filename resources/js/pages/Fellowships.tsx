@@ -1,4 +1,4 @@
-import { Head, Link } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import {
   RiAddFill,
   RiArchiveLine,
@@ -9,6 +9,7 @@ import {
 import { Fellowship, PageProps, PostStatus, ResponseStatus } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import Badge from "@/components/base/Badge";
+import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
 type FellowshipsProps = PageProps<{ fellowships: Fellowship[] }>;
@@ -24,7 +25,7 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
 
   return (
     <AuthenticatedLayout currentPath="fellowships">
-      <Head title="Fellowships" />
+      <SiteHead title={message.page.fellowships} />
       <div className="flex items-center justify-between mb-2">
         <span className="ml-1">{fellowships.length} Items</span>
         <Link className="button solid" href={route("fellowships.create")}>

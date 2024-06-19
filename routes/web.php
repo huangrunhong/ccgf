@@ -6,9 +6,6 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-
-
-
 Route::get('/', [LocaleController::class, 'chinese'])->name("locale.chinese");;
 Route::get('/en', [LocaleController::class, 'english'])->name("locale.english");
 Route::get('/de', [LocaleController::class, 'german'])->name("locale.german");

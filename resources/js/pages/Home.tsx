@@ -1,5 +1,15 @@
-import { Head } from "@inertiajs/react";
+import PageLayout from "@/layouts/PageLayout";
+import SiteHead from "@/components/base/SiteHead";
+import useMessage from "@/hooks/useMessage";
 
-const Welcome = () => <Head title="Home" />;
+const Home = () => {
+  const message = useMessage();
 
-export default Welcome;
+  return (
+    <PageLayout>
+      <SiteHead title={message.page.home} />
+    </PageLayout>
+  );
+};
+
+export default Home;

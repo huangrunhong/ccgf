@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Head, Link, useForm } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 
 import GuestLayout from "@/layouts/GuestLayout";
 import Input from "@/components/form/Input";
 import PasswordInput from "@/components/form/PasswordInput";
+import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
 const Register = () => {
@@ -26,7 +27,7 @@ const Register = () => {
 
   return (
     <GuestLayout>
-      <Head title="Register" />
+      <SiteHead title={message.page.register} />
       <form onSubmit={submit}>
         <Input
           autoComplete="name"

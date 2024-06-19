@@ -5,13 +5,13 @@ interface BaseHeadProps {
   children?: React.ReactNode;
 }
 
-const SiteHead = ({ title, children }: BaseHeadProps) => {
+const SiteHead = ({ title, children }: BaseHeadProps) => (
   <Head>
     <title>{title}</title>
     <link rel="alternate" href="https://ccc-frankfurt.de/en" hrefLang="en" />
     <link rel="alternate" href="https://ccc-frankfurt.de/de" hrefLang="de" />
     {children}
-  </Head>;
-};
+  </Head>
+);
 
 export default SiteHead;

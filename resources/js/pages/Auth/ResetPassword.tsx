@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Head, useForm } from "@inertiajs/react";
+import { useForm } from "@inertiajs/react";
 
 import GuestLayout from "@/layouts/GuestLayout";
 import Input from "@/components/form/Input";
 import PasswordInput from "@/components/form/PasswordInput";
+import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
 interface ResetPasswordProps {
@@ -31,7 +32,7 @@ const ResetPassword = ({ token, email }: ResetPasswordProps) => {
 
   return (
     <GuestLayout>
-      <Head title="Reset Password" />
+      <SiteHead title={message.page.resetPassword} />
       <form onSubmit={submit}>
         <Input
           type="email"

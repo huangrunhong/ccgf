@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { Head, Link, useForm } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 
 import Checkbox from "@/components/form/Checkbox";
 import GuestLayout from "@/layouts/GuestLayout";
 import Input from "@/components/form/Input";
 import PasswordInput from "@/components/form/PasswordInput";
+import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
 const Login = () => {
@@ -26,7 +27,7 @@ const Login = () => {
 
   return (
     <GuestLayout>
-      <Head title="Log in" />
+      <SiteHead title={message.page.login} />
       <form onSubmit={submit}>
         <Input
           label={message.auth.email}

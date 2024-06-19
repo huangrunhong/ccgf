@@ -30,13 +30,13 @@ const AuthenticatedLayout = ({
   return (
     <div className="authenticated-layout">
       <header>
-        <section>
+        <nav>
           <ApplicationLogo />
-          <div className="flex items-center gap-large">
+          <div className="flex items-center gap-1">
             <LanguageSwitcher />
             <ThemeSwitcher />
           </div>
-        </section>
+        </nav>
       </header>
       <main>
         <aside>

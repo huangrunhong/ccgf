@@ -1,9 +1,27 @@
-import PasswordInput from "@/components/form/PasswordInput";
-import { register } from "module";
-
 const zh = {
   cancel: "取消",
   confirm: "确认",
+  page: {
+    home: "首页",
+    createFellowship: "添加团契",
+    editFellowship: "编辑团契",
+    dashboard: "Dashboard",
+    events: "活动",
+    fellowships: "团契",
+    confirmPassword: "确认密码",
+    forgetPassword: "忘记密码",
+    resetPassword: "重置密码",
+    login: "登录",
+    register: "注册",
+    emailVerification: "验证邮件",
+    profile: "用户信息",
+  },
+  header: {
+    library: "图书馆",
+    about: "关于",
+    liveStream: "实时转播",
+    donate: "捐献",
+  },
   dashboard: {
     menu: {
       church: "教会",
