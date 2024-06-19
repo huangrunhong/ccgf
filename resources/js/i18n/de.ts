@@ -16,6 +16,9 @@ const de = {
     emailVerification: "E-Mail-Adresse bestätigen",
     profile: "Profil",
   },
+  home: {
+    churchService: "Gottesdienst",
+  },
   header: {
     library: "Bibliothek",
     about: "Über uns",

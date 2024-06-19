@@ -14,8 +14,8 @@ const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <>
-      <header className="p-2">
-        <nav className="flex items-center gap-2">
+      <header>
+        <nav className="flex items-center gap-2 p-2">
           <ApplicationLogo />
           <span className="flex-1">
             Kirchhainer Strasse 2<br />
@@ -36,7 +36,7 @@ const PageLayout = ({ children }: PageLayoutProps) => {
           </div>
         </nav>
       </header>
-      <main className="p-2">{children}</main>
+      <main>{children}</main>
       <footer></footer>
     </>
   );

@@ -55,7 +55,7 @@ const AuthenticatedLayout = ({
             <RiCalendarEventLine size={18} />
             {message.dashboard.menu.event}
           </Link>
-          <hr />
+          <hr className="my-1" />
           <Link
             href={route("profile.edit")}
             className={classNames("profile.edit")}

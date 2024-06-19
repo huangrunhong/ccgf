@@ -16,6 +16,9 @@ const en = {
     emailVerification: "Email Verification",
     profile: "Profile",
   },
+  home: {
+    churchService: "Church Service",
+  },
   header: {
     library: "Library",
     about: "About",

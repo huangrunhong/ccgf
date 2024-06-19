@@ -16,6 +16,9 @@ const zh = {
     emailVerification: "验证邮件",
     profile: "用户信息",
   },
+  home: {
+    churchService: "敬拜",
+  },
   header: {
     library: "图书馆",
     about: "关于",
