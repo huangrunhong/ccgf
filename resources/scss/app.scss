@@ -1,12 +1,13 @@
 @import "normalize.css";
 
-@import url("https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
 :root {
   --foreground: #161618;
   --foreground-hover: #2e353e;
   --foreground-muted: #64748b;
   --background: #fff;
+  --background-muted: #f4f3f1;
   --background-focus: #f6f8fa;
   --background-hover: #f6f8fa;
   --background-border: #e3e8ee;
@@ -36,23 +37,20 @@ body {
   font-family: "Reddit Sans", Arial, Helvetica, sans-serif;
 }
 
-nav,
-section,
-.section {
-  margin: 0 auto;
-  max-width: var(--screen-desktop);
-}
-
-section {
-  padding: 8rem 1rem;
-}
-
 hr {
   width: 100%;
   height: 0;
   margin: 0;
   border: none;
   border-bottom: 1px dashed var(--background-border);
+}
+
+nav,
+section {
+  width: 100%;
+  max-width: var(--screen-desktop);
+  padding: 0 1.5rem;
+  margin: 0 auto;
 }
 
 * {
@@ -70,16 +68,6 @@ h3,
 h4,
 p {
   margin: 0;
-}
-
-h1 {
-  font-size: 3rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
 }
 
 h3 {
@@ -140,6 +128,9 @@ table {
 @import "dropdown";
 @import "form";
 @import "informative";
-@import "layout";
+@import "guest-layout";
+@import "page-layout";
+@import "authenticated-layout";
+@import "home";
 @import "rich-text-editor";
 @import "file-input";
