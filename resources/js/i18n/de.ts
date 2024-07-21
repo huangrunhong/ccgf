@@ -17,9 +17,15 @@ const de = {
     profile: "Profil",
   },
   home: {
-    churchService: "Gottesdienst",
+    worship: "Gottesdienst",
+    welcome: "Willkommen zu",
+    heading: "Chinesische Christliche Gemeinde Frankfurt",
+    subheading:
+      "Mit Blick auf das Jahr 2024 werden wir gemeinsam lernen, Gott zu gehorchen und unsere Kirche zu einer Kirche zu machen, in der Gott gegenwärtig ist. Wenn Gott mit uns ist, wird die Kirche wiederbelebt, die Kirche wird gesegnet, die Kirche wird Macht haben, die Kirche wird geführt und die Kirche wird Gott erfahren. Bist du auch bereit, Gott den ersten Platz einnehmen zu lassen, das Herz des Herrn zufriedenzustellen und Gott verherrlichen zu lassen? Lasst uns gemeinsam die Kirche aufbauen und die Familie Gottes gedeihen lassen.",
   },
   header: {
+    events: "Events",
+    fellowships: "Gemeinshaft",
     library: "Bibliothek",
     about: "Über uns",
     liveStream: "Liveübertragung",

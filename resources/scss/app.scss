@@ -5,7 +5,8 @@
 :root {
   --foreground: #161618;
   --foreground-hover: #2e353e;
-  --foreground-muted: #64748b;
+  --foreground-muted: #9ca3af;
+  --foreground-primary: #2E5482;
   --background: #fff;
   --background-muted: #f4f3f1;
   --background-focus: #f6f8fa;
@@ -15,7 +16,8 @@
   --background-danger: #ef4444;
   --background-warning: #f59e0b;
   --background-success: #84cc16;
-  --screen-desktop: 1280px;
+  --screen-desktop: 1440px;
+  --screen-tablet: 768px;
 }
 
 .dark {
@@ -42,7 +44,7 @@ hr {
   height: 0;
   margin: 0;
   border: none;
-  border-bottom: 1px dashed var(--background-border);
+  border-bottom: 1px solid var(--background-border);
 }
 
 nav,
@@ -70,12 +72,25 @@ p {
   margin: 0;
 }
 
-h3 {
-  font-size: 1.125rem;
+h1 {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+h2,
+.h2 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+h3,
+.h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 strong {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 small {
@@ -117,9 +132,15 @@ table {
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  line-height: 1.75rem;
+  line-height: 1.25rem;
+}
+
+.dialog-line {
+  width: 1px;
+  background-color: var(--foreground);
+  transform: skew(-20deg)
 }
 
 @import "utils";
@@ -129,7 +150,6 @@ table {
 @import "form";
 @import "informative";
 @import "guest-layout";
-@import "page-layout";
 @import "authenticated-layout";
 @import "home";
 @import "rich-text-editor";

@@ -17,13 +17,19 @@ const zh = {
     profile: "用户信息",
   },
   home: {
-    churchService: "敬拜",
+    worship: "主日敬拜",
+    welcome: "欢迎来到",
+    heading: "法兰克福华人基督教会",
+    subheading:
+      "期待在2024，我们一起学习顺服神，让我们的教会成为一个神同在的教会。神若与我们同在，教会必然复兴，教会必然蒙福，教会必然有能力，教会必然蒙引导，教会必然经历神。你也愿意让神居首位，满足主的心肠，让神得荣耀吗？让我们一同建造教会，兴旺神的家。",
   },
   header: {
+    events: "最新活动",
+    fellowships: "团契",
     library: "图书馆",
     about: "关于",
     liveStream: "实时转播",
-    donate: "捐献",
+    donate: "奉献",
   },
   dashboard: {
     menu: {

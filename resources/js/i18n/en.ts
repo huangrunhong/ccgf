@@ -17,9 +17,15 @@ const en = {
     profile: "Profile",
   },
   home: {
-    churchService: "Church Service",
+    worship: "Worship",
+    welcome: "Welcome to",
+    heading: "Chinese Christian Community Frankfurt",
+    subheading:
+      "Looking forward to 2024, we will learn to obey God together and make our church a church where God is present. If God is with us, the church will be revived, the church will be blessed, the church will have power, the church will be guided, and the church will experience God. Are you also willing to let God take the first place, satisfy the Lord's heart, and let God be glorified? Let us build the church together and prosper the family of God.",
   },
   header: {
+    events: "Events",
+    fellowships: "Fellowships",
     library: "Library",
     about: "About",
     liveStream: "Live Stream",

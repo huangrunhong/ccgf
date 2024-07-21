@@ -6,8 +6,24 @@
   color: var(--background-danger);
 }
 
+.primary {
+  color: var(--foreground-primary);
+}
+
 .large {
   font-size: 1.125rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
 }
 
 .flex,
@@ -73,10 +89,6 @@
 
 .flex-1 {
   flex: 1 1 0%;
-}
-
-.p-relative {
-  position: relative;
 }
 
 @mixin padding-variant($id: 1) {
@@ -147,12 +159,16 @@
 @include margin-variant(2);
 @include margin-variant(3);
 @include margin-variant(4);
-@include margin-variant(5);
 @include margin-variant(6);
+@include margin-variant(8);
+@include margin-variant(10);
+@include margin-variant(12);
 
 @include padding-variant(1);
 @include padding-variant(2);
 @include padding-variant(3);
 @include padding-variant(4);
-@include padding-variant(5);
 @include padding-variant(6);
+@include padding-variant(8);
+@include padding-variant(10);
+@include padding-variant(12);
