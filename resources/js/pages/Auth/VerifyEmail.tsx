@@ -1,5 +1,6 @@
 import { Link, useForm } from "@inertiajs/react";
 
+import Form from "@/components/form/Form";
 import GuestLayout from "@/layouts/GuestLayout";
 import Informative from "@/components/base/Informative";
 import SiteHead from "@/components/base/SiteHead";
@@ -9,10 +10,8 @@ const VerifyEmail = ({ status }: { status?: string }) => {
   const form = useForm({});
   const message = useMessage();
 
-  const submit: React.FormEventHandler = (e) => {
-    e.preventDefault();
+  const submit: React.FormEventHandler = () =>
     form.post(route("verification.send"));
-  };
 
   return (
     <GuestLayout>
@@ -25,7 +24,7 @@ const VerifyEmail = ({ status }: { status?: string }) => {
           {message.auth.verifyEmail.verificationLink}
         </Informative>
       )}
-      <form onSubmit={submit}>
+      <Form form={form} onSubmit={submit}>
         <div className="flex gap">
           <button className="primary full" disabled={form.processing}>
             {message.auth.verifyEmail.resendEmail}
@@ -39,7 +38,7 @@ const VerifyEmail = ({ status }: { status?: string }) => {
             {message.auth.verifyEmail.logout}
           </Link>
         </div>
-      </form>
+      </Form>
     </GuestLayout>
   );
 };

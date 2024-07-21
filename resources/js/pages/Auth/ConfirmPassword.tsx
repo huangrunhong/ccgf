@@ -1,6 +1,7 @@
 import { useEffect, FormEventHandler } from "react";
 import { useForm } from "@inertiajs/react";
 
+import Form from "@/components/form/Form";
 import GuestLayout from "@/layouts/GuestLayout";
 import PasswordInput from "@/components/form/PasswordInput";
 import Informative from "@/components/base/Informative";
@@ -15,10 +16,7 @@ const ConfirmPassword = () => {
     return () => form.reset("password");
   }, []);
 
-  const submit: FormEventHandler = (e) => {
-    e.preventDefault();
-    form.post(route("password.confirm"));
-  };
+  const submit: FormEventHandler = () => form.post(route("password.confirm"));
 
   return (
     <GuestLayout>
@@ -26,16 +24,12 @@ const ConfirmPassword = () => {
       <Informative className="mb-2">
         {message.auth.confirmPassword.info}
       </Informative>
-      <form onSubmit={submit}>
-        <PasswordInput
-          name="password"
-          label={message.auth.password}
-          inertiaForm={form}
-        />
+      <Form form={form} onSubmit={submit}>
+        <PasswordInput name="password" label={message.auth.password} />
         <button className="primary full mt-1" disabled={form.processing}>
           {message.confirm}
         </button>
-      </form>
+      </Form>
     </GuestLayout>
   );
 };

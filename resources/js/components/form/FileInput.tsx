@@ -1,22 +1,22 @@
+import { useContext } from "react";
 import { RiDeleteBinLine, RiImageAddLine } from "@remixicon/react";
 
-import { InertiaForm } from "@/types";
+import FormContext from "@/contexts/FormContext";
 
 interface FileInputProps {
   accept?: string;
   help?: string;
   label: string;
   name: string;
-  inertiaForm: InertiaForm;
 }
 
 const FileInput = ({
   label,
   name,
   help,
-  inertiaForm: form,
   accept = "image/jpeg, image/png, image/svg+xml, image/webp",
 }: FileInputProps) => {
+  const form = useContext(FormContext);
   const setFile = (file: File | null) => form.setData(name, file);
 
   const changeFile = (files: FileList | null) => {

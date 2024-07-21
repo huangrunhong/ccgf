@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   RiBold,
   RiH2,
@@ -10,14 +11,13 @@ import {
 import { EditorProvider, useCurrentEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
-import { InertiaForm } from "@/types";
+import FormContext from "@/contexts/FormContext";
 
 const extensions = [StarterKit];
 
 interface RichTextEditorProps {
   name: string;
   label: string;
-  inertiaForm: InertiaForm;
 }
 
 const Toolbar = () => {
@@ -68,23 +68,25 @@ const Toolbar = () => {
   );
 };
 
-const RichTextEditor = ({
-  name,
-  label,
-  inertiaForm: form,
-}: RichTextEditorProps) => (
-  <div className="flex-column gap">
-    <label htmlFor={name}>{label}</label>
-    <div id={name} className="rich-text-editor">
-      <EditorProvider
-        slotBefore={<Toolbar />}
-        extensions={extensions}
-        content={form.data[name]}
-        onUpdate={({ editor }) => form.setData(name, editor.getHTML())}
-      />
+const RichTextEditor = ({ name, label }: RichTextEditorProps) => {
+  const form = useContext(FormContext);
+
+  return (
+    <div className="flex-column gap">
+      <label htmlFor={name}>{label}</label>
+      <div id={name} className="rich-text-editor">
+        <EditorProvider
+          slotBefore={<Toolbar />}
+          extensions={extensions}
+          content={form.data[name]}
+          onUpdate={({ editor }) => form.setData(name, editor.getHTML())}
+        />
+      </div>
+      {form.errors[name] && (
+        <small className="danger">{form.errors[name]}</small>
+      )}
     </div>
-    {form.errors[name] && <small className="danger">{form.errors[name]}</small>}
-  </div>
-);
+  );
+};
 
 export default RichTextEditor;

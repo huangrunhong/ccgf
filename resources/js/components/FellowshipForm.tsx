@@ -1,6 +1,7 @@
 import { Link, useForm } from "@inertiajs/react";
 
 import { Fellowship, SelectOption, User } from "@/types";
+import Form from "@/components/form/Form";
 import FileInput from "@/components/form/FileInput";
 import Informative from "@/components/base/Informative";
 import Input from "@/components/form/Input";
@@ -75,14 +76,11 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
 
   const saveDraft = () => {
     form.data.status = "draft";
-
     submit();
   };
 
-  const publish = (event: React.FormEvent) => {
+  const publish = () => {
     form.data.status = "published";
-
-    event.preventDefault();
     submit();
   };
 
@@ -95,48 +93,32 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
   }));
 
   return (
-    <form onSubmit={publish}>
+    <Form form={form} onSubmit={publish}>
       <Informative header={header} />
-      <Input
-        required
-        label={message.dashboard.fellowships.name}
-        name="name"
-        inertiaForm={form}
-      />
+      <Input required label={message.dashboard.fellowships.name} name="name" />
       <div className="flex-column gap">
         <span>{message.dashboard.fellowships.schedule}</span>
         <div className="flex gap">
-          <Select name="frequency" values={frequencies} inertiaForm={form} />
-          <Select name="day" values={days} inertiaForm={form} />
-          <Select name="hour" values={hours} inertiaForm={form} />
+          <Select name="frequency" values={frequencies} />
+          <Select name="day" values={days} />
+          <Select name="hour" values={hours} />
         </div>
       </div>
       <Select
         label={message.dashboard.fellowships.contact}
         name="admin_id"
         options={options}
-        inertiaForm={form}
       />
-      <Input
-        label={message.dashboard.fellowships.location}
-        name="location"
-        inertiaForm={form}
-      />
-      <Input
-        label={message.dashboard.fellowships.zoom}
-        name="zoom"
-        inertiaForm={form}
-      />
+      <Input label={message.dashboard.fellowships.location} name="location" />
+      <Input label={message.dashboard.fellowships.zoom} name="zoom" />
       <FileInput
         name="cover"
         label={message.dashboard.fellowships.cover}
         help={message.dashboard.fellowships.help}
-        inertiaForm={form}
       />
       <RichTextEditor
         name="description"
         label={message.dashboard.fellowships.description}
-        inertiaForm={form}
       />
       <div className="flex gap justify-end mt-2">
         <Link className="button action" href={route("fellowships")}>
@@ -147,7 +129,7 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
         </button>
         <button className="primary"> {message.dashboard.post.publish}</button>
       </div>
-    </form>
+    </Form>
   );
 };
 

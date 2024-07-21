@@ -1,5 +1,6 @@
 import { useForm } from "@inertiajs/react";
 
+import Form from "@/components/form/Form";
 import GuestLayout from "@/layouts/GuestLayout";
 import Input from "@/components/form/Input";
 import SiteHead from "@/components/base/SiteHead";
@@ -11,26 +12,19 @@ const ForgotPassword = () => {
   });
   const message = useMessage();
 
-  const submit: React.FormEventHandler = (e) => {
-    e.preventDefault();
+  const submit: React.FormEventHandler = () =>
     form.post(route("password.email"));
-  };
 
   return (
     <GuestLayout>
       <SiteHead title={message.page.forgetPassword} />
-      <form onSubmit={submit}>
-        <Input
-          type="email"
-          name="email"
-          label={message.auth.email}
-          inertiaForm={form}
-        />
+      <Form form={form} onSubmit={submit}>
+        <Input type="email" name="email" label={message.auth.email} />
         <small className="muted">{message.auth.forgetPassword.info}</small>
         <button className="primary full mt-2" disabled={form.processing}>
           {message.auth.forgetPassword.sendLink}
         </button>
-      </form>
+      </Form>
     </GuestLayout>
   );
 };

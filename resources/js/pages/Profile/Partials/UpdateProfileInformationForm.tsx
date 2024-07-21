@@ -1,6 +1,7 @@
 import { Link, useForm } from "@inertiajs/react";
 
 import { User } from "@/types";
+import Form from "@/components/form/Form";
 import Input from "@/components/form/Input";
 import useMessage from "@/hooks/useMessage";
 
@@ -21,26 +22,22 @@ const UpdateProfileInformation = ({
   });
   const message = useMessage();
 
-  const submit: React.FormEventHandler = (e) => {
-    e.preventDefault();
+  const submit: React.FormEventHandler = () =>
     form.patch(route("profile.update"));
-  };
 
   return (
-    <form onSubmit={submit}>
+    <Form form={form} onSubmit={submit}>
       <Input
         required
         label={message.profile.updateProfile.name}
         name="name"
         autoComplete="name"
-        inertiaForm={form}
       />
       <Input
         required
         label={message.profile.updateProfile.email}
         name="email"
         autoComplete="email"
-        inertiaForm={form}
       />
       {mustVerifyEmail && !user.email_verified_at && (
         <div className="flex-column gap">
@@ -65,7 +62,7 @@ const UpdateProfileInformation = ({
       <button className="primary mt-2" disabled={form.processing}>
         {message.profile.updateProfile.button}
       </button>
-    </form>
+    </Form>
   );
 };
 

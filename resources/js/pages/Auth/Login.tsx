@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useForm } from "@inertiajs/react";
 
 import Checkbox from "@/components/form/Checkbox";
+import Form from "@/components/form/Form";
 import GuestLayout from "@/layouts/GuestLayout";
 import Input from "@/components/form/Input";
 import PasswordInput from "@/components/form/PasswordInput";
@@ -20,32 +21,20 @@ const Login = () => {
     return () => form.reset("password");
   }, []);
 
-  const submit: React.FormEventHandler = (e) => {
-    e.preventDefault();
-    form.post(route("login"));
-  };
+  const submit: React.FormEventHandler = () => form.post(route("login"));
 
   return (
     <GuestLayout>
       <SiteHead title={message.page.login} />
-      <form onSubmit={submit}>
+      <Form form={form} onSubmit={submit}>
         <Input
           label={message.auth.email}
           type="email"
           name="email"
           autoComplete="username"
-          inertiaForm={form}
         />
-        <PasswordInput
-          label={message.auth.password}
-          name="password"
-          inertiaForm={form}
-        />
-        <Checkbox
-          name="remember"
-          label={message.auth.login.remember}
-          inertiaForm={form}
-        />
+        <PasswordInput label={message.auth.password} name="password" />
+        <Checkbox name="remember" label={message.auth.login.remember} />
         <div className="flex gap mt-2">
           <Link href={route("password.request")} className="button action full">
             {message.auth.login.forget}
@@ -54,7 +43,7 @@ const Login = () => {
             {message.auth.login.button}
           </button>
         </div>
-      </form>
+      </Form>
     </GuestLayout>
   );
 };

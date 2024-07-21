@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "@inertiajs/react";
 
+import Form from "@/components/form/Form";
 import Dialog from "@/components/base/Dialog";
 import PasswordInput from "@/components/form/PasswordInput";
 import Informative from "@/components/base/Informative";
@@ -25,14 +26,13 @@ const DeleteUserForm = () => {
         <Informative className="mb-2">
           {message.profile.deleteAccount.modal.info}
         </Informative>
-        <form>
+        <Form form={form}>
           <PasswordInput
             required
             name="password"
             label={message.profile.deleteAccount.modal.password}
-            inertiaForm={form}
           />
-        </form>
+        </Form>
       </Dialog>
     </>
   );
