@@ -69,14 +69,14 @@ class FellowshipController extends Controller
 
         $fellowship->update($validated);
 
-        return redirect('fellowships');
+        return redirect()->route('fellowships');
     }
 
     public function archive(string $id): RedirectResponse
     {
         Fellowship::findOrFail($id)->update(['status' => PostStatus::Archived]);
 
-        return redirect('fellowships');
+        return redirect()->route('fellowships');
     }
 
     public function destroy(string $id): RedirectResponse
@@ -87,8 +87,8 @@ class FellowshipController extends Controller
             Storage::delete($fellowship->cover);
         }
 
-        $fellowship->destroy();
+        $fellowship->delete();
 
-        return redirect('fellowships');
+        return redirect()->route('fellowships');
     }
 }

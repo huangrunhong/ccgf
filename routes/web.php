@@ -11,11 +11,15 @@ Route::get('/en', [LocaleController::class, 'english'])->name("locale.english");
 Route::get('/de', [LocaleController::class, 'german'])->name("locale.german");
 Route::post('locale/{locale}', [LocaleController::class, 'update'])->name("locale.update");
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return Inertia::render('Dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/events', function () {
+        return Inertia::render('Events');
+    })->middleware(['auth', 'verified'])->name('events');
+
     Route::get('/fellowships', [FellowshipController::class, 'show'])->name('fellowships');
     Route::post('/fellowships', [FellowshipController::class, 'store'])->name('fellowships.store');
     Route::get('/fellowships/create', [FellowshipController::class, 'create'])->name('fellowships.create');
@@ -23,11 +27,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/fellowships/{id}', [FellowshipController::class, 'update'])->name('fellowships.update');
     Route::patch('/fellowships/{id}/archive', [FellowshipController::class, 'archive'])->name('fellowships.archive');
     Route::delete('/fellowships/{id}', [FellowshipController::class, 'destroy'])->name('fellowships.destroy');
-});
+})->middleware(['auth', 'verified']);
 
-Route::get('/events', function () {
-    return Inertia::render('Events');
-})->middleware(['auth', 'verified'])->name('events');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
