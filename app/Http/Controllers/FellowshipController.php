@@ -60,11 +60,15 @@ class FellowshipController extends Controller
         $fellowship = Fellowship::findOrFail($id);
 
         if ($request->hasFile('cover') && $file->isValid()) {
-            if ($fellowship->cover) {
-                Storage::delete($fellowship->cover);
-            }
+            $this->removeCover($fellowship);
 
             $validated['cover'] = "/" . $file->store('images');
+        }
+
+        if (!$request->hasFile('cover') && $validated['remove_cover']) {
+            $this->removeCover($fellowship);
+
+            $validated['cover'] = null;
         }
 
         $fellowship->update($validated);
@@ -90,5 +94,12 @@ class FellowshipController extends Controller
         $fellowship->delete();
 
         return redirect()->route('fellowships');
+    }
+
+    private function removeCover(Fellowship $fellowship)
+    {
+        if ($fellowship->cover) {
+            Storage::delete($fellowship->cover);
+        }
     }
 }

@@ -1,55 +1,54 @@
 import { Link } from "@inertiajs/react";
 import { RiAddFill, RiDeleteBinLine, RiEditLine } from "@remixicon/react";
 
-import { PageProps, Event } from "@/types";
+import { PageProps, Worship } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
-type EventsProps = PageProps<{ events: Event[] }>;
+type WorshipsProps = PageProps<{ worships: Worship[] }>;
 
-const Events = ({ events }: EventsProps) => {
+const Worships = ({ worships }: WorshipsProps) => {
   const message = useMessage();
 
   return (
-    <AuthenticatedLayout currentPath="events">
-      <SiteHead title={message.page.events} />
+    <AuthenticatedLayout currentPath="dashboard">
+      <SiteHead title={message.page.dashboard} />
       <div className="flex items-center justify-between mb-2">
-        <span className="ml-1">{events.length} Items</span>
-        <Link className="button solid" href={route("events.create")}>
+        <span className="ml-1">{worships.length} Items</span>
+        <Link className="button solid" href={route("worships.create")}>
           <RiAddFill size={18} />
-          {message.admin.events.post}
+          {message.admin.worships.post}
         </Link>
       </div>
       <table>
         <thead>
           <tr>
-            <th>{message.admin.events.date}</th>
-            <th>{message.admin.events.location}</th>
-            <th>{message.admin.events.title}</th>
-            <th>{message.admin.events.description}</th>
+            <th>{message.admin.worships.date}</th>
+            <th>{message.admin.worships.speaker}</th>
+            <th>{message.admin.worships.title}</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {events.map((event) => (
-            <tr key={event.id}>
-              <td>{event.date}</td>
-              <td>{event.title}</td>
-              <td>{event.description}</td>
+          {worships.map((worship) => (
+            <tr key={worship.id}>
+              <td>{worship.date}</td>
+              <td>{worship.speaker}</td>
+              <td>{worship.title}</td>
               <td style={{ width: "8rem" }}>
                 <div className="flex gap">
                   <Link
                     as="button"
                     method="delete"
                     className="icon"
-                    href={route("events.destroy", { id: event.id })}
+                    href={route("worships.destroy", { id: worship.id })}
                   >
                     <RiDeleteBinLine size={18} />
                   </Link>
                   <Link
                     className="button icon"
-                    href={route("events.edit", { id: event.id })}
+                    href={route("worships.edit", { id: worship.id })}
                   >
                     <RiEditLine size={18} />
                   </Link>
@@ -62,4 +61,5 @@ const Events = ({ events }: EventsProps) => {
     </AuthenticatedLayout>
   );
 };
-export default Events;
+
+export default Worships;

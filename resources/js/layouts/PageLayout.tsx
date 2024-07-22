@@ -18,7 +18,7 @@ const PageLayout = ({ children }: PageLayoutProps) => {
         <nav className="flex py-3">
           <div className="flex flex-1 items-center gap-1">
             <ApplicationLogo />
-            <span>
+            <span style={{ lineHeight: 1.25 }}>
               Kirchhainer Strasse 2<br />
               60433 Frankfurt am Main
             </span>

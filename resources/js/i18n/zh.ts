@@ -5,6 +5,8 @@ const zh = {
     home: "首页",
     createFellowship: "添加团契",
     editFellowship: "编辑团契",
+    createEvent: "添加活动",
+    editEvent: "编辑活动",
     dashboard: "Dashboard",
     events: "活动",
     fellowships: "团契",
@@ -17,11 +19,22 @@ const zh = {
     profile: "用户信息",
   },
   home: {
-    worship: "主日敬拜",
     welcome: "欢迎来到",
     heading: "法兰克福华人基督教会",
     subheading:
       "期待在2024，我们一起学习顺服神，让我们的教会成为一个神同在的教会。神若与我们同在，教会必然复兴，教会必然蒙福，教会必然有能力，教会必然蒙引导，教会必然经历神。你也愿意让神居首位，满足主的心肠，让神得荣耀吗？让我们一同建造教会，兴旺神的家。",
+    worship: {
+      heading: "主日敬拜",
+      schedule: "每周日",
+      sunday: "周日",
+      description:
+        "教会主日崇拜现采取线上，线下双轨制。欢迎弟兄姊妹和各位朋友参加我们的实体或网络主日崇拜。",
+      sermon: "布道",
+      baptism: "洗礼",
+      eucharist: "圣餐",
+      dinner: "爱宴",
+      video: "证道视频",
+    },
   },
   header: {
     events: "最新活动",
@@ -31,7 +44,7 @@ const zh = {
     liveStream: "实时转播",
     donate: "奉献",
   },
-  dashboard: {
+  admin: {
     menu: {
       church: "教会",
       fellowship: "团契",
@@ -60,6 +73,24 @@ const zh = {
         draft: "草稿",
         archived: "已存档",
       },
+    },
+    worships: {
+      post: "添加证道",
+      edit: "编辑证道",
+      date: "日期",
+      title: "主题",
+      speaker: "讲员",
+      baptism: "洗礼",
+      eucharist: "圣餐",
+      dinner: "爱宴",
+    },
+    events: {
+      post: "添加活动",
+      edit: "编辑活动",
+      date: "日期",
+      title: "标题",
+      description: "详情",
+      location: "地点",
     },
   },
   profile: {

@@ -4,25 +4,22 @@ import { SelectOption } from "@/types";
 import Dropdown from "@/components/base/Dropdown";
 import FormContext from "@/contexts/FormContext";
 
-export interface SelectProps<
-  N extends string,
-  T extends string | number = string
-> {
+const getLabel = <T extends string>(options: SelectOption<T>[], value: T) =>
+  options.find((option) => option.value === value)?.label ?? value;
+
+export interface SelectProps<T extends string | number = string> {
   label?: string;
-  name: N;
+  name: string;
   values?: T[];
   options?: SelectOption<T>[];
 }
 
-const getLabel = <T extends string>(options: SelectOption<T>[], value: T) =>
-  options.find((option) => option.value === value)?.label ?? value;
-
-const Select = <N extends string, T extends string | number = string>({
+const Select = <T extends string | number = string>({
   label,
   name,
   options = [],
   values = [],
-}: SelectProps<N, T>) => {
+}: SelectProps<T>) => {
   const form = useContext(FormContext);
 
   return (
@@ -37,7 +34,10 @@ const Select = <N extends string, T extends string | number = string>({
             <button
               key={option.value}
               type="button"
-              onClick={() => form.setData(name, option.value)}
+              onClick={(event) => {
+                event.currentTarget.blur();
+                form.setData(name, option.value);
+              }}
             >
               {option.label}
             </button>
@@ -46,7 +46,10 @@ const Select = <N extends string, T extends string | number = string>({
             <button
               key={value}
               type="button"
-              onClick={() => form.setData(name, value)}
+              onClick={(event) => {
+                event.currentTarget.blur();
+                form.setData(name, value);
+              }}
             >
               {value}
             </button>

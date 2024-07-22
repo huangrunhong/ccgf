@@ -5,6 +5,8 @@ const de = {
     home: "Startseite",
     createFellowship: "Gemeinschaft hinzufügen",
     editFellowship: "Gemeinschaft bearbeiten",
+    createEvent: "Event hinzufügen",
+    editEvent: "Event bearbeiten",
     dashboard: "Dashboard",
     events: "Termine",
     fellowships: "Gemeinschaft",
@@ -17,11 +19,22 @@ const de = {
     profile: "Profil",
   },
   home: {
-    worship: "Gottesdienst",
     welcome: "Willkommen zu",
     heading: "Chinesische Christliche Gemeinde Frankfurt",
     subheading:
       "Mit Blick auf das Jahr 2024 werden wir gemeinsam lernen, Gott zu gehorchen und unsere Kirche zu einer Kirche zu machen, in der Gott gegenwärtig ist. Wenn Gott mit uns ist, wird die Kirche wiederbelebt, die Kirche wird gesegnet, die Kirche wird Macht haben, die Kirche wird geführt und die Kirche wird Gott erfahren. Bist du auch bereit, Gott den ersten Platz einnehmen zu lassen, das Herz des Herrn zufriedenzustellen und Gott verherrlichen zu lassen? Lasst uns gemeinsam die Kirche aufbauen und die Familie Gottes gedeihen lassen.",
+    worship: {
+      heading: "Gottesdienst",
+      schedule: "Jeden Sonntag",
+      sunday: "Sonntag",
+      description:
+        "Der Sonntagsgottesdienst der Kirche findet jetzt in einem zweigleisigen System statt: online und offline. Brüder, Schwestern und Freunde sind herzlich eingeladen, an unserem Sonntagsgottesdienst vor Ort oder online teilzunehmen.",
+      sermon: "Predigt",
+      baptism: "Taufe",
+      eucharist: "Eucharistie",
+      dinner: "Abendessen",
+      video: "Predigt Video",
+    },
   },
   header: {
     events: "Events",
@@ -31,7 +44,7 @@ const de = {
     liveStream: "Liveübertragung",
     donate: "Spenden",
   },
-  dashboard: {
+  admin: {
     menu: {
       church: "Gemeinde",
       fellowship: "Gemeinschaft",
@@ -47,7 +60,7 @@ const de = {
       description: "Beschreibung",
       location: "Standort",
       schedule: "Zeitplan",
-      contact: "Contakt",
+      contact: "Kontakt",
       zoom: "Zoom",
       cover: "Cover hochladen",
       help: "Klicken oder ziehen Sie eine Datei in diesen Bereich",
@@ -60,6 +73,24 @@ const de = {
         draft: "Entwurf",
         archived: "archiviert",
       },
+    },
+    worships: {
+      post: "Gottesdienst hinzufügen",
+      edit: "Gottesdienst bearbeiten",
+      date: "Datum",
+      title: "Titel",
+      speaker: "Sprecher",
+      baptism: "Taufe",
+      eucharist: "Eucharistie",
+      dinner: "Abendessen",
+    },
+    events: {
+      post: "Event hinzufügen",
+      edit: "Event bearbeiten",
+      date: "Datum",
+      location: "Ort",
+      title: "Titel",
+      description: "Beschreibung",
     },
   },
   profile: {

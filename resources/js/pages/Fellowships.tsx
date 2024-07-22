@@ -30,17 +30,17 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
         <span className="ml-1">{fellowships.length} Items</span>
         <Link className="button solid" href={route("fellowships.create")}>
           <RiAddFill size={18} />
-          {message.dashboard.fellowships.post}
+          {message.admin.fellowships.post}
         </Link>
       </div>
       <table>
         <thead>
           <tr>
-            <th>{message.dashboard.fellowships.name}</th>
-            <th>{message.dashboard.fellowships.status}</th>
-            <th>{message.dashboard.fellowships.location}</th>
-            <th>{message.dashboard.fellowships.schedule}</th>
-            <th>{message.dashboard.fellowships.contact}</th>
+            <th>{message.admin.fellowships.name}</th>
+            <th>{message.admin.fellowships.status}</th>
+            <th>{message.admin.fellowships.location}</th>
+            <th>{message.admin.fellowships.schedule}</th>
+            <th>{message.admin.fellowships.contact}</th>
             <th></th>
           </tr>
         </thead>
@@ -51,7 +51,7 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
               <td>
                 <Badge
                   status={postStatusType[fellowship.status]}
-                  content={message.dashboard.post.status[fellowship.status]}
+                  content={message.admin.post.status[fellowship.status]}
                 />
               </td>
               <td>{fellowship.location}</td>

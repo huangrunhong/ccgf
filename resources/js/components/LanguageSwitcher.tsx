@@ -11,6 +11,14 @@ const languages: Record<SupportedLanguage, string> = {
   zh: "中文",
 } as const;
 
+const switchLanguage = (
+  lang: SupportedLanguage,
+  event: React.MouseEvent<HTMLAnchorElement>
+) => {
+  event.currentTarget.blur();
+  document.documentElement.lang = lang;
+};
+
 const LanguageSwitcher = () => (
   <Dropdown>
     <button>
@@ -23,7 +31,7 @@ const LanguageSwitcher = () => (
         method="post"
         className="button"
         href={route("locale.update", { locale: "zh" })}
-        onClick={() => (document.documentElement.lang = "zh")}
+        onClick={(e) => switchLanguage("zh", e)}
       >
         {languages.zh}
       </Link>
@@ -32,7 +40,7 @@ const LanguageSwitcher = () => (
         method="post"
         className="button"
         href={route("locale.update", { locale: "de" })}
-        onClick={() => (document.documentElement.lang = "de")}
+        onClick={(e) => switchLanguage("de", e)}
       >
         {languages.de}
       </Link>
@@ -41,7 +49,7 @@ const LanguageSwitcher = () => (
         method="post"
         className="button"
         href={route("locale.update", { locale: "en" })}
-        onClick={() => (document.documentElement.lang = "en")}
+        onClick={(e) => switchLanguage("en", e)}
       >
         {languages.en}
       </Link>

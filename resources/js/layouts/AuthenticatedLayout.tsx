@@ -42,18 +42,18 @@ const AuthenticatedLayout = ({
         <aside>
           <Link href={route("dashboard")} className={classNames("dashboard")}>
             <RiCrossLine size={18} />
-            {message.dashboard.menu.church}
+            {message.admin.menu.church}
           </Link>
           <Link
             href={route("fellowships")}
             className={classNames("fellowships")}
           >
             <RiTeamLine size={18} />
-            {message.dashboard.menu.fellowship}
+            {message.admin.menu.fellowship}
           </Link>
           <Link className={classNames("events")} href={route("events")}>
             <RiCalendarEventLine size={18} />
-            {message.dashboard.menu.event}
+            {message.admin.menu.event}
           </Link>
           <hr className="my-1" />
           <Link
@@ -61,11 +61,11 @@ const AuthenticatedLayout = ({
             className={classNames("profile.edit")}
           >
             <RiUserLine size={18} />
-            {message.dashboard.menu.profile}
+            {message.admin.menu.profile}
           </Link>
           <Link as="button" method="post" href={route("logout")}>
             <RiLogoutBoxLine size={18} />
-            {message.dashboard.menu.signOut}
+            {message.admin.menu.signOut}
           </Link>
         </aside>
         <div className="panel">{children}</div>

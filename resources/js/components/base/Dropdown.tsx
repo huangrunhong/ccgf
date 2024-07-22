@@ -11,7 +11,7 @@ const Dropdown = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={clsx("dropdown", className)} {...props} />
+  <div className={clsx("dropdown", className)} tabIndex={0} {...props} />
 );
 
 Dropdown.Menu = DropdownMenu;

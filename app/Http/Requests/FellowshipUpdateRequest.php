@@ -22,6 +22,7 @@ class FellowshipUpdateRequest extends FormRequest
             'day' => ['string', 'min:2', 'max:255'],
             'frequency' =>  ['string', 'min:2', 'max:255'],
             'cover' => ['nullable', 'image', 'max:2048'],
+            'remove_cover' => ['boolean'],
             'location' => ['string', 'max:255'],
             'zoom' => ['nullable', 'string', 'max:255'],
             'description' => ['string', 'min:5'],

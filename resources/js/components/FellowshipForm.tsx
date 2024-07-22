@@ -59,6 +59,7 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
     day: fellowship?.day ?? "周六",
     frequency: fellowship?.frequency ?? "每周",
     cover: undefined as File | undefined,
+    remove_cover: false,
     zoom: fellowship?.zoom ?? undefined,
     location: fellowship?.location ?? "",
     description: fellowship?.description ?? "",
@@ -85,8 +86,9 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
   };
 
   const header = fellowship
-    ? message.dashboard.fellowships.edit
-    : message.dashboard.fellowships.post;
+    ? message.admin.fellowships.edit
+    : message.admin.fellowships.post;
+
   const options: SelectOption<number>[] = users.map((user) => ({
     value: user.id,
     label: user.name,
@@ -94,10 +96,10 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
 
   return (
     <Form form={form} onSubmit={publish}>
-      <Informative header={header} />
-      <Input required label={message.dashboard.fellowships.name} name="name" />
+      <Informative className="mb-1" header={header} />
+      <Input required label={message.admin.fellowships.name} name="name" />
       <div className="flex-column gap">
-        <span>{message.dashboard.fellowships.schedule}</span>
+        <span>{message.admin.fellowships.schedule}</span>
         <div className="flex gap">
           <Select name="frequency" values={frequencies} />
           <Select name="day" values={days} />
@@ -105,29 +107,30 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
         </div>
       </div>
       <Select
-        label={message.dashboard.fellowships.contact}
+        label={message.admin.fellowships.contact}
         name="admin_id"
         options={options}
       />
-      <Input label={message.dashboard.fellowships.location} name="location" />
-      <Input label={message.dashboard.fellowships.zoom} name="zoom" />
+      <Input label={message.admin.fellowships.location} name="location" />
+      <Input label={message.admin.fellowships.zoom} name="zoom" />
       <FileInput
         name="cover"
-        label={message.dashboard.fellowships.cover}
-        help={message.dashboard.fellowships.help}
+        label={message.admin.fellowships.cover}
+        help={message.admin.fellowships.help}
+        url={fellowship?.cover}
       />
       <RichTextEditor
         name="description"
-        label={message.dashboard.fellowships.description}
+        label={message.admin.fellowships.description}
       />
       <div className="flex gap justify-end mt-2">
         <Link className="button action" href={route("fellowships")}>
           {message.cancel}
         </Link>
         <button type="button" className="action" onClick={saveDraft}>
-          {message.dashboard.post.saveDraft}
+          {message.admin.post.saveDraft}
         </button>
-        <button className="primary"> {message.dashboard.post.publish}</button>
+        <button className="primary"> {message.admin.post.publish}</button>
       </div>
     </Form>
   );

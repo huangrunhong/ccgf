@@ -5,6 +5,8 @@ const en = {
     home: "Home",
     createFellowship: "Create Fellowship",
     editFellowship: "Edit Fellowship",
+    createEvent: "Create Event",
+    editEvent: "Edit Event",
     dashboard: "Dashboard",
     events: "Events",
     fellowships: "Fellowships",
@@ -17,11 +19,22 @@ const en = {
     profile: "Profile",
   },
   home: {
-    worship: "Worship",
     welcome: "Welcome to",
     heading: "Chinese Christian Community Frankfurt",
     subheading:
       "Looking forward to 2024, we will learn to obey God together and make our church a church where God is present. If God is with us, the church will be revived, the church will be blessed, the church will have power, the church will be guided, and the church will experience God. Are you also willing to let God take the first place, satisfy the Lord's heart, and let God be glorified? Let us build the church together and prosper the family of God.",
+    worship: {
+      heading: "Worship",
+      schedule: "Every Sunday",
+      sunday: "Sunday",
+      description:
+        "The church's Sunday worship now adopts a dual-track system of online and offline. Brothers and sisters and friends are welcome to participate in our physical or online Sunday worship.",
+      sermon: "Sermon",
+      baptism: "Baptism",
+      eucharist: "Eucharist",
+      dinner: "Dinner",
+      video: "Sermon Video",
+    },
   },
   header: {
     events: "Events",
@@ -31,7 +44,7 @@ const en = {
     liveStream: "Live Stream",
     donate: "Donate",
   },
-  dashboard: {
+  admin: {
     menu: {
       church: "Church",
       fellowship: "Fellowships",
@@ -40,7 +53,7 @@ const en = {
       signOut: "Sign out",
     },
     fellowships: {
-      post: "Add fellowship",
+      post: "Create fellowship",
       edit: "Edit fellowship",
       name: "Name",
       status: "Status",
@@ -60,6 +73,24 @@ const en = {
         draft: "Draft",
         archived: "Archived",
       },
+    },
+    worships: {
+      post: "Create Worship",
+      edit: "Edit Worship",
+      date: "Date",
+      title: "Title",
+      speaker: "Speaker",
+      baptism: "Baptism",
+      eucharist: "Eucharist",
+      dinner: "Dinner",
+    },
+    events: {
+      post: "Create Event",
+      edit: "Edit Event",
+      date: "Date",
+      location: "Location",
+      title: "Title",
+      description: "Description",
     },
   },
   profile: {

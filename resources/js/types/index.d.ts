@@ -19,6 +19,25 @@ export type ResponseStatus = "success" | "warning" | "error";
 
 export type SupportedLanguage = "en" | "de" | "zh";
 
+export interface Worship {
+  id: number;
+  title: string;
+  speaker: string;
+  date: string;
+  dinner: boolean;
+  baptism: boolean;
+  eucharist: boolean;
+}
+
+export interface Event {
+  id: number;
+  title: string;
+  description?: string;
+  date: string;
+  location: string;
+  cover: string | null;
+}
+
 export interface Fellowship {
   id: number;
   status: PostStatus;
