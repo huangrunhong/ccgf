@@ -1,6 +1,21 @@
 const zh = {
   cancel: "取消",
   confirm: "确认",
+  common: {
+    day: {
+      1: "周一",
+      2: "周二",
+      3: "周三",
+      4: "周四",
+      5: "周五",
+      6: "周六",
+      7: "周日",
+    },
+    frequency: {
+      1: "每周",
+      2: "隔周",
+    },
+  },
   page: {
     home: "首页",
     createFellowship: "添加团契",

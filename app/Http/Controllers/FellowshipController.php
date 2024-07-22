@@ -6,7 +6,6 @@ use App\Enums\PostStatus;
 use App\Models\Fellowship;
 use App\Http\Requests\FellowshipCreateRequest;
 use App\Http\Requests\FellowshipUpdateRequest;
-use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -20,20 +19,19 @@ class FellowshipController extends Controller
     public function show(): Response
     {
         return Inertia::render('Fellowships', [
-            'fellowships' => Fellowship::all()->load(['admin'])
+            'fellowships' => Fellowship::all()
         ]);
     }
 
     public function create(): Response
     {
-        return Inertia::render('CreateFellowship', ['users' => User::all()]);
+        return Inertia::render('CreateFellowship');
     }
 
     public function edit(string $id): Response
     {
         return Inertia::render('EditFellowship', [
-            'fellowship' => Fellowship::findOrFail($id)->load(['admin']),
-            'users' => User::all()
+            'fellowship' => Fellowship::findOrFail($id)
         ]);
     }
 

@@ -20,27 +20,10 @@ class Fellowship extends Model
         'hour',
         'day',
         'frequency',
+        'contact',
         'cover',
         'zoom',
         'location',
         'description',
-        'admin_id'
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'admin_id',
-    ];
-
-    /**
-     * Get the admin associated with the user.
-     */
-    public function admin()
-    {
-        return $this->belongsTo(User::class, "admin_id");
-    }
 }

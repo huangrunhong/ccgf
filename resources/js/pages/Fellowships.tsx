@@ -9,6 +9,7 @@ import {
 import { Fellowship, PageProps, PostStatus, ResponseStatus } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import Badge from "@/components/base/Badge";
+import Schedule from "@/components/base/Schedule";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
@@ -56,9 +57,13 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
               </td>
               <td>{fellowship.location}</td>
               <td>
-                {fellowship.frequency} {fellowship.day} {fellowship.hour}
+                <Schedule
+                  day={fellowship.day}
+                  frequency={fellowship.frequency}
+                />
+                <span> {fellowship.hour}</span>
               </td>
-              <td>{fellowship.admin?.name}</td>
+              <td>{fellowship.contact}</td>
               <td style={{ width: "8rem" }}>
                 <div className="flex gap">
                   <Link

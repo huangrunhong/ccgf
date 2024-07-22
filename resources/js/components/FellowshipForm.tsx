@@ -9,10 +9,6 @@ import RichTextEditor from "@/components/form/RichTextEditor";
 import Select from "@/components/form/Select";
 import useMessage from "@/hooks/useMessage";
 
-const days = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
-
-const frequencies = ["每周", "隔周"];
-
 const hours = [
   "08:00",
   "08:30",
@@ -44,26 +40,30 @@ const hours = [
   "21:30",
   "22:00",
   "22:30",
-];
+].map((hour): SelectOption => ({ label: hour, value: hour }));
+
+const getOptions = ([value, label]: [
+  string,
+  string
+]): SelectOption<number> => ({ value: parseInt(value), label });
 
 interface FellowshipFormProps {
   fellowship?: Fellowship;
-  users: User[];
 }
 
-const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
+const FellowshipForm = ({ fellowship }: FellowshipFormProps) => {
   const form = useForm({
     name: fellowship?.name ?? "",
     status: fellowship?.status ?? "draft",
     hour: fellowship?.hour ?? "15:00",
-    day: fellowship?.day ?? "周六",
-    frequency: fellowship?.frequency ?? "每周",
+    contact: fellowship?.contact ?? "",
+    day: fellowship?.day ?? 7,
+    frequency: fellowship?.frequency ?? 1,
     cover: undefined as File | undefined,
     remove_cover: false,
     zoom: fellowship?.zoom ?? undefined,
     location: fellowship?.location ?? "",
     description: fellowship?.description ?? "",
-    admin_id: fellowship?.admin?.id ?? undefined,
   });
   const message = useMessage();
 
@@ -89,10 +89,8 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
     ? message.admin.fellowships.edit
     : message.admin.fellowships.post;
 
-  const options: SelectOption<number>[] = users.map((user) => ({
-    value: user.id,
-    label: user.name,
-  }));
+  const days = Object.entries(message.common.day).map(getOptions);
+  const frequencies = Object.entries(message.common.frequency).map(getOptions);
 
   return (
     <Form form={form} onSubmit={publish}>
@@ -101,16 +99,12 @@ const FellowshipForm = ({ fellowship, users }: FellowshipFormProps) => {
       <div className="flex-column gap">
         <span>{message.admin.fellowships.schedule}</span>
         <div className="flex gap">
-          <Select name="frequency" values={frequencies} />
-          <Select name="day" values={days} />
-          <Select name="hour" values={hours} />
+          <Select name="frequency" options={frequencies} />
+          <Select name="day" options={days} />
+          <Select name="hour" options={hours} />
         </div>
       </div>
-      <Select
-        label={message.admin.fellowships.contact}
-        name="admin_id"
-        options={options}
-      />
+      <Input label={message.admin.fellowships.contact} name="contact" />
       <Input label={message.admin.fellowships.location} name="location" />
       <Input label={message.admin.fellowships.zoom} name="zoom" />
       <FileInput

@@ -43,13 +43,13 @@ export interface Fellowship {
   status: PostStatus;
   name: string;
   hour: string;
-  day: string;
-  frequency: string;
+  day: number;
+  frequency: number;
+  contact: string | null;
   location: string;
   description: string;
   cover: string | null;
   zoom: string | null;
-  admin: User | null;
 }
 
 export interface SelectOption<T extends string | number = string> {

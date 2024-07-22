@@ -10,7 +10,6 @@ const getLabel = <T extends string>(options: SelectOption<T>[], value: T) =>
 export interface SelectProps<T extends string | number = string> {
   label?: string;
   name: string;
-  values?: T[];
   options?: SelectOption<T>[];
 }
 
@@ -18,7 +17,6 @@ const Select = <T extends string | number = string>({
   label,
   name,
   options = [],
-  values = [],
 }: SelectProps<T>) => {
   const form = useContext(FormContext);
 
@@ -40,18 +38,6 @@ const Select = <T extends string | number = string>({
               }}
             >
               {option.label}
-            </button>
-          ))}
-          {values.map((value) => (
-            <button
-              key={value}
-              type="button"
-              onClick={(event) => {
-                event.currentTarget.blur();
-                form.setData(name, value);
-              }}
-            >
-              {value}
             </button>
           ))}
         </Dropdown.Menu>

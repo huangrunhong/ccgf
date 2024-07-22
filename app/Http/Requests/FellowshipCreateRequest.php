@@ -19,13 +19,13 @@ class FellowshipCreateRequest extends FormRequest
             'status' => ['required', Rule::enum(PostStatus::class)],
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'hour' => ['required', 'date_format:H:i'],
-            'day' => ['required', 'string', 'min:2', 'max:255'],
-            'frequency' =>  ['required', 'string', 'min:2', 'max:255'],
+            'day' => ['required', 'integer'],
+            'frequency' =>  ['required', 'integer'],
+            "contact" => ['string', 'min:3', 'max:255'],
             'cover' => ['nullable', 'image', 'max:2048'],
             'location' => ['required', 'string', 'max:255'],
             'zoom' => ['nullable', 'string', 'max:255'],
             'description' => ['required', 'string', 'min:5'],
-            'admin_id' => ['integer'],
         ];
     }
 }

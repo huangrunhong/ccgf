@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('worships', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
             $table->string("title");
             $table->string("speaker");
             $table->date("date");

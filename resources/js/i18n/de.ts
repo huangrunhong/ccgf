@@ -1,6 +1,21 @@
 const de = {
   cancel: "Abbrechen",
   confirm: "Bestätigen",
+  common: {
+    day: {
+      1: "Montag",
+      2: "Dienstag",
+      3: "Mittwoch",
+      4: "Donnerstag",
+      5: "Freitag",
+      6: "Samstag",
+      7: "Sonntag",
+    },
+    frequency: {
+      1: "Jede Woche",
+      2: "Jede zweite Woche",
+    },
+  },
   page: {
     home: "Startseite",
     createFellowship: "Gemeinschaft hinzufügen",

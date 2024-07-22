@@ -17,15 +17,13 @@ return new class extends Migration
             $table->enum('status', ['draft', 'published', 'archived']);
             $table->string('name');
             $table->string('hour');
-            $table->string('day');
-            $table->string('frequency');
+            $table->integer('day');
+            $table->integer('frequency');
+            $table->string('contact')->nullable();
             $table->string('cover')->nullable();
             $table->string('zoom')->nullable();
             $table->string('location');
             $table->string('description');
-            $table->unsignedBigInteger('admin_id')->nullable();
-
-            $table->foreign('admin_id')->references('id')->on('users');
         });
     }
 

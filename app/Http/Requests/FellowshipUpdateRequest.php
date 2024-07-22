@@ -19,14 +19,14 @@ class FellowshipUpdateRequest extends FormRequest
             'status' => [Rule::enum(PostStatus::class)],
             'name' => ['string', 'min:3', 'max:255'],
             'hour' => ['date_format:H:i'],
-            'day' => ['string', 'min:2', 'max:255'],
-            'frequency' =>  ['string', 'min:2', 'max:255'],
+            'day' => ['required', 'integer'],
+            'frequency' =>  ['required', 'integer'],
+            "contact" => ['nullable', 'string', 'min:3', 'max:255'],
             'cover' => ['nullable', 'image', 'max:2048'],
             'remove_cover' => ['boolean'],
             'location' => ['string', 'max:255'],
             'zoom' => ['nullable', 'string', 'max:255'],
             'description' => ['string', 'min:5'],
-            'admin_id' => ['integer'],
         ];
     }
 }
