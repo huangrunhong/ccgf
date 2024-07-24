@@ -6,13 +6,15 @@ use App\Enums\PostStatus;
 use App\Models\Fellowship;
 use App\Http\Requests\FellowshipCreateRequest;
 use App\Http\Requests\FellowshipUpdateRequest;
+use App\Traits\UploadFile;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class FellowshipController extends Controller
 {
+    use UploadFile;
+
     /**
      * Show fellowships view
      */
@@ -37,12 +39,8 @@ class FellowshipController extends Controller
 
     public function store(FellowshipCreateRequest $request): RedirectResponse
     {
-        $file = $request->file('cover');
         $validated = $request->validated();
-
-        if ($request->hasFile('cover') && $file->isValid()) {
-            $validated['cover'] = "/" . $file->store('images');
-        }
+        $validated['cover'] = $this->saveFile($request, 'cover');
 
         $fellowship = new Fellowship($validated);
         $fellowship->save();
@@ -52,23 +50,10 @@ class FellowshipController extends Controller
 
     public function update(FellowshipUpdateRequest $request, string $id): RedirectResponse
     {
-
-        $file = $request->file('cover');
         $validated = $request->validated();
         $fellowship = Fellowship::findOrFail($id);
 
-        if ($request->hasFile('cover') && $file->isValid()) {
-            $this->removeCover($fellowship);
-
-            $validated['cover'] = "/" . $file->store('images');
-        }
-
-        if (!$request->hasFile('cover') && $validated['remove_cover']) {
-            $this->removeCover($fellowship);
-
-            $validated['cover'] = null;
-        }
-
+        $validated['cover'] = $this->replaceFile($request,  'cover', $fellowship->cover);
         $fellowship->update($validated);
 
         return redirect()->route('fellowships');
@@ -85,19 +70,9 @@ class FellowshipController extends Controller
     {
         $fellowship = Fellowship::findOrFail($id);
 
-        if ($fellowship->cover) {
-            Storage::delete($fellowship->cover);
-        }
-
+        $this->deleteFile($fellowship->cover);
         $fellowship->delete();
 
         return redirect()->route('fellowships');
-    }
-
-    private function removeCover(Fellowship $fellowship)
-    {
-        if ($fellowship->cover) {
-            Storage::delete($fellowship->cover);
-        }
     }
 }

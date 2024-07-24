@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { SelectOption } from "@/types";
 import Dropdown from "@/components/base/Dropdown";
 import FormContext from "@/contexts/FormContext";
+import Field from "@/components/form/Field";
 
 const getLabel = <T extends string>(options: SelectOption<T>[], value: T) =>
   options.find((option) => option.value === value)?.label ?? value;
@@ -21,7 +22,7 @@ const Select = <T extends string | number = string>({
   const form = useContext(FormContext);
 
   return (
-    <div className="flex-column gap flex-1">
+    <Field name={name} className="flex-1">
       {label && <span>{label}</span>}
       <Dropdown>
         <button type="button" className="select">
@@ -42,10 +43,7 @@ const Select = <T extends string | number = string>({
           ))}
         </Dropdown.Menu>
       </Dropdown>
-      {form.errors[name] && (
-        <small className="danger">{form.errors[name]}</small>
-      )}
-    </div>
+    </Field>
   );
 };
 

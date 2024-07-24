@@ -19,4 +19,18 @@ class Worship extends Model
         'baptism',
         'eucharist',
     ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'dinner' => 'boolean',
+            'baptism' => 'boolean',
+            'eucharist' => 'boolean',
+        ];
+    }
 }

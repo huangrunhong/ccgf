@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
 import FormContext from "@/contexts/FormContext";
+import Field from "@/components/form/Field";
 
 type InputAttributes = React.InputHTMLAttributes<HTMLInputElement>;
 
@@ -14,7 +15,7 @@ const Input = ({ label, name, suffix, type, ...props }: InputProps) => {
   const form = useContext(FormContext);
 
   return (
-    <div className="flex-column gap">
+    <Field name={name}>
       <label htmlFor={name}>{label}</label>
       <div className="p-relative">
         <input
@@ -27,10 +28,7 @@ const Input = ({ label, name, suffix, type, ...props }: InputProps) => {
         />
         {suffix}
       </div>
-      {form.errors[name] && (
-        <small className="danger">{form.errors[name]}</small>
-      )}
-    </div>
+    </Field>
   );
 };
 

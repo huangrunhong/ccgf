@@ -61,7 +61,7 @@ const zh = {
   },
   admin: {
     menu: {
-      church: "教会",
+      church: "主日敬拜",
       fellowship: "团契",
       event: "活动",
       profile: "用户信息",
@@ -106,6 +106,7 @@ const zh = {
       title: "标题",
       description: "详情",
       location: "地点",
+      cover: "上传封面",
     },
   },
   profile: {

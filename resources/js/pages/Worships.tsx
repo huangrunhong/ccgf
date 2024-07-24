@@ -3,6 +3,7 @@ import { RiAddFill, RiDeleteBinLine, RiEditLine } from "@remixicon/react";
 
 import { PageProps, Worship } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
+import FormattedDate from "@/components/base/FormattedDate";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
@@ -27,16 +28,17 @@ const Worships = ({ worships }: WorshipsProps) => {
             <th>{message.admin.worships.date}</th>
             <th>{message.admin.worships.speaker}</th>
             <th>{message.admin.worships.title}</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
           {worships.map((worship) => (
             <tr key={worship.id}>
-              <td>{worship.date}</td>
+              <td>
+                <FormattedDate date={worship.date} format="PPPP" />
+              </td>
               <td>{worship.speaker}</td>
-              <td>{worship.title}</td>
-              <td style={{ width: "8rem" }}>
+              <td className="flex gap-1 items-center justify-between">
+                {worship.title}
                 <div className="flex gap">
                   <Link
                     as="button"

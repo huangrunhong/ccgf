@@ -15,7 +15,7 @@ class WorshipCreateRequest extends FormRequest
   {
     return [
       'title' => ['required', 'string', 'min:3', 'max:255'],
-      'date' => ['required', 'date_format:Y.m.d'],
+      'date' => ['required', 'date_format:Y-m-d'],
       'speaker' => ['required', 'string', 'min:2', 'max:255'],
       'baptism' =>  ['required', 'boolean'],
       'eucharist' =>  ['required', 'boolean'],

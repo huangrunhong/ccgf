@@ -16,7 +16,7 @@ const Home = () => {
     <PageLayout>
       <SiteHead title={message.page.home} />
       <section className="pt-10">
-        <div className="flex-column gap-1 mb-4">
+        <div className="mb-2">
           <span className="large muted">{message.home.welcome}</span>
           <h1>{message.home.heading}</h1>
         </div>

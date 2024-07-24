@@ -10,7 +10,7 @@ export interface User {
 export interface InertiaForm {
   setData: (name: string, value: any) => void;
   data: Record<string, any>;
-  errors: Record<string, string>;
+  errors?: Record<string, string>;
 }
 
 export type PostStatus = "published" | "archived" | "draft";

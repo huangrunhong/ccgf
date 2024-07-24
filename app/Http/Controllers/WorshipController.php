@@ -22,6 +22,13 @@ class WorshipController extends Controller
         return Inertia::render('CreateWorship');
     }
 
+    public function edit(string $id): Response
+    {
+        return Inertia::render('EditWorship', [
+            'worship' => Worship::findOrFail($id)
+        ]);
+    }
+
     public function store(WorshipCreateRequest $request): RedirectResponse
     {
         $validated = $request->validated();
@@ -38,6 +45,14 @@ class WorshipController extends Controller
 
         $worship = Worship::findOrFail($id);
         $worship->update($validated);
+
+        return redirect()->route('dashboard');
+    }
+
+    public function destroy(string $id): RedirectResponse
+    {
+        $worship = Worship::findOrFail($id);
+        $worship->delete();
 
         return redirect()->route('dashboard');
     }

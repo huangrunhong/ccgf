@@ -1,46 +1,14 @@
 import { Link, useForm } from "@inertiajs/react";
 
-import { Fellowship, SelectOption, User } from "@/types";
+import { Fellowship, SelectOption } from "@/types";
 import Form from "@/components/form/Form";
 import FileInput from "@/components/form/FileInput";
 import Informative from "@/components/base/Informative";
 import Input from "@/components/form/Input";
 import RichTextEditor from "@/components/form/RichTextEditor";
 import Select from "@/components/form/Select";
+import TimePicker from "@/components/form/TimePicker";
 import useMessage from "@/hooks/useMessage";
-
-const hours = [
-  "08:00",
-  "08:30",
-  "09:00",
-  "09:30",
-  "10:00",
-  "10:30",
-  "11:00",
-  "11:30",
-  "12:00",
-  "12:30",
-  "13:00",
-  "13:30",
-  "14:00",
-  "14:30",
-  "15:00",
-  "15:30",
-  "16:00",
-  "16:30",
-  "17:00",
-  "17:30",
-  "18:00",
-  "18:30",
-  "19:00",
-  "19:30",
-  "20:00",
-  "20:30",
-  "21:00",
-  "21:30",
-  "22:00",
-  "22:30",
-].map((hour): SelectOption => ({ label: hour, value: hour }));
 
 const getOptions = ([value, label]: [
   string,
@@ -101,7 +69,7 @@ const FellowshipForm = ({ fellowship }: FellowshipFormProps) => {
         <div className="flex gap">
           <Select name="frequency" options={frequencies} />
           <Select name="day" options={days} />
-          <Select name="hour" options={hours} />
+          <TimePicker name="hour" />
         </div>
       </div>
       <Input label={message.admin.fellowships.contact} name="contact" />

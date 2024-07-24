@@ -42,7 +42,6 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
             <th>{message.admin.fellowships.location}</th>
             <th>{message.admin.fellowships.schedule}</th>
             <th>{message.admin.fellowships.contact}</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -63,8 +62,8 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
                 />
                 <span> {fellowship.hour}</span>
               </td>
-              <td>{fellowship.contact}</td>
-              <td style={{ width: "8rem" }}>
+              <td className="flex gap-1 items-center justify-between">
+                {fellowship.contact}
                 <div className="flex gap">
                   <Link
                     as="button"

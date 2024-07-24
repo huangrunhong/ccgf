@@ -20,8 +20,8 @@ const de = {
     home: "Startseite",
     createFellowship: "Gemeinschaft hinzufügen",
     editFellowship: "Gemeinschaft bearbeiten",
-    createEvent: "Event hinzufügen",
-    editEvent: "Event bearbeiten",
+    createEvent: "Termin hinzufügen",
+    editEvent: "Termin bearbeiten",
     dashboard: "Dashboard",
     events: "Termine",
     fellowships: "Gemeinschaft",
@@ -61,8 +61,8 @@ const de = {
   },
   admin: {
     menu: {
-      church: "Gemeinde",
-      fellowship: "Gemeinschaft",
+      church: "Gottesdienste",
+      fellowship: "Gemeinschaften",
       event: "Termine",
       profile: "Profil",
       signOut: "Abmelden",
@@ -100,12 +100,13 @@ const de = {
       dinner: "Abendessen",
     },
     events: {
-      post: "Event hinzufügen",
-      edit: "Event bearbeiten",
+      post: "Termin hinzufügen",
+      edit: "Termin bearbeiten",
       date: "Datum",
       location: "Ort",
       title: "Titel",
       description: "Beschreibung",
+      cover: "Cover hochladen",
     },
   },
   profile: {

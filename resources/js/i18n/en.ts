@@ -61,7 +61,7 @@ const en = {
   },
   admin: {
     menu: {
-      church: "Church",
+      church: "Worships",
       fellowship: "Fellowships",
       event: "Events",
       profile: "Profile",
@@ -106,6 +106,7 @@ const en = {
       location: "Location",
       title: "Title",
       description: "Description",
+      cover: "Upload cover",
     },
   },
   profile: {

@@ -3,6 +3,7 @@ import { RiAddFill, RiDeleteBinLine, RiEditLine } from "@remixicon/react";
 
 import { PageProps, Event } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
+import FormattedDate from "@/components/base/FormattedDate";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
@@ -27,17 +28,17 @@ const Events = ({ events }: EventsProps) => {
             <th>{message.admin.events.date}</th>
             <th>{message.admin.events.location}</th>
             <th>{message.admin.events.title}</th>
-            <th>{message.admin.events.description}</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
           {events.map((event) => (
             <tr key={event.id}>
-              <td>{event.date}</td>
-              <td>{event.title}</td>
-              <td>{event.description}</td>
-              <td style={{ width: "8rem" }}>
+              <td>
+                <FormattedDate date={event.date} format="PPPPp" />
+              </td>
+              <td>{event.location}</td>
+              <td className="flex gap-1 items-center justify-between">
+                {event.title}
                 <div className="flex gap">
                   <Link
                     as="button"

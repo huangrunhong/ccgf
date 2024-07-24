@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { RiDeleteBinLine, RiImageAddLine } from "@remixicon/react";
 
 import FormContext from "@/contexts/FormContext";
+import Field from "@/components/form/Field";
 
 const image = "image/jpeg, image/png, image/svg+xml, image/webp";
 
@@ -46,7 +47,7 @@ const FileInput = ({
   const preview = form.data[name] ? URL.createObjectURL(form.data[name]) : url;
 
   return (
-    <div className="flex-column gap">
+    <Field name={name}>
       <label htmlFor={name}>{label}</label>
       <div className="file-input">
         <input
@@ -69,10 +70,7 @@ const FileInput = ({
           </button>
         </div>
       )}
-      {form.errors[name] && (
-        <small className="danger">{form.errors[name]}</small>
-      )}
-    </div>
+    </Field>
   );
 };
 

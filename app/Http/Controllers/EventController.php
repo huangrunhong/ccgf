@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventCreateRequest;
 use App\Models\Event;
+use App\Traits\UploadFile;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class EventController extends Controller
 {
+    use UploadFile;
+
     public function show(): Response
     {
         return Inertia::render('Events', [
@@ -23,14 +25,17 @@ class EventController extends Controller
         return Inertia::render('CreateEvent');
     }
 
+    public function edit(string $id): Response
+    {
+        return Inertia::render('EditEvent', [
+            'event' => Event::findOrFail($id)
+        ]);
+    }
+
     public function store(EventCreateRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $file = $request->file('cover');
-
-        if ($request->hasFile('cover') && $file->isValid()) {
-            $validated['cover'] = "/" . $file->store('images');
-        }
+        $validated['cover'] = $this->saveFile($request, 'cover');
 
         $event = new Event($validated);
         $event->save();
@@ -40,20 +45,21 @@ class EventController extends Controller
 
     public function update(EventCreateRequest $request, string $id): RedirectResponse
     {
-        $file = $request->file('cover');
         $validated = $request->validated();
-
         $event = Event::findOrFail($id);
 
-        if ($request->hasFile('cover') && $file->isValid()) {
-            if ($event->cover) {
-                Storage::delete($event->cover);
-            }
-
-            $validated['cover'] = "/" . $file->store('images');
-        }
-
+        $validated['cover'] = $this->replaceFile($request,  'cover', $event->cover);
         $event->update($validated);
+
+        return redirect()->route('events');
+    }
+
+    public function destroy(string $id): RedirectResponse
+    {
+        $event = Event::findOrFail($id);
+
+        $this->deleteFile($event->cover);
+        $event->delete();
 
         return redirect()->route('events');
     }

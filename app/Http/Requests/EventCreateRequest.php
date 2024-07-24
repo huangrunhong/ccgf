@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use DateTimeInterface;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EventCreateRequest extends FormRequest
@@ -15,7 +14,7 @@ class EventCreateRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'date' => ['required', 'date_format:' . DateTimeInterface::ATOM],
+      'date' => ['required', 'date'],
       'location' =>  ['required', 'string', 'min:3', 'max:255'],
       'title' =>  ['required', 'string', 'min:3', 'max:255'],
       'description' =>  ['string', 'min:3', 'max:255'],

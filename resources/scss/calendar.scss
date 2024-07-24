@@ -1,0 +1,65 @@
+.calendar .dropdown-menu {
+  min-width: auto;
+}
+
+.calendar .rdp-root {
+  --rdp-accent-color: var(--foreground);
+  --rdp-font-family: var(--font-family);
+  --rdp-selected-font: var(--font-family);
+  --rdp-weekday-font: var(--font-family);
+  --rdp-month_caption-font: var(--font-family);
+  --rdp-nav-height: 1.75rem;
+  --rdp-weekday-padding: 0.75rem 0 0.25rem;
+  --rdp-day-width: 2rem;
+  --rdp-day-height: 2rem;
+  --rdp-selected-border: none;
+
+  padding: 0.75rem 0.5rem 0.5rem 0.5rem;
+
+  thead {
+    background: none;
+  }
+
+  button {
+    border-radius: 0.375rem;
+  }
+
+  .rdp-nav {
+    padding: 0 0.25rem;
+    justify-content: space-between;
+
+    button {
+      width: var(--rdp-nav-height);
+      height: var(--rdp-nav-height);
+      border: 1px solid var(--background-border);
+    }
+  }
+
+  .rdp-month_caption {
+    justify-content: center;
+  }
+
+  .rdp-weekday {
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+
+  .rdp-day {
+    padding: 0;
+    border: none;
+  }
+
+  .rdp-outside {
+    color: var(--foreground-muted);
+  }
+
+
+  .rdp-selected button {
+    color: var(--background);
+    background-color: var(--foreground);
+
+    &:hover {
+      background-color: var(--foreground);
+    }
+  }
+}

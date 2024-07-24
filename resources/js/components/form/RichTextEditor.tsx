@@ -12,6 +12,7 @@ import { EditorProvider, useCurrentEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
 import FormContext from "@/contexts/FormContext";
+import Field from "@/components/form/Field";
 
 const extensions = [StarterKit];
 
@@ -72,7 +73,7 @@ const RichTextEditor = ({ name, label }: RichTextEditorProps) => {
   const form = useContext(FormContext);
 
   return (
-    <div className="flex-column gap">
+    <Field name={name}>
       <label htmlFor={name}>{label}</label>
       <div id={name} className="rich-text-editor">
         <EditorProvider
@@ -82,10 +83,7 @@ const RichTextEditor = ({ name, label }: RichTextEditorProps) => {
           onUpdate={({ editor }) => form.setData(name, editor.getHTML())}
         />
       </div>
-      {form.errors[name] && (
-        <small className="danger">{form.errors[name]}</small>
-      )}
-    </div>
+    </Field>
   );
 };
 
