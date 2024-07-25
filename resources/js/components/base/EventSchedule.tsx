@@ -1,34 +1,40 @@
-import useMessage from "@/hooks/useMessage";
+import useLanguage from "@/hooks/useLanguage";
+import FormattedDate from "@/components/base/FormattedDate";
 
-const divider = " / ";
+interface EventScheduleProps {
+  date: Date;
+}
 
-const EventSchedule = () => {
-  const message = useMessage();
+const EventSchedule = ({ date }: EventScheduleProps) => {
+  const locale = useLanguage();
+
+  date.setHours(15);
+  date.setMinutes(30);
 
   return (
     <div className="flex-column gap-1">
       <div className="flex gap">
         <div className="flex-column">
-          <span className="h3">2024</span>
+          <span className="h3">{date.getFullYear()}</span>
           <strong className="h2">
-            <strong>02.12</strong>
+            <strong>
+              {date.toLocaleString(locale, {
+                month: "short",
+                day: "numeric",
+              })}
+            </strong>
           </strong>
         </div>
         <div className="dialog-line ml-4 mr-2 mt-1 mb-2" />
         <div className="flex-column items-end">
-          <span className="h3">{message.home.worship.sunday}</span>
-          <span className="h2">15:00</span>
+          <span className="h3">
+            {date.toLocaleString(locale, { weekday: "long" })}
+          </span>
+          <span className="h2">
+            <FormattedDate date={date} format="p" />
+          </span>
         </div>
       </div>
-      <span className="large">
-        {message.home.worship.sermon}
-        {divider}
-        {message.home.worship.baptism}
-        {divider}
-        {message.home.worship.eucharist}
-        {divider}
-        {message.home.worship.dinner}
-      </span>
     </div>
   );
 };

@@ -13,7 +13,9 @@ import Schedule from "@/components/base/Schedule";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
-type FellowshipsProps = PageProps<{ fellowships: Fellowship[] }>;
+interface FellowshipsProps extends PageProps {
+  fellowships: Fellowship[];
+}
 
 const postStatusType: Record<PostStatus, ResponseStatus | undefined> = {
   published: "success",

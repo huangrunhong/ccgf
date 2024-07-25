@@ -50,6 +50,10 @@ const zh = {
       dinner: "爱宴",
       video: "证道视频",
     },
+    events: "最新活动",
+    fellowships: {
+      heading: "团契",
+    },
   },
   header: {
     events: "最新活动",

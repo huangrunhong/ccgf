@@ -4,7 +4,9 @@ import SiteHead from "@/components/base/SiteHead";
 import WorshipForm from "@/components/WorshipForm";
 import useMessage from "@/hooks/useMessage";
 
-type EditWorShipProps = PageProps<{ worship: Worship }>;
+interface EditWorShipProps extends PageProps {
+  worship: Worship;
+}
 
 const EditWorShip = ({ worship }: EditWorShipProps) => {
   const message = useMessage();

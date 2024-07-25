@@ -3,7 +3,7 @@ import { format as formatDate } from "date-fns/format";
 import useDateLocale from "@/hooks/useDateLocale";
 
 interface FormattedDateProps extends React.HTMLAttributes<HTMLSpanElement> {
-  date: string;
+  date: string | Date;
   format: string;
 }
 

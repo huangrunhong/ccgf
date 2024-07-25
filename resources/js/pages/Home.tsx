@@ -1,19 +1,32 @@
 import {
   RiCalendarScheduleLine,
+  RiCrossLine,
   RiMap2Line,
+  RiOpenArmLine,
+  RiRestaurantLine,
+  RiSpeakLine,
   RiYoutubeFill,
 } from "@remixicon/react";
 
+import { Event, Fellowship, PageProps, Worship } from "@/types";
 import useMessage from "@/hooks/useMessage";
 import PageLayout from "@/layouts/PageLayout";
 import SiteHead from "@/components/base/SiteHead";
 import EventSchedule from "@/components/base/EventSchedule";
+import EventCard from "@/components/base/EventCard";
+import Schedule from "@/components/base/Schedule";
 
-const Home = () => {
+interface HomeProps extends PageProps {
+  events: Event[];
+  worship: Worship;
+  fellowships: Fellowship[];
+}
+
+const Home = ({ events, fellowships, worship }: HomeProps) => {
   const message = useMessage();
 
   return (
-    <PageLayout>
+    <PageLayout className="home">
       <SiteHead title={message.page.home} />
       <section className="pt-10">
         <div className="mb-2">
@@ -46,9 +59,33 @@ const Home = () => {
           <div className="flex-1 flex-column justify-between">
             <span className="muted">{message.home.worship.description}</span>
             <div className="flex-column gap-1">
-              <EventSchedule />
-              <h3 className="mt-4 mb-1">
-                <span className="muted">普美恩师母:</span> 信心可以衡量吗？
+              <EventSchedule date={new Date(worship.date)} />
+              <div className="flex gap-2 mt-2">
+                <div className="flex items-center gap">
+                  <RiSpeakLine size={18} />
+                  {message.home.worship.sermon}
+                </div>
+                {worship.baptism && (
+                  <div className="flex items-center gap">
+                    <RiCrossLine size={18} />
+                    {message.home.worship.baptism}
+                  </div>
+                )}
+                {worship.eucharist && (
+                  <div className="flex items-center gap">
+                    <RiRestaurantLine size={18} />
+                    {message.home.worship.eucharist}
+                  </div>
+                )}
+                {worship.dinner && (
+                  <div className="flex items-center gap">
+                    <RiOpenArmLine size={18} />
+                    {message.home.worship.dinner}
+                  </div>
+                )}
+              </div>
+              <h3 className="mb-2">
+                {worship.speaker}: {worship.title}
               </h3>
             </div>
           </div>
@@ -60,6 +97,34 @@ const Home = () => {
             </a>
           </div>
         </div>
+      </section>
+      <section>
+        <hr />
+        <h2 className="mt-4 mb-8">{message.home.fellowships.heading}</h2>
+        <div className="fellowships">
+          {fellowships.map((fellowship) => (
+            <div key={fellowship.id}>
+              <img
+                className="w-full"
+                src={fellowship.cover ?? "/assets/fellowship.jpg"}
+              />
+              <h3 className="h3 mt-1">{fellowship.name}</h3>
+              <span className="h3 muted">
+                <Schedule
+                  day={fellowship.day}
+                  frequency={fellowship.frequency}
+                />
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="pt-8">
+        <hr />
+        <h2 className="mt-4 mb-8">{message.home.events}</h2>
+        {events.map((event) => (
+          <EventCard key={event.id} event={event} />
+        ))}
       </section>
     </PageLayout>
   );

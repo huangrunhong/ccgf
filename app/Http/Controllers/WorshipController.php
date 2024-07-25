@@ -13,7 +13,7 @@ class WorshipController extends Controller
     public function show(): Response
     {
         return Inertia::render('Worships', [
-            'worships' => Worship::all()
+            'worships' => Worship::orderByDesc('date')->get()
         ]);
     }
 

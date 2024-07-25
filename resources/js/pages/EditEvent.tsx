@@ -4,7 +4,9 @@ import EventForm from "@/components/EventForm";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
-type EditEventProps = PageProps<{ event: Event }>;
+interface EditEventProps extends PageProps {
+  event: Event;
+}
 
 const EditEvent = ({ event }: EditEventProps) => {
   const message = useMessage();

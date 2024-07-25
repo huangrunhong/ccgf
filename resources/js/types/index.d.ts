@@ -57,11 +57,9 @@ export interface SelectOption<T extends string | number = string> {
   label: string;
 }
 
-export type PageProps<
-  T extends Record<string, unknown> = Record<string, unknown>
-> = T & {
+export interface PageProps {
   auth: {
     user: User;
   };
   ziggy: Config & { location: string };
-};
+}

@@ -4,7 +4,9 @@ import FellowshipForm from "@/components/FellowshipForm";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
-type EditFellowShipProps = PageProps<{ fellowship: Fellowship }>;
+interface EditFellowShipProps extends PageProps {
+  fellowship: Fellowship;
+}
 
 const EditFellowShip = ({ fellowship }: EditFellowShipProps) => {
   const message = useMessage();

@@ -1,15 +1,16 @@
 import { Link } from "@inertiajs/react";
-import { RiHandHeartLine } from "@remixicon/react";
+import { RiHandHeartLine, RiHeart3Fill } from "@remixicon/react";
 
 import ApplicationLogo from "@/components/ApplicationLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import useMessage from "@/hooks/useMessage";
 
 interface PageLayoutProps {
+  className?: string;
   children: React.ReactNode;
 }
 
-const PageLayout = ({ children }: PageLayoutProps) => {
+const PageLayout = ({ className, children }: PageLayoutProps) => {
   const message = useMessage();
 
   return (
@@ -42,8 +43,23 @@ const PageLayout = ({ children }: PageLayoutProps) => {
           </div>
         </nav>
       </header>
-      <main>{children}</main>
-      <footer></footer>
+      <main className={className}>{children}</main>
+      <footer>
+        <section className="mb-8">
+          <hr className="mt-4 mb-8" />
+          <div className="flex items-center gap-2">
+            <ApplicationLogo />
+            <Link className="ml-6" href={route("locale.chinese")}>
+              {message.header.events}
+            </Link>
+            <Link href={route("locale.chinese")}>
+              {message.header.fellowships}
+            </Link>
+            <Link href={route("locale.chinese")}>{message.header.library}</Link>
+            <Link href={route("locale.chinese")}>{message.header.about}</Link>
+          </div>
+        </section>
+      </footer>
     </>
   );
 };

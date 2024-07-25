@@ -50,10 +50,14 @@ const de = {
       dinner: "Abendessen",
       video: "Predigt Video",
     },
+    events: "Neuigkeiten und Veranstaltungen",
+    fellowships: {
+      heading: "Gemeinschaften",
+    },
   },
   header: {
     events: "Events",
-    fellowships: "Gemeinshaft",
+    fellowships: "Gemeinshaften",
     library: "Bibliothek",
     about: "Über uns",
     liveStream: "Liveübertragung",

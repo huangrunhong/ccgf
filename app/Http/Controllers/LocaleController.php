@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Fellowship;
+use App\Models\Worship;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -12,7 +15,7 @@ class LocaleController extends Controller
 {
     public function chinese(): Response
     {
-        return Inertia::render("Home");
+        return $this->renderHomePage();
     }
 
     public function english(Request $request): Response
@@ -38,6 +41,15 @@ class LocaleController extends Controller
         App::setLocale($locale);
         $request->session()->put('locale', $locale);
 
-        return Inertia::render("Home");
+        return $this->renderHomePage();
+    }
+
+    private function renderHomePage(): Response
+    {
+        return Inertia::render("Home", [
+            'worship' =>  Worship::orderByDesc('date')->first(),
+            'events' => Event::orderByDesc('date')->limit(5)->get(),
+            'fellowships' => Fellowship::all(),
+        ]);
     }
 }

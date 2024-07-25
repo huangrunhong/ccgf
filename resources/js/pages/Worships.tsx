@@ -7,7 +7,9 @@ import FormattedDate from "@/components/base/FormattedDate";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
-type WorshipsProps = PageProps<{ worships: Worship[] }>;
+interface WorshipsProps extends PageProps {
+  worships: Worship[];
+}
 
 const Worships = ({ worships }: WorshipsProps) => {
   const message = useMessage();

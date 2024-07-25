@@ -16,7 +16,7 @@ class EventController extends Controller
     public function show(): Response
     {
         return Inertia::render('Events', [
-            'events' => Event::all()
+            'events' => Event::orderByDesc('date')->get()
         ]);
     }
 

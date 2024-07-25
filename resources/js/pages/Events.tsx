@@ -7,7 +7,9 @@ import FormattedDate from "@/components/base/FormattedDate";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
-type EventsProps = PageProps<{ events: Event[] }>;
+interface EventsProps extends PageProps {
+  events: Event[];
+}
 
 const Events = ({ events }: EventsProps) => {
   const message = useMessage();

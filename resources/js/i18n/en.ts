@@ -50,6 +50,10 @@ const en = {
       dinner: "Dinner",
       video: "Sermon Video",
     },
+    events: "News & Events",
+    fellowships: {
+      heading: "Fellowships",
+    },
   },
   header: {
     events: "Events",
