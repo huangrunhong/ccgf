@@ -21,7 +21,7 @@ const Events = ({ events }: EventsProps) => {
         <span className="ml-1">{events.length} Items</span>
         <Link className="button solid" href={route("events.create")}>
           <RiAddFill size={18} />
-          {message.admin.events.post}
+          {message.page.createEvent}
         </Link>
       </div>
       <table>

@@ -14,7 +14,10 @@ const EditFellowShip = ({ fellowship }: EditFellowShipProps) => {
   return (
     <AuthenticatedLayout currentPath="fellowships">
       <SiteHead title={message.page.editFellowship} />
-      <FellowshipForm fellowship={fellowship} />
+      <FellowshipForm
+        fellowship={fellowship}
+        heading={message.page.editFellowship}
+      />
     </AuthenticatedLayout>
   );
 };

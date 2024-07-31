@@ -1,16 +1,18 @@
+import { Day } from "date-fns";
+
 const de = {
   cancel: "Abbrechen",
   confirm: "Bestätigen",
   common: {
     day: {
-      1: "Montag",
-      2: "Dienstag",
-      3: "Mittwoch",
-      4: "Donnerstag",
-      5: "Freitag",
-      6: "Samstag",
-      7: "Sonntag",
-    },
+      0: "Montag",
+      1: "Dienstag",
+      2: "Mittwoch",
+      3: "Donnerstag",
+      4: "Freitag",
+      5: "Samstag",
+      6: "Sonntag",
+    } as Record<Day, string>,
     frequency: {
       1: "Jede Woche",
       2: "Jede zweite Woche",
@@ -18,6 +20,9 @@ const de = {
   },
   page: {
     home: "Startseite",
+    editRegularWorship: "Regelmäßigen Gottesdienst bearbeiten",
+    editSpecialWorship: "Sonderlichen Gottesdienst bearbeiten",
+    createSpecialWorship: "Temporären Gottesdienst hinzufügen",
     createFellowship: "Gemeinschaft hinzufügen",
     editFellowship: "Gemeinschaft bearbeiten",
     createEvent: "Termin hinzufügen",
@@ -72,8 +77,6 @@ const de = {
       signOut: "Abmelden",
     },
     fellowships: {
-      post: "Gemeinschaft hinzufügen",
-      edit: "Gemeinschaft bearbeiten",
       name: "Name",
       status: "Status",
       description: "Beschreibung",
@@ -94,18 +97,17 @@ const de = {
       },
     },
     worships: {
-      post: "Gottesdienst hinzufügen",
-      edit: "Gottesdienst bearbeiten",
+      type: "Typ",
       date: "Datum",
-      title: "Titel",
-      speaker: "Sprecher",
+      title: "Titel (optional)",
+      location: "Standort",
       baptism: "Taufe",
       eucharist: "Eucharistie",
       dinner: "Abendessen",
+      regular: "regelmäßiger Gottesdienst",
+      special: "sonderlicher Gottesdienst",
     },
     events: {
-      post: "Termin hinzufügen",
-      edit: "Termin bearbeiten",
       date: "Datum",
       location: "Ort",
       title: "Titel",

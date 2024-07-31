@@ -9,7 +9,7 @@ const CreateWorShip = () => {
   return (
     <AuthenticatedLayout currentPath="events">
       <SiteHead title={message.page.createEvent} />
-      <EventForm />
+      <EventForm heading={message.page.createEvent} />
     </AuthenticatedLayout>
   );
 };

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Fellowship;
 use App\Models\Worship;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -47,9 +48,9 @@ class LocaleController extends Controller
     private function renderHomePage(): Response
     {
         return Inertia::render("Home", [
-            'worship' =>  Worship::orderByDesc('date')->first(),
-            'events' => Event::orderByDesc('date')->limit(5)->get(),
             'fellowships' => Fellowship::all(),
+            'events' => Event::orderByDesc('date')->limit(5)->get(),
+            'worships' => Worship::whereDate('date', '>=', Carbon::now())->orWhere('regular', true)->get(),
         ]);
     }
 }

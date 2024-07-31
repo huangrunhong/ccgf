@@ -33,8 +33,13 @@ const hours = [
   "22:30",
 ].map((hour) => ({ label: hour, value: hour }));
 
-const TimePicker = (props: { name: string }) => (
-  <Select name={props.name} options={hours} />
+interface TimePickerProps {
+  name: string;
+  label?: string;
+}
+
+const TimePicker = ({ name, label }: TimePickerProps) => (
+  <Select name={name} label={label} options={hours} />
 );
 
 export default TimePicker;

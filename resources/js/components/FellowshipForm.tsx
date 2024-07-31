@@ -16,10 +16,11 @@ const getOptions = ([value, label]: [
 ]): SelectOption<number> => ({ value: parseInt(value), label });
 
 interface FellowshipFormProps {
+  heading: string;
   fellowship?: Fellowship;
 }
 
-const FellowshipForm = ({ fellowship }: FellowshipFormProps) => {
+const FellowshipForm = ({ heading, fellowship }: FellowshipFormProps) => {
   const form = useForm({
     name: fellowship?.name ?? "",
     status: fellowship?.status ?? "draft",
@@ -53,16 +54,12 @@ const FellowshipForm = ({ fellowship }: FellowshipFormProps) => {
     submit();
   };
 
-  const header = fellowship
-    ? message.admin.fellowships.edit
-    : message.admin.fellowships.post;
-
   const days = Object.entries(message.common.day).map(getOptions);
   const frequencies = Object.entries(message.common.frequency).map(getOptions);
 
   return (
     <Form form={form} onSubmit={publish}>
-      <Informative className="mb-1" header={header} />
+      <Informative className="mb-1" header={heading} />
       <Input required label={message.admin.fellowships.name} name="name" />
       <div className="flex-column gap">
         <span>{message.admin.fellowships.schedule}</span>

@@ -1,10 +1,11 @@
 import { usePage } from "@inertiajs/react";
+import { Day } from "date-fns";
 
 import useMessage from "@/hooks/useMessage";
 
 interface ScheduleProps {
-  day: number;
-  frequency: number;
+  day: Day;
+  frequency: 1 | 2;
 }
 
 const Schedule = ({ day, frequency }: ScheduleProps) => {
@@ -14,9 +15,9 @@ const Schedule = ({ day, frequency }: ScheduleProps) => {
 
   return (
     <span>
-      {message.common.frequency[frequency as 1 | 2]}
+      {message.common.frequency[frequency]}
       {delimiter}
-      {message.common.day[day as 1 | 2 | 3 | 4 | 5 | 6 | 7]}
+      {message.common.day[day]}
     </span>
   );
 };

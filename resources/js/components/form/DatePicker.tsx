@@ -16,12 +16,13 @@ import useDateLocale from "@/hooks/useDateLocale";
 interface CalendarProps {
   name: string;
   label?: string;
+  dateformat?: string;
 }
 
 const ChevronIcon = (...[{ orientation }]: Parameters<typeof Chevron>) =>
   orientation === "left" ? <ArrowLeft size={18} /> : <ArrowRight size={18} />;
 
-const DatePicker = ({ label, name }: CalendarProps) => {
+const DatePicker = ({ label, name, dateformat = "PPPP" }: CalendarProps) => {
   const locale = useDateLocale();
   const form = useContext(FormContext);
 
@@ -34,7 +35,7 @@ const DatePicker = ({ label, name }: CalendarProps) => {
       {label && <span>{label}</span>}
       <Dropdown className="calendar">
         <button type="button" className="input flex justify-between">
-          <FormattedDate date={form.data[name]} format="PPPP" />
+          <FormattedDate date={form.data[name]} format={dateformat} />
           <RiCalendar2Line className="muted" size={18} />
         </button>
         <Dropdown.Menu>
@@ -45,6 +46,7 @@ const DatePicker = ({ label, name }: CalendarProps) => {
             locale={locale}
             onSelect={onSelect}
             selected={form.data[name]}
+            defaultMonth={form.data[name]}
             components={{ Chevron: ChevronIcon }}
           />
         </Dropdown.Menu>

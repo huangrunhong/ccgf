@@ -1,16 +1,18 @@
+import { Day } from "date-fns";
+
 const en = {
   cancel: "Cancel",
   confirm: "Confirm",
   common: {
     day: {
-      1: "Monday",
-      2: "Tuesday",
-      3: "Wednesday",
-      4: "Thursday",
-      5: "Friday",
-      6: "Saturday",
-      7: "Sunday",
-    },
+      0: "Monday",
+      1: "Tuesday",
+      2: "Wednesday",
+      3: "Thursday",
+      4: "Friday",
+      5: "Saturday",
+      6: "Sunday",
+    } as Record<Day, string>,
     frequency: {
       1: "Every Week",
       2: "Every two Weeks",
@@ -18,6 +20,9 @@ const en = {
   },
   page: {
     home: "Home",
+    editRegularWorship: "Edit regular Worship",
+    editSpecialWorship: "Edit special Worship",
+    createSpecialWorship: "Create special Worship",
     createFellowship: "Create Fellowship",
     editFellowship: "Edit Fellowship",
     createEvent: "Create Event",
@@ -72,8 +77,6 @@ const en = {
       signOut: "Sign out",
     },
     fellowships: {
-      post: "Create fellowship",
-      edit: "Edit fellowship",
       name: "Name",
       status: "Status",
       description: "Description",
@@ -94,18 +97,17 @@ const en = {
       },
     },
     worships: {
-      post: "Create Worship",
-      edit: "Edit Worship",
+      type: "Type",
       date: "Date",
-      title: "Title",
-      speaker: "Speaker",
+      title: "Title (optional)",
+      location: "Location",
       baptism: "Baptism",
       eucharist: "Eucharist",
       dinner: "Dinner",
+      regular: "Regular worship",
+      special: "Special worship",
     },
     events: {
-      post: "Create Event",
-      edit: "Edit Event",
       date: "Date",
       location: "Location",
       title: "Title",

@@ -8,9 +8,6 @@ interface EventScheduleProps {
 const EventSchedule = ({ date }: EventScheduleProps) => {
   const locale = useLanguage();
 
-  date.setHours(15);
-  date.setMinutes(30);
-
   return (
     <div className="flex-column gap-1">
       <div className="flex gap">
@@ -18,10 +15,7 @@ const EventSchedule = ({ date }: EventScheduleProps) => {
           <span className="h3">{date.getFullYear()}</span>
           <strong className="h2">
             <strong>
-              {date.toLocaleString(locale, {
-                month: "short",
-                day: "numeric",
-              })}
+              {date.toLocaleString(locale, { month: "short", day: "numeric" })}
             </strong>
           </strong>
         </div>

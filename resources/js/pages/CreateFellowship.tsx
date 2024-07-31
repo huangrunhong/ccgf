@@ -9,7 +9,7 @@ const CreateFellowShip = () => {
   return (
     <AuthenticatedLayout currentPath="fellowships">
       <SiteHead title={message.page.createFellowship} />
-      <FellowshipForm />
+      <FellowshipForm heading={message.page.createFellowship} />
     </AuthenticatedLayout>
   );
 };

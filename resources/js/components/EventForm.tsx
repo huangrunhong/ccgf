@@ -11,9 +11,10 @@ import useMessage from "@/hooks/useMessage";
 
 interface EventFormProps {
   event?: Event;
+  heading: string;
 }
 
-const EventForm = ({ event }: EventFormProps) => {
+const EventForm = ({ heading, event }: EventFormProps) => {
   const form = useForm({
     date: event?.date ?? new Date().toISOString(),
     location: event?.location ?? "",
@@ -28,11 +29,9 @@ const EventForm = ({ event }: EventFormProps) => {
       ? form.post(route("events.update", { id: event.id }))
       : form.post(route("events.store"));
 
-  const header = event ? message.admin.events.edit : message.admin.events.post;
-
   return (
     <Form form={form} onSubmit={submit}>
-      <Informative className="mb-1" header={header} />
+      <Informative className="mb-1" header={heading} />
       <Input label={message.admin.events.title} name="title" />
       <DatetimePicker label={message.admin.events.date} name="date" />
       <Input label={message.admin.events.location} name="location" />

@@ -1,36 +1,31 @@
 import { Link, useForm } from "@inertiajs/react";
-import { format } from "date-fns/format";
-import { nextSunday } from "date-fns/nextSunday";
 
 import { Worship } from "@/types";
-import DatePicker from "@/components/form/DatePicker";
 import Checkbox from "@/components/form/Checkbox";
+import DatetimePicker from "@/components/form/DateTimePicker";
 import Form from "@/components/form/Form";
 import Input from "@/components/form/Input";
 import Informative from "@/components/base/Informative";
+import nextSunday from "@/lib/nextSunday";
 import useMessage from "@/hooks/useMessage";
 
-const sunday = (date?: string) =>
-  format(date ? new Date(date) : nextSunday(new Date()), "yyyy-MM-dd");
+const getInitialValues = (worship?: Worship) => ({
+  title: worship?.title ?? "",
+  date: worship?.date ?? nextSunday().toISOString(),
+  location: worship?.location ?? "",
+  dinner: worship?.dinner ?? false,
+  baptism: worship?.baptism ?? false,
+  eucharist: worship?.eucharist ?? false,
+});
 
 interface WorshipFormProps {
+  heading: string;
   worship?: Worship;
 }
 
-const WorshipForm = ({ worship }: WorshipFormProps) => {
-  const form = useForm({
-    title: worship?.title ?? "",
-    speaker: worship?.speaker ?? "",
-    date: sunday(worship?.date),
-    dinner: worship?.dinner ?? false,
-    baptism: worship?.baptism ?? false,
-    eucharist: worship?.eucharist ?? false,
-  });
+const WorshipForm = ({ heading, worship }: WorshipFormProps) => {
   const message = useMessage();
-
-  const header = worship
-    ? message.admin.worships.edit
-    : message.admin.worships.post;
+  const form = useForm(getInitialValues(worship));
 
   const submit = () =>
     worship
@@ -39,10 +34,14 @@ const WorshipForm = ({ worship }: WorshipFormProps) => {
 
   return (
     <Form form={form} onSubmit={submit}>
-      <Informative className="mb-1" header={header} />
-      <Input required label={message.admin.worships.title} name="title" />
-      <Input required label={message.admin.worships.speaker} name="speaker" />
-      <DatePicker label={message.admin.worships.date} name="date" />
+      <Informative className="mb-1" header={heading} />
+      <DatetimePicker
+        name="date"
+        label={message.admin.worships.date}
+        dateformat={worship?.regular ? "eeee" : undefined}
+      />
+      <Input label={message.admin.worships.location} name="location" />
+      <Input label={message.admin.worships.title} name="title" />
       <div className="flex gap-2 mt-2">
         <Checkbox label={message.admin.worships.baptism} name="baptism" />
         <Checkbox label={message.admin.worships.eucharist} name="eucharist" />

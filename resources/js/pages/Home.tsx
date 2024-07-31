@@ -1,29 +1,42 @@
 import {
-  RiCalendarScheduleLine,
   RiCrossLine,
-  RiMap2Line,
   RiOpenArmLine,
   RiRestaurantLine,
   RiSpeakLine,
   RiYoutubeFill,
 } from "@remixicon/react";
+import { nextDay } from "date-fns/nextDay";
+import { isSameWeek } from "date-fns/isSameWeek";
 
 import { Event, Fellowship, PageProps, Worship } from "@/types";
+import getDay from "@/lib/getDay";
 import useMessage from "@/hooks/useMessage";
 import PageLayout from "@/layouts/PageLayout";
 import SiteHead from "@/components/base/SiteHead";
 import EventSchedule from "@/components/base/EventSchedule";
 import EventCard from "@/components/base/EventCard";
 import Schedule from "@/components/base/Schedule";
+import Section from "@/components/base/Section";
+
+const isThisWeek = (date: string) =>
+  isSameWeek(date, new Date(), { weekStartsOn: 1 });
+
+const fineUpcomingWorship = (worships: Worship[]) =>
+  worships.find((worship) => !worship.regular && isThisWeek(worship.date)) ||
+  worships.find((worship) => worship.regular);
+
+const castRecurringDate = ({ date, regular }: Worship) =>
+  regular ? nextDay(new Date(), getDay(date)) : new Date(date);
 
 interface HomeProps extends PageProps {
   events: Event[];
-  worship: Worship;
+  worships: Worship[];
   fellowships: Fellowship[];
 }
 
-const Home = ({ events, fellowships, worship }: HomeProps) => {
+const Home = ({ events, fellowships, worships }: HomeProps) => {
   const message = useMessage();
+  const worship = fineUpcomingWorship(worships) || worships.at(0);
 
   return (
     <PageLayout className="home">
@@ -36,58 +49,43 @@ const Home = ({ events, fellowships, worship }: HomeProps) => {
         <div className="banner" />
         <p className="pastor-words py-12">{message.home.subheading}</p>
       </section>
-      <section className="pt-4 pb-8">
-        <hr />
-        <div className="flex gap-2 items-center mt-4 mb-8">
-          <h2 className="flex-1">{message.home.worship.heading}</h2>
-          <div className="flex flex-1 justify-between">
-            <div className="flex items-center gap">
-              <RiCalendarScheduleLine size={20} />
-              <span className="large">
-                {message.home.worship.schedule} 15:30
-              </span>
-            </div>
-            <div className="flex items-center gap">
-              <RiMap2Line size={20} />
-              <span className="large">
-                Kirchhainer Strasse 2, 60433 Frankfurt am Main
-              </span>
-            </div>
-          </div>
-        </div>
+      <Section heading={message.home.worship.heading}>
         <div className="flex gap-2">
           <div className="flex-1 flex-column justify-between">
             <span className="muted">{message.home.worship.description}</span>
-            <div className="flex-column gap-1">
-              <EventSchedule date={new Date(worship.date)} />
-              <div className="flex gap-2 mt-2">
-                <div className="flex items-center gap">
-                  <RiSpeakLine size={18} />
-                  {message.home.worship.sermon}
+            {worship && (
+              <div className="flex-column gap-2">
+                <EventSchedule date={castRecurringDate(worship)} />
+                <div className="flex gap-2 large">
+                  <div className="flex items-center gap">
+                    <RiSpeakLine size={20} />
+                    {message.home.worship.sermon}
+                  </div>
+                  {worship.baptism && (
+                    <div className="flex items-center gap">
+                      <RiCrossLine size={20} />
+                      {message.home.worship.baptism}
+                    </div>
+                  )}
+                  {worship.eucharist && (
+                    <div className="flex items-center gap">
+                      <RiRestaurantLine size={20} />
+                      {message.home.worship.eucharist}
+                    </div>
+                  )}
+                  {worship.dinner && (
+                    <div className="flex items-center gap">
+                      <RiOpenArmLine size={20} />
+                      {message.home.worship.dinner}
+                    </div>
+                  )}
                 </div>
-                {worship.baptism && (
-                  <div className="flex items-center gap">
-                    <RiCrossLine size={18} />
-                    {message.home.worship.baptism}
-                  </div>
-                )}
-                {worship.eucharist && (
-                  <div className="flex items-center gap">
-                    <RiRestaurantLine size={18} />
-                    {message.home.worship.eucharist}
-                  </div>
-                )}
-                {worship.dinner && (
-                  <div className="flex items-center gap">
-                    <RiOpenArmLine size={18} />
-                    {message.home.worship.dinner}
-                  </div>
-                )}
+                <h3 className="flex-column gap mb-2">
+                  <span className="muted">{worship.title}</span>
+                  <span>{worship.location}</span>
+                </h3>
               </div>
-              <h3 className="mb-2">
-                {worship.speaker}: {worship.title}
-              </h3>
-            </div>
+            )}
           </div>
           <div className="flex-1 p-relative">
             <img className="w-full" src="/assets/worship.jpg" alt="worship" />
@@ -97,10 +95,8 @@ const Home = ({ events, fellowships, worship }: HomeProps) => {
             </a>
           </div>
         </div>
-      </section>
-      <section>
-        <hr />
-        <h2 className="mt-4 mb-8">{message.home.fellowships.heading}</h2>
+      </Section>
+      <Section heading={message.home.fellowships.heading}>
         <div className="fellowships">
           {fellowships.map((fellowship) => (
             <div key={fellowship.id}>
@@ -118,14 +114,12 @@ const Home = ({ events, fellowships, worship }: HomeProps) => {
             </div>
           ))}
         </div>
-      </section>
-      <section className="pt-8">
-        <hr />
-        <h2 className="mt-4 mb-8">{message.home.events}</h2>
+      </Section>
+      <Section heading={message.home.events}>
         {events.map((event) => (
           <EventCard key={event.id} event={event} />
         ))}
-      </section>
+      </Section>
     </PageLayout>
   );
 };

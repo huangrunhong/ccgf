@@ -3,6 +3,7 @@ import { RiAddFill, RiDeleteBinLine, RiEditLine } from "@remixicon/react";
 
 import { PageProps, Worship } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
+import Badge from "@/components/base/Badge";
 import FormattedDate from "@/components/base/FormattedDate";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
@@ -21,35 +22,49 @@ const Worships = ({ worships }: WorshipsProps) => {
         <span className="ml-1">{worships.length} Items</span>
         <Link className="button solid" href={route("worships.create")}>
           <RiAddFill size={18} />
-          {message.admin.worships.post}
+          {message.page.createSpecialWorship}
         </Link>
       </div>
       <table>
         <thead>
           <tr>
+            <th>{message.admin.worships.type}</th>
             <th>{message.admin.worships.date}</th>
-            <th>{message.admin.worships.speaker}</th>
-            <th>{message.admin.worships.title}</th>
+            <th>{message.admin.worships.location}</th>
           </tr>
         </thead>
         <tbody>
           {worships.map((worship) => (
             <tr key={worship.id}>
               <td>
-                <FormattedDate date={worship.date} format="PPPP" />
+                <Badge
+                  content={
+                    worship.regular
+                      ? message.admin.worships.regular
+                      : message.admin.worships.special
+                  }
+                  status={worship.regular ? undefined : "warning"}
+                />
               </td>
-              <td>{worship.speaker}</td>
+              <td>
+                <FormattedDate
+                  date={worship.date}
+                  format={worship.regular ? "eeee p" : "PPPPp"}
+                />
+              </td>
               <td className="flex gap-1 items-center justify-between">
-                {worship.title}
+                {worship.location}
                 <div className="flex gap">
-                  <Link
-                    as="button"
-                    method="delete"
-                    className="icon"
-                    href={route("worships.destroy", { id: worship.id })}
-                  >
-                    <RiDeleteBinLine size={18} />
-                  </Link>
+                  {!worship.regular && (
+                    <Link
+                      as="button"
+                      method="delete"
+                      className="icon"
+                      href={route("worships.destroy", { id: worship.id })}
+                    >
+                      <RiDeleteBinLine size={18} />
+                    </Link>
+                  )}
                   <Link
                     className="button icon"
                     href={route("worships.edit", { id: worship.id })}

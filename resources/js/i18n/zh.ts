@@ -1,16 +1,18 @@
+import { Day } from "date-fns";
+
 const zh = {
   cancel: "取消",
   confirm: "确认",
   common: {
     day: {
-      1: "周一",
-      2: "周二",
-      3: "周三",
-      4: "周四",
-      5: "周五",
-      6: "周六",
-      7: "周日",
-    },
+      0: "星期一",
+      1: "星期二",
+      2: "星期三",
+      3: "星期四",
+      4: "星期五",
+      5: "星期六",
+      6: "星期日",
+    } as Record<Day, string>,
     frequency: {
       1: "每周",
       2: "隔周",
@@ -18,6 +20,9 @@ const zh = {
   },
   page: {
     home: "首页",
+    editRegularWorship: "编辑定期证道",
+    editSpecialWorship: "编辑特别证道",
+    createSpecialWorship: "添加特别证道",
     createFellowship: "添加团契",
     editFellowship: "编辑团契",
     createEvent: "添加活动",
@@ -72,8 +77,6 @@ const zh = {
       signOut: "退出登录",
     },
     fellowships: {
-      post: "添加团契",
-      edit: "编辑团契",
       name: "名称",
       status: "状态",
       description: "内容",
@@ -94,18 +97,17 @@ const zh = {
       },
     },
     worships: {
-      post: "添加证道",
-      edit: "编辑证道",
+      type: "类型",
       date: "日期",
-      title: "主题",
-      speaker: "讲员",
+      title: "主题 (可选)",
+      location: "地点",
       baptism: "洗礼",
       eucharist: "圣餐",
       dinner: "爱宴",
+      regular: "定期证道",
+      special: "特别证道",
     },
     events: {
-      post: "添加活动",
-      edit: "编辑活动",
       date: "日期",
       title: "标题",
       description: "详情",

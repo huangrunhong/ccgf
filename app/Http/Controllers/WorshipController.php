@@ -12,9 +12,7 @@ class WorshipController extends Controller
 {
     public function show(): Response
     {
-        return Inertia::render('Worships', [
-            'worships' => Worship::orderByDesc('date')->get()
-        ]);
+        return Inertia::render('Worships', ['worships' => Worship::all()]);
     }
 
     public function create(): Response
@@ -24,9 +22,7 @@ class WorshipController extends Controller
 
     public function edit(string $id): Response
     {
-        return Inertia::render('EditWorship', [
-            'worship' => Worship::findOrFail($id)
-        ]);
+        return Inertia::render('EditWorship', ['worship' => Worship::findOrFail($id)]);
     }
 
     public function store(WorshipCreateRequest $request): RedirectResponse
@@ -51,8 +47,12 @@ class WorshipController extends Controller
 
     public function destroy(string $id): RedirectResponse
     {
-        $worship = Worship::findOrFail($id);
-        $worship->delete();
+        $count = Worship::count();
+        $worship = Worship::find($id);
+
+        if ($count > 1 && $worship) {
+            $worship->delete();
+        }
 
         return redirect()->route('dashboard');
     }

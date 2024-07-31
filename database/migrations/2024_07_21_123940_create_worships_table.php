@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -14,13 +16,22 @@ return new class extends Migration
         Schema::create('worships', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("title");
-            $table->string("speaker");
-            $table->date("date");
-            $table->boolean("dinner");
-            $table->boolean("baptism");
-            $table->boolean("eucharist");
+            $table->dateTime("date");
+            $table->date("location");
+            $table->string("title")->nullable();
+            $table->boolean('regular')->nullable();
+            $table->boolean("dinner")->nullable();
+            $table->boolean("baptism")->nullable();
+            $table->boolean("eucharist")->nullable();
         });
+
+        DB::table('worships')->insert([
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'regular' => true,
+            'date' => Carbon::parse('next sunday')->setHour(15)->setMinute(30),
+            'location' => 'Kirchhainer Strasse 2, 60433 Frankfurt am Main',
+        ]);
     }
 
     /**

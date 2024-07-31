@@ -1,3 +1,4 @@
+import { Day } from "date-fns";
 import { Config } from "ziggy-js";
 
 export interface User {
@@ -21,12 +22,13 @@ export type SupportedLanguage = "en" | "de" | "zh";
 
 export interface Worship {
   id: number;
-  title: string;
-  speaker: string;
+  regular: boolean;
   date: string;
-  dinner: boolean;
-  baptism: boolean;
-  eucharist: boolean;
+  location: string;
+  title?: string;
+  dinner?: boolean;
+  baptism?: boolean;
+  eucharist?: boolean;
 }
 
 export interface Event {
@@ -43,8 +45,8 @@ export interface Fellowship {
   status: PostStatus;
   name: string;
   hour: string;
-  day: number;
-  frequency: number;
+  day: Day;
+  frequency: 1 | 2;
   contact: string | null;
   location: string;
   description: string;

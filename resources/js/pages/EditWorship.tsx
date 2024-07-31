@@ -11,10 +11,14 @@ interface EditWorShipProps extends PageProps {
 const EditWorShip = ({ worship }: EditWorShipProps) => {
   const message = useMessage();
 
+  const heading = worship.regular
+    ? message.page.editRegularWorship
+    : message.page.editSpecialWorship;
+
   return (
     <AuthenticatedLayout currentPath="dashboard">
-      <SiteHead title={message.page.editFellowship} />
-      <WorshipForm worship={worship} />
+      <SiteHead title={heading} />
+      <WorshipForm heading={heading} worship={worship} />
     </AuthenticatedLayout>
   );
 };

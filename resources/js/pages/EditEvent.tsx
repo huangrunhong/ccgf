@@ -14,7 +14,7 @@ const EditEvent = ({ event }: EditEventProps) => {
   return (
     <AuthenticatedLayout currentPath="events">
       <SiteHead title={message.page.editEvent} />
-      <EventForm event={event} />
+      <EventForm event={event} heading={message.page.editEvent} />
     </AuthenticatedLayout>
   );
 };

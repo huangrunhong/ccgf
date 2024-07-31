@@ -14,12 +14,12 @@ class WorshipCreateRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'title' => ['required', 'string', 'min:3', 'max:255'],
-      'date' => ['required', 'date_format:Y-m-d'],
-      'speaker' => ['required', 'string', 'min:2', 'max:255'],
-      'baptism' =>  ['required', 'boolean'],
-      'eucharist' =>  ['required', 'boolean'],
-      'dinner' =>  ['required', 'boolean'],
+      'date' => ['required', 'date'],
+      'location' => ['required', 'string', 'min:3', 'max:255'],
+      'title' => ['nullable', 'string', 'min:3', 'max:255'],
+      'baptism' =>  ['nullable', 'boolean'],
+      'eucharist' =>  ['nullable', 'boolean'],
+      'dinner' =>  ['nullable', 'boolean'],
     ];
   }
 }

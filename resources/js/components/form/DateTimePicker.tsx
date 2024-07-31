@@ -10,9 +10,10 @@ import Field from "@/components/form/Field";
 interface DatetimePickerProps {
   name: string;
   label: string;
+  dateformat?: string;
 }
 
-const DatetimePicker = ({ name, label }: DatetimePickerProps) => {
+const DatetimePicker = ({ name, label, dateformat }: DatetimePickerProps) => {
   const form = useContext(FormContext);
   const [datetime, setDatetime] = useState({
     time: format(form.data[name], "kk:mm"),
@@ -34,7 +35,7 @@ const DatetimePicker = ({ name, label }: DatetimePickerProps) => {
       >
         <span>{label}</span>
         <div className="flex gap">
-          <DatePicker name="date" />
+          <DatePicker name="date" dateformat={dateformat} />
           <TimePicker name="time" />
         </div>
       </FormContext.Provider>

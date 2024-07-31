@@ -33,7 +33,7 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
         <span className="ml-1">{fellowships.length} Items</span>
         <Link className="button solid" href={route("fellowships.create")}>
           <RiAddFill size={18} />
-          {message.admin.fellowships.post}
+          {message.page.createFellowship}
         </Link>
       </div>
       <table>

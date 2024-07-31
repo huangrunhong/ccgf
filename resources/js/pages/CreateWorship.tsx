@@ -8,8 +8,8 @@ const CreateWorShip = () => {
 
   return (
     <AuthenticatedLayout currentPath="dashboard">
-      <SiteHead title={message.page.createFellowship} />
-      <WorshipForm />
+      <SiteHead title={message.page.createSpecialWorship} />
+      <WorshipForm heading={message.page.createSpecialWorship} />
     </AuthenticatedLayout>
   );
 };
