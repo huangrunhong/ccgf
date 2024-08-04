@@ -26,7 +26,7 @@ const FellowshipForm = ({ heading, fellowship }: FellowshipFormProps) => {
     status: fellowship?.status ?? "draft",
     hour: fellowship?.hour ?? "15:00",
     contact: fellowship?.contact ?? "",
-    day: fellowship?.day ?? 7,
+    day: fellowship?.day ?? 6,
     frequency: fellowship?.frequency ?? 1,
     cover: undefined as File | undefined,
     remove_cover: false,

@@ -14,8 +14,8 @@ const de = {
       6: "Sonntag",
     } as Record<Day, string>,
     frequency: {
-      1: "Jede Woche",
-      2: "Jede zweite Woche",
+      1: "Jeden",
+      2: "Jeden zweiten",
     },
   },
   page: {
@@ -67,6 +67,8 @@ const de = {
     about: "Über uns",
     liveStream: "Liveübertragung",
     donate: "Spenden",
+    imprint: "Impressum",
+    terms: "Datenschutz",
   },
   admin: {
     menu: {

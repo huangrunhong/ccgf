@@ -67,6 +67,8 @@ const zh = {
     about: "关于",
     liveStream: "实时转播",
     donate: "奉献",
+    imprint: "版本说明",
+    terms: "使用条款",
   },
   admin: {
     menu: {

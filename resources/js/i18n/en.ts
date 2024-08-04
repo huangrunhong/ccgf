@@ -14,8 +14,8 @@ const en = {
       6: "Sunday",
     } as Record<Day, string>,
     frequency: {
-      1: "Every Week",
-      2: "Every two Weeks",
+      1: "Every",
+      2: "Every other",
     },
   },
   page: {
@@ -67,6 +67,8 @@ const en = {
     about: "About",
     liveStream: "Live Stream",
     donate: "Donate",
+    imprint: "Imprint",
+    terms: "Terms",
   },
   admin: {
     menu: {

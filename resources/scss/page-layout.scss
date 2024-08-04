@@ -1,0 +1,31 @@
+.page-layout {
+  .address {
+    line-height: 1.25;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  .burger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--background);
+
+    &.open {
+      display: block;
+    }
+  }
+}

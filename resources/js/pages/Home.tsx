@@ -1,4 +1,5 @@
 import {
+  RiArrowRightDownLine,
   RiCrossLine,
   RiOpenArmLine,
   RiRestaurantLine,
@@ -14,9 +15,10 @@ import useMessage from "@/hooks/useMessage";
 import PageLayout from "@/layouts/PageLayout";
 import SiteHead from "@/components/base/SiteHead";
 import EventSchedule from "@/components/base/EventSchedule";
-import EventCard from "@/components/base/EventCard";
 import Schedule from "@/components/base/Schedule";
 import Section from "@/components/base/Section";
+import nextSunday from "@/lib/nextSunday";
+import EventList from "@/components/base/EventList";
 
 const isThisWeek = (date: string) =>
   isSameWeek(date, new Date(), { weekStartsOn: 1 });
@@ -50,43 +52,7 @@ const Home = ({ events, fellowships, worships }: HomeProps) => {
         <p className="pastor-words py-12">{message.home.subheading}</p>
       </section>
       <Section heading={message.home.worship.heading}>
-        <div className="flex gap-2">
-          <div className="flex-1 flex-column justify-between">
-            <span className="muted">{message.home.worship.description}</span>
-            {worship && (
-              <div className="flex-column gap-2">
-                <EventSchedule date={castRecurringDate(worship)} />
-                <div className="flex gap-2 large">
-                  <div className="flex items-center gap">
-                    <RiSpeakLine size={20} />
-                    {message.home.worship.sermon}
-                  </div>
-                  {worship.baptism && (
-                    <div className="flex items-center gap">
-                      <RiCrossLine size={20} />
-                      {message.home.worship.baptism}
-                    </div>
-                  )}
-                  {worship.eucharist && (
-                    <div className="flex items-center gap">
-                      <RiRestaurantLine size={20} />
-                      {message.home.worship.eucharist}
-                    </div>
-                  )}
-                  {worship.dinner && (
-                    <div className="flex items-center gap">
-                      <RiOpenArmLine size={20} />
-                      {message.home.worship.dinner}
-                    </div>
-                  )}
-                </div>
-                <h3 className="flex-column gap mb-2">
-                  <span className="muted">{worship.title}</span>
-                  <span>{worship.location}</span>
-                </h3>
-              </div>
-            )}
-          </div>
+        <div className="flex max-lg-flex-column gap-x-4 gap-y-2">
           <div className="flex-1 p-relative">
             <img className="w-full" src="/assets/worship.jpg" alt="worship" />
             <a className="live-stream">
@@ -94,31 +60,60 @@ const Home = ({ events, fellowships, worships }: HomeProps) => {
               <span className="large">{message.home.worship.video}</span>
             </a>
           </div>
+          <EventSchedule
+            className="flex-1"
+            date={worship ? castRecurringDate(worship) : nextSunday()}
+            location={worship?.location}
+            title={worship?.title}
+            description={message.home.worship.description}
+          >
+            <div className="flex flex-wrap gap-x-2 gap-y-1 large">
+              <div className="flex items-center gap">
+                <RiSpeakLine size={20} />
+                {message.home.worship.sermon}
+              </div>
+              {worship?.baptism && (
+                <div className="flex items-center gap">
+                  <RiCrossLine size={20} />
+                  {message.home.worship.baptism}
+                </div>
+              )}
+              {worship?.eucharist && (
+                <div className="flex items-center gap">
+                  <RiRestaurantLine size={20} />
+                  {message.home.worship.eucharist}
+                </div>
+              )}
+              {worship?.dinner && (
+                <div className="flex items-center gap">
+                  <RiOpenArmLine size={20} />
+                  {message.home.worship.dinner}
+                </div>
+              )}
+            </div>
+          </EventSchedule>
         </div>
       </Section>
       <Section heading={message.home.fellowships.heading}>
-        <div className="fellowships">
+        <div className="flex flex-wrap gap-x-4 gap-y-2">
           {fellowships.map((fellowship) => (
-            <div key={fellowship.id}>
-              <img
-                className="w-full"
-                src={fellowship.cover ?? "/assets/fellowship.jpg"}
+            <div key={fellowship.id} className="flex-column gap">
+              <div className="flex items-center gap-1">
+                <h3 className="h3">{fellowship.name}</h3>
+                <RiArrowRightDownLine size={32} />
+              </div>
+              <Schedule
+                className="h3 muted"
+                day={fellowship.day}
+                hour={fellowship.hour}
+                frequency={fellowship.frequency}
               />
-              <h3 className="h3 mt-1">{fellowship.name}</h3>
-              <span className="h3 muted">
-                <Schedule
-                  day={fellowship.day}
-                  frequency={fellowship.frequency}
-                />
-              </span>
             </div>
           ))}
         </div>
       </Section>
       <Section heading={message.home.events}>
-        {events.map((event) => (
-          <EventCard key={event.id} event={event} />
-        ))}
+        <EventList events={events} />
       </Section>
     </PageLayout>
   );

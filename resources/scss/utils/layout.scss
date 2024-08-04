@@ -1,0 +1,29 @@
+.w-full {
+  width: 100%;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+@media (max-width: $screen-lg) {
+  .max-lg-hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .min-lg-hidden {
+    display: none !important;
+  }
+}
+
+@media (max-width: $screen-sm) {
+  .max-sm-hidden {
+    display: none !important;
+  }
+}

@@ -60,9 +60,9 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
               <td>
                 <Schedule
                   day={fellowship.day}
+                  hour={fellowship.hour}
                   frequency={fellowship.frequency}
                 />
-                <span> {fellowship.hour}</span>
               </td>
               <td className="flex gap-1 items-center justify-between">
                 {fellowship.contact}

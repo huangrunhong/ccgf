@@ -1,23 +1,20 @@
-import { usePage } from "@inertiajs/react";
 import { Day } from "date-fns";
 
 import useMessage from "@/hooks/useMessage";
 
 interface ScheduleProps {
   day: Day;
+  hour: string;
   frequency: 1 | 2;
+  className?: string;
 }
 
-const Schedule = ({ day, frequency }: ScheduleProps) => {
-  const page = usePage();
+const Schedule = ({ className, day, hour, frequency }: ScheduleProps) => {
   const message = useMessage();
-  const delimiter = page.props.locale === "zh" ? " " : ", ";
 
   return (
-    <span>
-      {message.common.frequency[frequency]}
-      {delimiter}
-      {message.common.day[day]}
+    <span className={className}>
+      {message.common.frequency[frequency]} {message.common.day[day]} {hour}
     </span>
   );
 };

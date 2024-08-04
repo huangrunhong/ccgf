@@ -1,3 +1,4 @@
+@import "variables";
 @import "normalize.css";
 @import "/node_modules/react-day-picker/src/style.css";
 
@@ -19,6 +20,12 @@
   --screen-desktop: 1440px;
   --screen-tablet: 768px;
   --font-family: "Reddit Sans", Arial, Helvetica, sans-serif;
+  --h1-font-size: 4rem;
+  --h1-line-height: 1.5;
+  --h2-font-size: 3rem;
+  --h3-font-size: 1.5rem;
+  --large-font-size: 1.125rem;
+  --logo-font-size: 1.5rem;
 }
 
 .dark {
@@ -75,19 +82,20 @@ p {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: var(--h1-font-size);
+  line-height: var(--h1-line-height);
   font-weight: 400;
 }
 
 h2,
 .h2 {
-  font-size: 3rem;
+  font-size: var(--h2-font-size);
   font-weight: 400;
 }
 
 h3,
 .h3 {
-  font-size: 1.5rem;
+  font-size: var(--h3-font-size);
   font-weight: 400;
 }
 
@@ -134,7 +142,7 @@ table {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: var(--logo-font-size);
   font-weight: 800;
   line-height: 0.85;
 }
@@ -145,15 +153,30 @@ table {
   transform: skew(-20deg)
 }
 
-@import "utils";
+@media (max-width: $screen-lg) {
+  :root {
+    --h1-line-height: 1.25;
+    --h1-font-size: 3rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.25rem;
+    --large-font-size: 1rem;
+    --logo-font-size: 1.25rem;
+  }
+}
+
+@import "authenticated-layout";
 @import "badge";
+@import "calendar";
 @import "dialog";
 @import "dropdown";
-@import "form";
-@import "informative";
-@import "guest-layout";
-@import "authenticated-layout";
-@import "home";
-@import "rich-text-editor";
 @import "file-input";
-@import "calendar";
+@import "form";
+@import "guest-layout";
+@import "home";
+@import "informative";
+@import "page-layout";
+@import "rich-text-editor";
+@import "utils/flex.scss";
+@import "utils/layout.scss";
+@import "utils/spacing.scss";
+@import "utils/text.scss";
