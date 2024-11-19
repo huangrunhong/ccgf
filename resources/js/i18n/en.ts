@@ -3,6 +3,8 @@ import { Day } from "date-fns";
 const en = {
   cancel: "Cancel",
   confirm: "Confirm",
+  upload: "Upload",
+  delete: "Delete",
   common: {
     day: {
       0: "Monday",
@@ -27,9 +29,12 @@ const en = {
     editFellowship: "Edit Fellowship",
     createEvent: "Create Event",
     editEvent: "Edit Event",
+    createPost: "Create Page",
+    editPost: "Edit Page",
     dashboard: "Dashboard",
     events: "Events",
     fellowships: "Fellowships",
+    posts: "Posts",
     confirmPassword: "Confirm Password",
     forgetPassword: "Forget Password",
     resetPassword: "Reset Password",
@@ -37,6 +42,7 @@ const en = {
     register: "Register",
     emailVerification: "Email Verification",
     profile: "Profile",
+    mediaLibrary: "Media Library",
   },
   home: {
     welcome: "Welcome to",
@@ -75,7 +81,9 @@ const en = {
       church: "Worships",
       fellowship: "Fellowships",
       event: "Events",
+      post: "Posts",
       profile: "Profile",
+      mediaLibrary: "Media Library",
       signOut: "Sign out",
     },
     fellowships: {
@@ -115,6 +123,16 @@ const en = {
       title: "Title",
       description: "Description",
       cover: "Upload cover",
+    },
+    posts: {
+      title: "Title",
+      content: "Content",
+    },
+    mediaLibrary: {
+      deleteModal: {
+        header: "Are you sure you want to delete this image",
+        info: "This item will be deleted immediately. You can't undo this action.",
+      },
     },
   },
   profile: {

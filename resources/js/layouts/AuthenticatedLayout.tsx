@@ -1,6 +1,8 @@
 import {
+  RiArticleLine,
   RiCalendarEventLine,
   RiCrossLine,
+  RiImageLine,
   RiLogoutBoxLine,
   RiTeamLine,
   RiUserLine,
@@ -54,6 +56,17 @@ const AuthenticatedLayout = ({
           <Link className={classNames("events")} href={route("events")}>
             <RiCalendarEventLine size={18} />
             {message.admin.menu.event}
+          </Link>
+          <Link className={classNames("posts")} href={route("posts")}>
+            <RiArticleLine size={18} />
+            {message.admin.menu.post}
+          </Link>
+          <Link
+            href={route("mediaLibrary")}
+            className={classNames("mediaLibrary")}
+          >
+            <RiImageLine size={18} />
+            {message.admin.menu.mediaLibrary}
           </Link>
           <hr className="my-1" />
           <Link

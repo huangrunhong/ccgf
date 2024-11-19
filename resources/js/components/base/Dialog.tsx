@@ -4,18 +4,18 @@ import clsx from "clsx";
 import useMessage from "@/hooks/useMessage";
 
 interface DialogProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onConfirm: () => void;
   open: boolean;
-  setOpen: (open: boolean) => void;
+  dismiss: (open: false) => void;
   title: string;
 }
 
-const Dialog = ({ children, onConfirm, open, setOpen, title }: DialogProps) => {
+const Dialog = ({ children, onConfirm, open, dismiss, title }: DialogProps) => {
   const message = useMessage();
 
-  const close = () => setOpen(false);
-  const confirm = () => (setOpen(false), onConfirm());
+  const close = () => dismiss(false);
+  const confirm = () => (dismiss(false), onConfirm());
 
   return (
     <div className={clsx("dialog", open && "open")}>

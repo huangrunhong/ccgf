@@ -28,7 +28,7 @@ const PageLinks = ({ className, message }: PageLinksProps) => (
     <Link href={route("locale.chinese")}>{message.header.events}</Link>
     <Link href={route("locale.chinese")}>{message.header.fellowships}</Link>
     <Link href={route("locale.chinese")}>{message.header.library}</Link>
-    <Link className="mr-6" href={route("locale.chinese")}>
+    <Link className="mr-6" href={route("posts.get", { slug: "about" })}>
       {message.header.about}
     </Link>
     <Link className="flex items-center gap" href={route("locale.chinese")}>

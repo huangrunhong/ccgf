@@ -19,11 +19,11 @@ const DeleteUserForm = () => {
       </button>
       <Dialog
         open={open}
-        setOpen={setOpen}
+        dismiss={setOpen}
         title={message.profile.deleteAccount.modal.header}
         onConfirm={() => form.delete(route("profile.destroy"))}
       >
-        <Informative className="mb-2">
+        <Informative className="mb-3">
           {message.profile.deleteAccount.modal.info}
         </Informative>
         <Form form={form}>

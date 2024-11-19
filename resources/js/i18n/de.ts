@@ -3,6 +3,8 @@ import { Day } from "date-fns";
 const de = {
   cancel: "Abbrechen",
   confirm: "Bestätigen",
+  upload: "Hochladen",
+  delete: "Löschen",
   common: {
     day: {
       0: "Montag",
@@ -27,9 +29,12 @@ const de = {
     editFellowship: "Gemeinschaft bearbeiten",
     createEvent: "Termin hinzufügen",
     editEvent: "Termin bearbeiten",
+    createPost: "Beitrag hinzufügen",
+    editPost: "Beitrag bearbeiten",
     dashboard: "Dashboard",
     events: "Termine",
     fellowships: "Gemeinschaft",
+    posts: "Beiträge",
     confirmPassword: "Passwort bestätigen",
     forgetPassword: "Passwort vergessen",
     resetPassword: "Passwort zurücksetzen",
@@ -37,6 +42,7 @@ const de = {
     register: "Registrieren",
     emailVerification: "E-Mail-Adresse bestätigen",
     profile: "Profil",
+    mediaLibrary: "Medienbibliothek",
   },
   home: {
     welcome: "Willkommen zu",
@@ -75,7 +81,9 @@ const de = {
       church: "Gottesdienste",
       fellowship: "Gemeinschaften",
       event: "Termine",
+      post: "Seiten",
       profile: "Profil",
+      mediaLibrary: "Medienbibliothek",
       signOut: "Abmelden",
     },
     fellowships: {
@@ -115,6 +123,16 @@ const de = {
       title: "Titel",
       description: "Beschreibung",
       cover: "Cover hochladen",
+    },
+    posts: {
+      title: "Titel",
+      content: "Inhalt",
+    },
+    mediaLibrary: {
+      deleteModal: {
+        header: "Möchten Sie dieses Bild wirklich löschen?",
+        info: "Dieses Bild wird sofort gelöscht. Sie können diese Aktion nicht rückgängig machen.",
+      },
     },
   },
   profile: {

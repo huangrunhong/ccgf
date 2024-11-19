@@ -13,7 +13,7 @@ class EventController extends Controller
 {
     use UploadFile;
 
-    public function show(): Response
+    public function all(): Response
     {
         return Inertia::render('Events', [
             'events' => Event::orderByDesc('date')->get()

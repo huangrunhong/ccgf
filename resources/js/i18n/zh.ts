@@ -3,6 +3,8 @@ import { Day } from "date-fns";
 const zh = {
   cancel: "取消",
   confirm: "确认",
+  upload: "上传",
+  delete: "删除",
   common: {
     day: {
       0: "星期一",
@@ -27,9 +29,12 @@ const zh = {
     editFellowship: "编辑团契",
     createEvent: "添加活动",
     editEvent: "编辑活动",
+    createPost: "添加页面",
+    editPost: "编辑页面",
     dashboard: "Dashboard",
     events: "活动",
     fellowships: "团契",
+    posts: "页面",
     confirmPassword: "确认密码",
     forgetPassword: "忘记密码",
     resetPassword: "重置密码",
@@ -37,6 +42,7 @@ const zh = {
     register: "注册",
     emailVerification: "验证邮件",
     profile: "用户信息",
+    mediaLibrary: "媒体库",
   },
   home: {
     welcome: "欢迎来到",
@@ -75,7 +81,9 @@ const zh = {
       church: "主日敬拜",
       fellowship: "团契",
       event: "活动",
+      post: "页面",
       profile: "用户信息",
+      mediaLibrary: "媒体库",
       signOut: "退出登录",
     },
     fellowships: {
@@ -115,6 +123,16 @@ const zh = {
       description: "详情",
       location: "地点",
       cover: "上传封面",
+    },
+    posts: {
+      title: "标题",
+      content: "内容",
+    },
+    mediaLibrary: {
+      deleteModal: {
+        header: "您确定要删除此图片吗",
+        info: "此项将立即删除。您无法撤消此操作。",
+      },
     },
   },
   profile: {

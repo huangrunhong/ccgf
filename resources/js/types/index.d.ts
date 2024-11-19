@@ -54,6 +54,13 @@ export interface Fellowship {
   zoom: string | null;
 }
 
+export interface Post {
+  id: number;
+  slug: string;
+  title: string;
+  content: string;
+}
+
 export interface SelectOption<T extends string | number = string> {
   value: T;
   label: string;

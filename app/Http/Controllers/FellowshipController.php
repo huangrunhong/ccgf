@@ -15,10 +15,7 @@ class FellowshipController extends Controller
 {
     use UploadFile;
 
-    /**
-     * Show fellowships view
-     */
-    public function show(): Response
+    public function all(): Response
     {
         return Inertia::render('Fellowships', [
             'fellowships' => Fellowship::all()

@@ -10,7 +10,7 @@ use Inertia\Response;
 
 class WorshipController extends Controller
 {
-    public function show(): Response
+    public function all(): Response
     {
         return Inertia::render('Worships', ['worships' => Worship::all()]);
     }
