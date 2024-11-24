@@ -62,11 +62,11 @@ const AuthenticatedLayout = ({
             {message.admin.menu.post}
           </Link>
           <Link
-            href={route("mediaLibrary")}
-            className={classNames("mediaLibrary")}
+            href={route("photoLibrary")}
+            className={classNames("photoLibrary")}
           >
             <RiImageLine size={18} />
-            {message.admin.menu.mediaLibrary}
+            {message.admin.menu.photoLibrary}
           </Link>
           <hr className="my-1" />
           <Link

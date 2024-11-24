@@ -22,7 +22,7 @@ class FellowshipCreateRequest extends FormRequest
             'day' => ['required', 'integer'],
             'frequency' =>  ['required', 'integer'],
             "contact" => ['string', 'min:3', 'max:255'],
-            'cover' => ['nullable', 'image', 'max:2048'],
+            'cover' => ['nullable', 'string'],
             'location' => ['required', 'string', 'max:255'],
             'zoom' => ['nullable', 'string', 'max:255'],
             'description' => ['required', 'string', 'min:5'],

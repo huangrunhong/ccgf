@@ -10,13 +10,12 @@ interface FieldProps {
 }
 
 const Field = ({ name, className, children }: FieldProps) => {
-  const form = useContext(FormContext);
-  const error = (form.errors ?? {})[name];
+  const errors = useContext(FormContext).errors ?? {};
 
   return (
     <div className={clsx("flex-column gap", className)}>
       {children}
-      {error && <small className="danger">{error}</small>}
+      {errors[name] && <small className="danger">{errors[name]}</small>}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Event, PageProps } from "@/types";
+import { Event, PageProps, PhotoMetadata } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import EventForm from "@/components/EventForm";
 import SiteHead from "@/components/base/SiteHead";
@@ -6,15 +6,20 @@ import useMessage from "@/hooks/useMessage";
 
 interface EditEventProps extends PageProps {
   event: Event;
+  photos: PhotoMetadata[];
 }
 
-const EditEvent = ({ event }: EditEventProps) => {
+const EditEvent = ({ event, photos }: EditEventProps) => {
   const message = useMessage();
 
   return (
     <AuthenticatedLayout currentPath="events">
       <SiteHead title={message.page.editEvent} />
-      <EventForm event={event} heading={message.page.editEvent} />
+      <EventForm
+        event={event}
+        photos={photos}
+        heading={message.page.editEvent}
+      />
     </AuthenticatedLayout>
   );
 };

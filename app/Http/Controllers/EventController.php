@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventCreateRequest;
 use App\Models\Event;
-use App\Traits\UploadFile;
+use App\Traits\PhotoLibraryTrait;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class EventController extends Controller
 {
-    use UploadFile;
+    use PhotoLibraryTrait;
 
     public function all(): Response
     {
@@ -22,22 +22,24 @@ class EventController extends Controller
 
     public function create(): Response
     {
-        return Inertia::render('CreateEvent');
+        return Inertia::render('CreateEvent', [
+            'photos' => $this->getAllImages()
+        ]);
     }
 
     public function edit(string $id): Response
     {
         return Inertia::render('EditEvent', [
-            'event' => Event::findOrFail($id)
+            'event' => Event::findOrFail($id),
+            'photos' => $this->getAllImages()
         ]);
     }
 
     public function store(EventCreateRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $validated['cover'] = $this->saveFile($request, 'cover');
-
         $event = new Event($validated);
+
         $event->save();
 
         return redirect()->route('events');
@@ -48,7 +50,6 @@ class EventController extends Controller
         $validated = $request->validated();
         $event = Event::findOrFail($id);
 
-        $validated['cover'] = $this->replaceFile($request,  'cover', $event->cover);
         $event->update($validated);
 
         return redirect()->route('events');
@@ -58,7 +59,6 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        $this->deleteFile($event->cover);
         $event->delete();
 
         return redirect()->route('events');

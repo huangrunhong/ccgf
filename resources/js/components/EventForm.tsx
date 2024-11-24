@@ -1,8 +1,8 @@
 import { Link, useForm } from "@inertiajs/react";
 
-import { Event } from "@/types";
+import { Event, PhotoMetadata } from "@/types";
 import DatetimePicker from "@/components/form/DateTimePicker";
-import FileInput from "@/components/form/FileInput";
+import PhotoInput from "@/components/form/PhotoInput";
 import Form from "@/components/form/Form";
 import Informative from "@/components/base/Informative";
 import Input from "@/components/form/Input";
@@ -11,16 +11,17 @@ import useMessage from "@/hooks/useMessage";
 
 interface EventFormProps {
   event?: Event;
+  photos: PhotoMetadata[];
   heading: string;
 }
 
-const EventForm = ({ heading, event }: EventFormProps) => {
+const EventForm = ({ heading, event, photos }: EventFormProps) => {
   const form = useForm({
     date: event?.date ?? new Date().toISOString(),
     location: event?.location ?? "",
     title: event?.title ?? "",
     description: event?.description ?? "",
-    cover: undefined as File | undefined,
+    cover: event?.cover ?? null,
   });
   const message = useMessage();
 
@@ -35,10 +36,10 @@ const EventForm = ({ heading, event }: EventFormProps) => {
       <Input label={message.admin.events.title} name="title" />
       <DatetimePicker label={message.admin.events.date} name="date" />
       <Input label={message.admin.events.location} name="location" />
-      <FileInput
+      <PhotoInput
         name="cover"
+        photos={photos}
         label={message.admin.events.cover}
-        url={event?.cover}
       />
       <RichTextEditor
         name="description"

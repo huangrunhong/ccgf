@@ -3,7 +3,7 @@
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FellowshipController;
 use App\Http\Controllers\LocaleController;
-use App\Http\Controllers\MediaLibraryController;
+use App\Http\Controllers\PhotoLibraryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorshipController;
@@ -45,9 +45,9 @@ Route::prefix('admin')->group(function () {
     Route::post('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 
-    Route::get('/media-library', [MediaLibraryController::class, 'all'])->name('mediaLibrary');
-    Route::post('/media-library', [MediaLibraryController::class, 'upload'])->name('mediaLibrary.upload');
-    Route::delete('/media-library/{file}', [MediaLibraryController::class, 'destroy'])->name('mediaLibrary.destroy');
+    Route::get('/photo-library', [PhotoLibraryController::class, 'all'])->name('photoLibrary');
+    Route::post('/photo-library', [PhotoLibraryController::class, 'upload'])->name('photoLibrary.upload');
+    Route::delete('/photo-library/{file}', [PhotoLibraryController::class, 'destroy'])->name('photoLibrary.destroy');
 })->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {

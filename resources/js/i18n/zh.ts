@@ -42,7 +42,7 @@ const zh = {
     register: "注册",
     emailVerification: "验证邮件",
     profile: "用户信息",
-    mediaLibrary: "媒体库",
+    photoLibrary: "媒体库",
   },
   home: {
     welcome: "欢迎来到",
@@ -83,7 +83,7 @@ const zh = {
       event: "活动",
       post: "页面",
       profile: "用户信息",
-      mediaLibrary: "媒体库",
+      photoLibrary: "媒体库",
       signOut: "退出登录",
     },
     fellowships: {
@@ -94,8 +94,7 @@ const zh = {
       schedule: "聚会时间",
       contact: "联络人",
       zoom: "Zoom",
-      cover: "上传封面",
-      help: "点击或者拖动一个文件到这个区域",
+      cover: "封面照片",
     },
     post: {
       publish: "发布",
@@ -122,14 +121,16 @@ const zh = {
       title: "标题",
       description: "详情",
       location: "地点",
-      cover: "上传封面",
+      cover: "封面照片",
     },
     posts: {
       title: "标题",
       content: "内容",
     },
-    mediaLibrary: {
-      deleteModal: {
+    photoLibrary: {
+      info: "最大上传文件大小: 2MB",
+      open: "从照片库中选择图片或上传文件",
+      deleteFileModal: {
         header: "您确定要删除此图片吗",
         info: "此项将立即删除。您无法撤消此操作。",
       },

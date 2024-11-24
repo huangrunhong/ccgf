@@ -10,19 +10,28 @@
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
 
-  &.open {
+  &.visible {
     display: flex;
   }
 }
 
 .dialog-body {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   min-width: 20rem;
   max-width: 35rem;
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: var(--background);
   color: var(--foreground);
+
+  &.fullscreen {
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem);
+    max-width: unset;
+  }
 
   h3 {
     font-size: 1rem;

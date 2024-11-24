@@ -1,8 +1,8 @@
 import { Link, useForm } from "@inertiajs/react";
 
-import { Fellowship, SelectOption } from "@/types";
+import { Fellowship, PhotoMetadata, SelectOption } from "@/types";
 import Form from "@/components/form/Form";
-import FileInput from "@/components/form/FileInput";
+import PhotoInput from "@/components/form/PhotoInput";
 import Informative from "@/components/base/Informative";
 import Input from "@/components/form/Input";
 import RichTextEditor from "@/components/form/RichTextEditor";
@@ -17,10 +17,15 @@ const getOptions = ([value, label]: [
 
 interface FellowshipFormProps {
   heading: string;
+  photos: PhotoMetadata[];
   fellowship?: Fellowship;
 }
 
-const FellowshipForm = ({ heading, fellowship }: FellowshipFormProps) => {
+const FellowshipForm = ({
+  photos,
+  fellowship,
+  heading,
+}: FellowshipFormProps) => {
   const form = useForm({
     name: fellowship?.name ?? "",
     status: fellowship?.status ?? "draft",
@@ -28,8 +33,7 @@ const FellowshipForm = ({ heading, fellowship }: FellowshipFormProps) => {
     contact: fellowship?.contact ?? "",
     day: fellowship?.day ?? 6,
     frequency: fellowship?.frequency ?? 1,
-    cover: undefined as File | undefined,
-    remove_cover: false,
+    cover: fellowship?.cover ?? null,
     zoom: fellowship?.zoom ?? undefined,
     location: fellowship?.location ?? "",
     description: fellowship?.description ?? "",
@@ -72,11 +76,10 @@ const FellowshipForm = ({ heading, fellowship }: FellowshipFormProps) => {
       <Input label={message.admin.fellowships.contact} name="contact" />
       <Input label={message.admin.fellowships.location} name="location" />
       <Input label={message.admin.fellowships.zoom} name="zoom" />
-      <FileInput
+      <PhotoInput
         name="cover"
+        photos={photos}
         label={message.admin.fellowships.cover}
-        help={message.admin.fellowships.help}
-        url={fellowship?.cover}
       />
       <RichTextEditor
         name="description"

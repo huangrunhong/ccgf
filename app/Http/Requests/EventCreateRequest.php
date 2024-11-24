@@ -18,7 +18,7 @@ class EventCreateRequest extends FormRequest
       'location' =>  ['required', 'string', 'min:3', 'max:255'],
       'title' =>  ['required', 'string', 'min:3', 'max:255'],
       'description' =>  ['string', 'min:3', 'max:255'],
-      'cover' => ['nullable', 'image', 'max:2048'],
+      'cover' => ['nullable', 'string'],
     ];
   }
 }

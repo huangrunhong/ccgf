@@ -10,6 +10,14 @@
   position: absolute;
 }
 
+.d-none {
+  display: none;
+}
+
+.overflow {
+  overflow: auto;
+}
+
 @media (max-width: $screen-lg) {
   .max-lg-hidden {
     display: none !important;

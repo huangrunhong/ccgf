@@ -42,7 +42,7 @@ const de = {
     register: "Registrieren",
     emailVerification: "E-Mail-Adresse bestätigen",
     profile: "Profil",
-    mediaLibrary: "Medienbibliothek",
+    photoLibrary: "Fotogalerie",
   },
   home: {
     welcome: "Willkommen zu",
@@ -83,7 +83,7 @@ const de = {
       event: "Termine",
       post: "Seiten",
       profile: "Profil",
-      mediaLibrary: "Medienbibliothek",
+      photoLibrary: "Fotogalerie",
       signOut: "Abmelden",
     },
     fellowships: {
@@ -94,8 +94,7 @@ const de = {
       schedule: "Zeitplan",
       contact: "Kontakt",
       zoom: "Zoom",
-      cover: "Cover hochladen",
-      help: "Klicken oder ziehen Sie eine Datei in diesen Bereich",
+      cover: "Titelbild",
     },
     post: {
       publish: "Veröffentlichen",
@@ -122,14 +121,16 @@ const de = {
       location: "Ort",
       title: "Titel",
       description: "Beschreibung",
-      cover: "Cover hochladen",
+      cover: "Titelbild",
     },
     posts: {
       title: "Titel",
       content: "Inhalt",
     },
-    mediaLibrary: {
-      deleteModal: {
+    photoLibrary: {
+      info: "Maximale Upload-Dateigröße: 2MB",
+      open: "Wählen Sie ein Bild aus der Fotogalerie aus oder laden Sie eine Datei hoch",
+      deleteFileModal: {
         header: "Möchten Sie dieses Bild wirklich löschen?",
         info: "Dieses Bild wird sofort gelöscht. Sie können diese Aktion nicht rückgängig machen.",
       },

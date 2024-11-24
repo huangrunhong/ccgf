@@ -42,7 +42,7 @@ const en = {
     register: "Register",
     emailVerification: "Email Verification",
     profile: "Profile",
-    mediaLibrary: "Media Library",
+    photoLibrary: "Photo Library",
   },
   home: {
     welcome: "Welcome to",
@@ -83,7 +83,7 @@ const en = {
       event: "Events",
       post: "Posts",
       profile: "Profile",
-      mediaLibrary: "Media Library",
+      photoLibrary: "Photo Library",
       signOut: "Sign out",
     },
     fellowships: {
@@ -94,8 +94,7 @@ const en = {
       schedule: "Schedule",
       contact: "Contact",
       zoom: "Zoom",
-      cover: "Upload cover",
-      help: "Click or drag a file into this area",
+      cover: "Cover photo",
     },
     post: {
       publish: "Publish",
@@ -122,14 +121,16 @@ const en = {
       location: "Location",
       title: "Title",
       description: "Description",
-      cover: "Upload cover",
+      cover: "Cover photo",
     },
     posts: {
       title: "Title",
       content: "Content",
     },
-    mediaLibrary: {
-      deleteModal: {
+    photoLibrary: {
+      info: "Maximum upload file size: 2MB",
+      open: "Select an image from the photo library or upload a file",
+      deleteFileModal: {
         header: "Are you sure you want to delete this image",
         info: "This item will be deleted immediately. You can't undo this action.",
       },

@@ -8,6 +8,12 @@ export interface User {
   email_verified_at: string;
 }
 
+export interface PhotoMetadata {
+  name: string;
+  size: number;
+  lastModified: number;
+}
+
 export interface InertiaForm {
   setData: (name: string, value: any) => void;
   data: Record<string, any>;
