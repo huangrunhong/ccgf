@@ -2,10 +2,9 @@ import { useContext } from "react";
 import { RiDeleteBinLine, RiImageAddLine } from "@remixicon/react";
 
 import { PhotoMetadata } from "@/types";
-import Dialog from "@/components/base/Dialog";
 import Field from "@/components/form/Field";
 import FormContext from "@/contexts/FormContext";
-import PhotoLibrary from "@/components/PhotoLibrary";
+import PhotoLibraryDialog from "@/components/PhotoLibraryDialog";
 import useMessage from "@/hooks/useMessage";
 import useSwitch from "@/hooks/useSwitch";
 
@@ -23,7 +22,7 @@ const PhotoInput = ({ photos, label, name }: PhotoInputProps) => {
   const filename = form.data[name];
 
   const onRemoveFile = () => form.setData(name, null);
-  const setSelected = (file: string | null) => form.setData(name, file);
+  const onSelectFile = (selected: string) => form.setData(name, selected);
 
   return (
     <Field name={name}>
@@ -39,18 +38,13 @@ const PhotoInput = ({ photos, label, name }: PhotoInputProps) => {
           </button>
         )}
       </div>
-      <Dialog
-        fullscreen
-        visible={enabled}
-        dismiss={disable}
-        title={message.admin.photoLibrary.open}
-      >
-        <PhotoLibrary
-          photos={photos}
-          selected={form.data[name]}
-          setSelected={setSelected}
-        />
-      </Dialog>
+      <PhotoLibraryDialog
+        photos={photos}
+        enable={enable}
+        enabled={enabled}
+        disable={disable}
+        onSelect={onSelectFile}
+      />
     </Field>
   );
 };

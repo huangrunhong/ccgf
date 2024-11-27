@@ -4,30 +4,42 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostCreateRequest;
 use App\Models\Post;
+use App\Traits\PhotoLibraryTrait;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class PostController extends Controller
 {
+    use PhotoLibraryTrait;
+
     public function all(): Response
     {
-        return Inertia::render('Posts', ['posts' => Post::all()]);
+        return Inertia::render('Posts', [
+            'posts' => Post::all()
+        ]);
     }
 
     public function get(string $slug): Response
     {
-        return Inertia::render('Post', ['post' => Post::where('slug', $slug)->firstOrFail()]);
+        return Inertia::render('Post', [
+            'post' => Post::where('slug', $slug)->firstOrFail()
+        ]);
     }
 
     public function create(): Response
     {
-        return Inertia::render('CreatePost');
+        return Inertia::render('CreatePost', [
+            'photos' => $this->getAllImages()
+        ]);
     }
 
     public function edit(string $id): Response
     {
-        return Inertia::render('EditPost', ['post' => Post::findOrFail($id)]);
+        return Inertia::render('EditPost', [
+            'post' => Post::findOrFail($id),
+            'photos' => $this->getAllImages()
+        ]);
     }
 
     public function store(PostCreateRequest $request): RedirectResponse

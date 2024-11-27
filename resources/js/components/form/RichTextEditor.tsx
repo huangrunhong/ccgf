@@ -4,72 +4,138 @@ import {
   RiH2,
   RiH3,
   RiH4,
+  RiImageAddLine,
   RiItalic,
   RiListOrdered,
   RiListUnordered,
 } from "@remixicon/react";
-import { EditorProvider, useCurrentEditor } from "@tiptap/react";
+import { Editor, EditorProvider, useCurrentEditor } from "@tiptap/react";
+import Image from "@tiptap/extension-image";
+import Link from "@tiptap/extension-link";
 import StarterKit from "@tiptap/starter-kit";
 
+import { PhotoMetadata } from "@/types";
 import FormContext from "@/contexts/FormContext";
+import EditLinkDropdown from "@/components/form/EditLinkDropdown";
+import PhotoLibraryDialog from "@/components/PhotoLibraryDialog";
 import Field from "@/components/form/Field";
+import useSwitch from "@/hooks/useSwitch";
+import useMessage from "@/hooks/useMessage";
 
-const extensions = [StarterKit];
+const extensions = [
+  StarterKit,
+  Image,
+  Link.extend({ inclusive: false }).configure({ openOnClick: false }),
+];
 
-interface RichTextEditorProps {
+interface ToolbarProps {
+  photos: PhotoMetadata[];
+}
+
+interface RichTextEditorProps extends ToolbarProps {
   name: string;
   label: string;
 }
 
-const Toolbar = () => {
+const Toolbar = ({ photos }: ToolbarProps) => {
+  const message = useMessage();
   const { editor } = useCurrentEditor();
+  const [enabled, enable, disable] = useSwitch();
 
-  if (!editor) {
-    return null;
-  }
+  if (!editor) return null;
 
-  const toggleH2 = () =>
-    editor.chain().focus().toggleHeading({ level: 2 }).run();
-  const toggleH3 = () =>
-    editor.chain().focus().toggleHeading({ level: 3 }).run();
-  const toggleH4 = () =>
-    editor.chain().focus().toggleHeading({ level: 4 }).run();
+  const focus = () => editor.chain().focus();
 
-  const toggleBold = () => editor.chain().focus().toggleBold().run();
-  const toggleItalic = () => editor.chain().focus().toggleItalic().run();
-  const toggleBulletList = () =>
-    editor.chain().focus().toggleBulletList().run();
-  const toggleOrderedList = () =>
-    editor.chain().focus().toggleOrderedList().run();
+  const toggleH2 = () => focus().toggleHeading({ level: 2 }).run();
+  const toggleH3 = () => focus().toggleHeading({ level: 3 }).run();
+  const toggleH4 = () => focus().toggleHeading({ level: 4 }).run();
+
+  const toggleBold = () => focus().toggleBold().run();
+  const toggleItalic = () => focus().toggleItalic().run();
+  const toggleBulletList = () => focus().toggleBulletList().run();
+  const toggleOrderedList = () => focus().toggleOrderedList().run();
+
+  const onSelectFile = (src: string) => focus().setImage({ src }).run();
 
   return (
     <div className="flex gap mb-1">
-      <button type="button" className="icon" onClick={toggleH2}>
+      <button
+        type="button"
+        className="icon"
+        data-tooltip={message.editor.heading2}
+        onClick={toggleH2}
+      >
         <RiH2 size={18} />
       </button>
-      <button type="button" className="icon" onClick={toggleH3}>
+      <button
+        type="button"
+        className="icon"
+        data-tooltip={message.editor.heading3}
+        onClick={toggleH3}
+      >
         <RiH3 size={18} />
       </button>
-      <button type="button" className="icon" onClick={toggleH4}>
+      <button
+        type="button"
+        className="icon"
+        data-tooltip={message.editor.heading4}
+        onClick={toggleH4}
+      >
         <RiH4 size={18} />
       </button>
-      <button type="button" className="icon" onClick={toggleBold}>
+      <button
+        type="button"
+        className="icon"
+        data-tooltip={message.editor.bold}
+        onClick={toggleBold}
+      >
         <RiBold size={18} />
       </button>
-      <button type="button" className="icon" onClick={toggleItalic}>
+      <button
+        type="button"
+        className="icon"
+        data-tooltip={message.editor.italic}
+        onClick={toggleItalic}
+      >
         <RiItalic size={18} />
       </button>
-      <button type="button" className="icon" onClick={toggleBulletList}>
+      <button
+        type="button"
+        className="icon"
+        data-tooltip={message.editor.bulletList}
+        onClick={toggleBulletList}
+      >
         <RiListUnordered size={18} />
       </button>
-      <button type="button" className="icon" onClick={toggleOrderedList}>
+      <button
+        type="button"
+        className="icon"
+        data-tooltip={message.editor.numberedList}
+        onClick={toggleOrderedList}
+      >
         <RiListOrdered size={18} />
       </button>
+      <button
+        type="button"
+        className="icon"
+        data-tooltip={message.editor.image}
+        onClick={enable}
+      >
+        <RiImageAddLine size={18} />
+      </button>
+      <PhotoLibraryDialog
+        photos={photos}
+        enable={enable}
+        enabled={enabled}
+        disable={disable}
+        onSelect={onSelectFile}
+      />
+      <EditLinkDropdown editor={editor} />
     </div>
   );
 };
 
-const RichTextEditor = ({ name, label }: RichTextEditorProps) => {
+const RichTextEditor = ({ name, label, photos }: RichTextEditorProps) => {
   const form = useContext(FormContext);
 
   return (
@@ -77,7 +143,7 @@ const RichTextEditor = ({ name, label }: RichTextEditorProps) => {
       <label htmlFor={name}>{label}</label>
       <div id={name} className="rich-text-editor">
         <EditorProvider
-          slotBefore={<Toolbar />}
+          slotBefore={<Toolbar photos={photos} />}
           extensions={extensions}
           content={form.data[name]}
           onUpdate={({ editor }) => form.setData(name, editor.getHTML())}

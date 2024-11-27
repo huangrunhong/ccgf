@@ -17,6 +17,10 @@ select,
     outline: 2px solid var(--background-focus);
     outline-offset: 1px;
   }
+
+  &::placeholder {
+    color: var(--foreground-muted);
+  }
 }
 
 select,
@@ -100,6 +104,10 @@ button,
 
   &:hover {
     background-color: var(--background-hover);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 }
 

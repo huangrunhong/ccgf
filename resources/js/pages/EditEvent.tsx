@@ -1,10 +1,10 @@
-import { Event, PageProps, PhotoMetadata } from "@/types";
+import { Event, PhotoMetadata } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import EventForm from "@/components/EventForm";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
-interface EditEventProps extends PageProps {
+interface EditEventProps {
   event: Event;
   photos: PhotoMetadata[];
 }

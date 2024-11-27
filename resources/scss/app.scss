@@ -25,6 +25,7 @@
   --h2-font-size: 3rem;
   --h3-font-size: 1.5rem;
   --large-font-size: 1.125rem;
+  --small-font-size: 0.8rem;
   --logo-scale: 1;
 }
 
@@ -104,7 +105,7 @@ strong {
 }
 
 small {
-  font-size: 0.8rem;
+  font-size: var(--small-font-size);
 }
 
 :focus-visible {
@@ -182,6 +183,7 @@ table {
 @import "photo-library";
 @import "page-layout";
 @import "rich-text-editor";
+@import "tooltip";
 @import "utils/flex.scss";
 @import "utils/layout.scss";
 @import "utils/spacing.scss";

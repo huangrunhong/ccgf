@@ -1,10 +1,10 @@
-import { PageProps, PhotoMetadata } from "@/types";
+import { PhotoMetadata } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import FellowshipForm from "@/components/FellowshipForm";
 import SiteHead from "@/components/base/SiteHead";
 import useMessage from "@/hooks/useMessage";
 
-interface CreateFellowShipProps extends PageProps {
+interface CreateFellowShipProps {
   photos: PhotoMetadata[];
 }
 

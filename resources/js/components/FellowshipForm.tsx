@@ -83,6 +83,7 @@ const FellowshipForm = ({
       />
       <RichTextEditor
         name="description"
+        photos={photos}
         label={message.admin.fellowships.description}
       />
       <div className="flex gap justify-end mt-2">

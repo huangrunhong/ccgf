@@ -43,6 +43,7 @@ const EventForm = ({ heading, event, photos }: EventFormProps) => {
       />
       <RichTextEditor
         name="description"
+        photos={photos}
         label={message.admin.events.description}
       />
       <div className="flex gap justify-end mt-2">
