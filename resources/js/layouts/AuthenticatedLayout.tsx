@@ -33,7 +33,7 @@ const AuthenticatedLayout = ({
     <div className="authenticated-layout">
       <header>
         <nav>
-          <ApplicationLogo />
+          <ApplicationLogo size={24} />
           <div className="flex items-center gap-1">
             <LanguageSwitcher />
             <ThemeSwitcher />

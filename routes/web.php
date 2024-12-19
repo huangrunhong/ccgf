@@ -13,9 +13,17 @@ Route::get('/', [LocaleController::class, 'chinese'])->name('locale.chinese');
 Route::get('/en', [LocaleController::class, 'english'])->name('locale.english');
 Route::get('/de', [LocaleController::class, 'german'])->name('locale.german');
 Route::get('/posts/{slug}', [PostController::class, 'get'])->name('posts.get');
+Route::get('/events', [EventController::class, 'list'])->name('events.list');
+Route::get('/en/events', [EventController::class, 'list'])->name('events.list');
+Route::get('/de/events', [EventController::class, 'list'])->name('events.list');
+Route::get('/zh/events', [EventController::class, 'list'])->name('events.list');
+Route::get('/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list');
+Route::get('/en/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list');
+Route::get('/de/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list');
+Route::get('/zh/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list');
 Route::post('locale/{locale}', [LocaleController::class, 'update'])->name('locale.update');
 
-Route::prefix('admin')->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     Route::get('/', [WorshipController::class, 'all'])->name('dashboard');
     Route::get('/worships/create', [WorshipController::class, 'create'])->name('worships.create');
     Route::get('/worships/{id}', [WorshipController::class, 'edit'])->name('worships.edit');
@@ -48,7 +56,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/photo-library', [PhotoLibraryController::class, 'all'])->name('photoLibrary');
     Route::post('/photo-library', [PhotoLibraryController::class, 'upload'])->name('photoLibrary.upload');
     Route::delete('/photo-library/{file}', [PhotoLibraryController::class, 'destroy'])->name('photoLibrary.destroy');
-})->middleware(['auth', 'verified']);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

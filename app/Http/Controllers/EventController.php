@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EventCreateRequest;
 use App\Models\Event;
 use App\Traits\PhotoLibraryTrait;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -16,6 +17,13 @@ class EventController extends Controller
     public function all(): Response
     {
         return Inertia::render('Events', [
+            'events' => Event::orderByDesc('date')->get()
+        ]);
+    }
+
+    public function list(): View
+    {
+        return view('events', [
             'events' => Event::orderByDesc('date')->get()
         ]);
     }

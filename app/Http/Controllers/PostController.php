@@ -20,10 +20,10 @@ class PostController extends Controller
         ]);
     }
 
-    public function get(string $slug): Response
+    public function get(string $slug)
     {
-        return Inertia::render('Post', [
-            'post' => Post::where('slug', $slug)->firstOrFail()
+        return view('post', [
+            'post' => Post::where('slug', $slug)->firstOrFail(),
         ]);
     }
 

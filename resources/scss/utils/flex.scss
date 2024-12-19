@@ -61,10 +61,3 @@
 @include gap(2);
 @include gap(3);
 @include gap(4);
-
-@media (max-width: $screen-lg) {
-  .max-lg-flex-column {
-    display: flex;
-    flex-direction: column;
-  }
-}

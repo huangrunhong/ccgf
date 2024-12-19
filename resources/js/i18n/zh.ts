@@ -57,28 +57,6 @@ const zh = {
     profile: "用户信息",
     photoLibrary: "媒体库",
   },
-  home: {
-    welcome: "欢迎来到",
-    heading: "法兰克福华人基督教会",
-    subheading:
-      "期待在2024，我们一起学习顺服神，让我们的教会成为一个神同在的教会。神若与我们同在，教会必然复兴，教会必然蒙福，教会必然有能力，教会必然蒙引导，教会必然经历神。你也愿意让神居首位，满足主的心肠，让神得荣耀吗？让我们一同建造教会，兴旺神的家。",
-    worship: {
-      heading: "主日敬拜",
-      schedule: "每周日",
-      sunday: "周日",
-      description:
-        "教会主日崇拜现采取线上，线下双轨制。欢迎弟兄姊妹和各位朋友参加我们的实体或网络主日崇拜。",
-      sermon: "布道",
-      baptism: "洗礼",
-      eucharist: "圣餐",
-      dinner: "爱宴",
-      video: "证道视频",
-    },
-    events: "最新活动",
-    fellowships: {
-      heading: "团契",
-    },
-  },
   header: {
     events: "最新活动",
     fellowships: "团契",

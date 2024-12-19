@@ -7,6 +7,7 @@ use App\Models\Fellowship;
 use App\Http\Requests\FellowshipCreateRequest;
 use App\Http\Requests\FellowshipUpdateRequest;
 use App\Traits\PhotoLibraryTrait;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -18,6 +19,13 @@ class FellowshipController extends Controller
     public function all(): Response
     {
         return Inertia::render('Fellowships', [
+            'fellowships' => Fellowship::all()
+        ]);
+    }
+
+    public function list(): View
+    {
+        return view('fellowships', [
             'fellowships' => Fellowship::all()
         ]);
     }

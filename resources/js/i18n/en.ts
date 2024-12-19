@@ -57,28 +57,6 @@ const en = {
     profile: "Profile",
     photoLibrary: "Photo Library",
   },
-  home: {
-    welcome: "Welcome to",
-    heading: "Chinese Christian Community Frankfurt",
-    subheading:
-      "Looking forward to 2024, we will learn to obey God together and make our church a church where God is present. If God is with us, the church will be revived, the church will be blessed, the church will have power, the church will be guided, and the church will experience God. Are you also willing to let God take the first place, satisfy the Lord's heart, and let God be glorified? Let us build the church together and prosper the family of God.",
-    worship: {
-      heading: "Worship",
-      schedule: "Every Sunday",
-      sunday: "Sunday",
-      description:
-        "The church's Sunday worship now adopts a dual-track system of online and offline. Brothers and sisters and friends are welcome to participate in our physical or online Sunday worship.",
-      sermon: "Sermon",
-      baptism: "Baptism",
-      eucharist: "Eucharist",
-      dinner: "Dinner",
-      video: "Sermon Video",
-    },
-    events: "News & Events",
-    fellowships: {
-      heading: "Fellowships",
-    },
-  },
   header: {
     events: "Events",
     fellowships: "Fellowships",
