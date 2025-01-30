@@ -5,6 +5,13 @@ const en = {
   confirm: "Confirm",
   upload: "Upload",
   delete: "Delete",
+  notification: {
+    error: "An error occurred, please try it again.",
+    success: {
+      updateProfile: "Profile updated successfully!",
+      updatePassword: "Password updated successfully!",
+    },
+  },
   common: {
     day: {
       0: "Monday",
@@ -20,6 +27,7 @@ const en = {
       2: "Every other",
     },
   },
+
   editor: {
     heading2: "Heading 2",
     heading3: "Heading 3",

@@ -1,3 +1,4 @@
+import { error } from "console";
 import { Day } from "date-fns";
 
 const de = {
@@ -5,6 +6,13 @@ const de = {
   confirm: "Bestätigen",
   upload: "Hochladen",
   delete: "Löschen",
+  notification: {
+    error: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    success: {
+      updateProfile: "Profil erfolgreich aktualisiert!",
+      updatePassword: "Passwort erfolgreich aktualisiert!",
+    },
+  },
   common: {
     day: {
       0: "Montag",
@@ -20,6 +28,7 @@ const de = {
       2: "Jeden zweiten",
     },
   },
+
   editor: {
     heading2: "Überschrift 2",
     heading3: "Überschrift 3",
