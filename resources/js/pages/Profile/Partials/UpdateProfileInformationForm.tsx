@@ -4,6 +4,7 @@ import { User } from "@/types";
 import Form from "@/components/form/Form";
 import Input from "@/components/form/Input";
 import useMessage from "@/hooks/useMessage";
+import { toast } from "react-toastify";
 
 interface UpdateProfileInformationProps {
   user: User;
@@ -22,8 +23,12 @@ const UpdateProfileInformation = ({
   });
   const message = useMessage();
 
-  const submit: React.FormEventHandler = () =>
-    form.patch(route("profile.update"));
+  const submit = () =>
+    form.patch(route("profile.update"), {
+      onError: () => toast.error(message.notification.error),
+      onSuccess: () =>
+        toast.success(message.notification.success.updateProfile),
+    });
 
   return (
     <Form form={form} onSubmit={submit}>

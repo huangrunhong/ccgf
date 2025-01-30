@@ -5,6 +5,13 @@ const zh = {
   confirm: "确认",
   upload: "上传",
   delete: "删除",
+  notification: {
+    error: "出错了，请重新尝试.",
+    success: {
+      updateProfile: "个人资料更新成功！",
+      updatePassword: "密码修改成功!",
+    },
+  },
   common: {
     day: {
       0: "星期一",

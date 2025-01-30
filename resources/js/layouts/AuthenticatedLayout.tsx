@@ -14,6 +14,7 @@ import ApplicationLogo from "@/components/ApplicationLogo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import useMessage from "@/hooks/useMessage";
+import { Bounce, ToastContainer } from "react-toastify";
 
 interface AuthenticatedLayoutProps {
   currentPath: string;
@@ -83,6 +84,20 @@ const AuthenticatedLayout = ({
         </aside>
         <div className="panel">{children}</div>
       </main>
+      <ToastContainer
+        className="toast"
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useForm } from "@inertiajs/react";
 import Form from "@/components/form/Form";
 import PasswordInput from "@/components/form/PasswordInput";
 import useMessage from "@/hooks/useMessage";
+import { toast } from "react-toastify";
 
 const UpdatePasswordForm = () => {
   const form = useForm({
@@ -12,8 +13,14 @@ const UpdatePasswordForm = () => {
   });
   const message = useMessage();
 
-  const updatePassword: React.FormEventHandler = () =>
-    form.put(route("password.update"));
+  const updatePassword: React.FormEventHandler = () => {
+    form.put(route("password.update"), {
+      onError: () => toast.error(message.notification.error),
+      onSuccess: () =>
+        toast.success(message.notification.success.updatePassword),
+    });
+    form.reset();
+  };
 
   return (
     <Form form={form} onSubmit={updatePassword}>
