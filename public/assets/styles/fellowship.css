@@ -1,0 +1,59 @@
+.fellowships {
+  font-family: var(--font-sans);
+}
+
+.fellowships h4,
+.fellowships h5 {
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.fellowships hr {
+  margin: 2rem 0;
+}
+
+.fellowships hr:last-child {
+  display: none;
+}
+
+.fellowship {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.fellowship-name {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: var(--screen-sm);
+}
+
+.fellowship-name small {
+  color: var(--foreground-muted);
+  font-size: 1rem;
+}
+
+.fellowship-schedule {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: var(--screen-sm);
+}
+
+.fellowship-schedule a {
+  display: flex;
+}
+
+.fellowship-schedule svg {
+  color: var(--foreground-muted);
+}
+
+@media (max-width: 768px) {
+  .fellowships {
+    grid-template-columns: 1fr;
+  }
+}

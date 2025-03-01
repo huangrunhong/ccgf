@@ -13,6 +13,11 @@ import useMessage from "@/hooks/useMessage";
 const getOptions = ([value, label]: [
   string,
   string
+]): SelectOption<string> => ({ value, label });
+
+const getWeekdayOptions = ([value, label]: [
+  string,
+  string
 ]): SelectOption<number> => ({ value: parseInt(value), label });
 
 interface FellowshipFormProps {
@@ -32,7 +37,7 @@ const FellowshipForm = ({
     hour: fellowship?.hour ?? "15:00",
     contact: fellowship?.contact ?? "",
     day: fellowship?.day ?? 6,
-    frequency: fellowship?.frequency ?? 1,
+    frequency: fellowship?.frequency ?? "every.week",
     cover: fellowship?.cover ?? null,
     zoom: fellowship?.zoom ?? undefined,
     location: fellowship?.location ?? "",
@@ -58,7 +63,7 @@ const FellowshipForm = ({
     submit();
   };
 
-  const days = Object.entries(message.common.day).map(getOptions);
+  const days = Object.entries(message.common.day).map(getWeekdayOptions);
   const frequencies = Object.entries(message.common.frequency).map(getOptions);
 
   return (

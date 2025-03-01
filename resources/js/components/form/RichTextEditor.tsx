@@ -146,7 +146,9 @@ const RichTextEditor = ({ name, label, photos }: RichTextEditorProps) => {
           slotBefore={<Toolbar photos={photos} />}
           extensions={extensions}
           content={form.data[name]}
-          onUpdate={({ editor }) => form.setData(name, editor.getHTML())}
+          onUpdate={({ editor }) =>
+            form.setData(name, editor.getHTML().replace(/<p><\/p>/g, "<br>"))
+          }
         />
       </div>
     </Field>

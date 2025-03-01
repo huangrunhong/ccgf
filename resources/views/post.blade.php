@@ -1,11 +1,6 @@
-@php
-    $title = $post['title'];
-@endphp
-
-<x-layout :title="$title">
-    <x-header></x-header>
+<x-layout :title="$post['title']">
+    <x-header :title="$post['title']" />
     <main class="post">
-        <h1>{{ $title }}</h1>
-        <div class="content">{!! $post['content'] !!}</div>
+        {!! $post['content'] !!}
     </main>
 </x-layout>

@@ -31,6 +31,9 @@ export interface Worship {
   regular: boolean;
   date: string;
   location: string;
+  cover: string | null;
+  speaker: string | null;
+  description: string | null;
   title?: string;
   dinner?: boolean;
   baptism?: boolean;
@@ -52,7 +55,7 @@ export interface Fellowship {
   name: string;
   hour: string;
   day: Day;
-  frequency: 1 | 2;
+  frequency: "every.week" | "every.two.weeks" | "every.month";
   contact: string | null;
   location: string;
   description: string;

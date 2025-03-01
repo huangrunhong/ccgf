@@ -27,20 +27,20 @@ const Events = ({ events }: EventsProps) => {
       <table>
         <thead>
           <tr>
+            <th>{message.admin.events.title}</th>
             <th>{message.admin.events.date}</th>
             <th>{message.admin.events.location}</th>
-            <th>{message.admin.events.title}</th>
           </tr>
         </thead>
         <tbody>
           {events.map((event) => (
             <tr key={event.id}>
+              <td>{event.title}</td>
               <td>
                 <FormattedDate date={event.date} format="PPPPp" />
               </td>
-              <td>{event.location}</td>
               <td className="flex gap-1 items-center justify-between">
-                {event.title}
+                <span>{event.location}</span>
                 <div className="flex gap">
                   <Link
                     as="button"

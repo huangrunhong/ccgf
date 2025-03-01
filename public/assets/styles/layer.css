@@ -1,0 +1,36 @@
+.narrow {
+  max-width: 640px;
+}
+
+.layer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.layer .escape {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: var(--gray-100);
+  margin-bottom: 2rem;
+}
+
+.layer img {
+  width: 100%;
+}
+
+.layer h1 {
+  font-weight: 400;
+}
+
+.layer h2 {
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  color: var(--foreground-muted);
+  margin-bottom: 0.5rem;
+}

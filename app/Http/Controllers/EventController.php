@@ -28,6 +28,13 @@ class EventController extends Controller
         ]);
     }
 
+    public function get(string $id): View
+    {
+        return view('event', [
+            'event' => Event::findOrFail($id),
+        ]);
+    }
+
     public function create(): Response
     {
         return Inertia::render('CreateEvent', [

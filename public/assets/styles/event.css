@@ -1,0 +1,48 @@
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.events hr:last-child {
+  display: none;
+}
+
+.event {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--screen-sm), 1fr));
+  gap: 1.5rem 2rem;
+  height: 100%;
+}
+
+.event-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.event-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+}
+
+.event-title h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.event-title small {
+  color: var(--foreground-muted);
+}

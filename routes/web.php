@@ -9,18 +9,34 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorshipController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [LocaleController::class, 'chinese'])->name('locale.chinese');
-Route::get('/en', [LocaleController::class, 'english'])->name('locale.english');
-Route::get('/de', [LocaleController::class, 'german'])->name('locale.german');
-Route::get('/posts/{slug}', [PostController::class, 'get'])->name('posts.get');
-Route::get('/events', [EventController::class, 'list'])->name('events.list');
-Route::get('/en/events', [EventController::class, 'list'])->name('events.list');
-Route::get('/de/events', [EventController::class, 'list'])->name('events.list');
-Route::get('/zh/events', [EventController::class, 'list'])->name('events.list');
-Route::get('/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list');
-Route::get('/en/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list');
-Route::get('/de/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list');
-Route::get('/zh/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list');
+Route::get('/', [LocaleController::class, 'chinese'])->name('home.zh');
+Route::get('/en', [LocaleController::class, 'english'])->name('home.en');
+Route::get('/de', [LocaleController::class, 'german'])->name('home.de');
+
+Route::get('/worships', [WorshipController::class, 'list'])->name('worships.list.zh');
+Route::get('/en/worships', [WorshipController::class, 'list'])->name('worships.list.en');
+Route::get('/de/worships', [WorshipController::class, 'list'])->name('worships.list.de');
+
+Route::get('/posts/{slug}', [PostController::class, 'get'])->name('posts.get.zh');
+Route::get('/en/posts/{slug}', [PostController::class, 'get'])->name('posts.get.en');
+Route::get('/de/posts/{slug}', [PostController::class, 'get'])->name('posts.get.de');
+
+Route::get('/event/{id}', [EventController::class, 'get'])->name('events.get.zh');
+Route::get('/en/event/{id}', [EventController::class, 'get'])->name('events.get.en');
+Route::get('/de/event/{id}', [EventController::class, 'get'])->name('events.get.de');
+
+Route::get('/events', [EventController::class, 'list'])->name('events.list.zh');
+Route::get('/en/events', [EventController::class, 'list'])->name('events.list.en');
+Route::get('/de/events', [EventController::class, 'list'])->name('events.list.de');
+
+Route::get('/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list.zh');
+Route::get('/en/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list.en');
+Route::get('/de/fellowships', [FellowshipController::class, 'list'])->name('fellowships.list.de');
+
+Route::get('/fellowships/{id}', [FellowshipController::class, 'get'])->name('fellowships.get.zh');
+Route::get('/en/fellowships/{id}', [FellowshipController::class, 'get'])->name('fellowships.get.en');
+Route::get('/de/fellowships/{id}', [FellowshipController::class, 'get'])->name('fellowships.get.de');
+
 Route::post('locale/{locale}', [LocaleController::class, 'update'])->name('locale.update');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {

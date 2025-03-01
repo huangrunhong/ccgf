@@ -13,6 +13,9 @@ class Worship extends Model
      */
     protected $fillable = [
         'title',
+        'cover',
+        'speaker',
+        'description',
         'date',
         'location',
         'dinner',

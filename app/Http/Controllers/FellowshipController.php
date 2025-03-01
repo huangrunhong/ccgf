@@ -30,6 +30,13 @@ class FellowshipController extends Controller
         ]);
     }
 
+    public function get(string $id): View
+    {
+        return view('fellowship', [
+            'fellowship' => Fellowship::findOrFail($id),
+        ]);
+    }
+
     public function create(): Response
     {
         return Inertia::render('CreateFellowship', [
