@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('hour');
             $table->integer('day');
-            $table->integer('frequency');
+            $table->string('frequency');
             $table->string('contact')->nullable();
             $table->string('cover')->nullable();
             $table->string('zoom')->nullable();

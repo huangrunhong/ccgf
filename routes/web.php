@@ -9,9 +9,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorshipController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [LocaleController::class, 'chinese'])->name('locale.chinese');
-Route::get('/en', [LocaleController::class, 'english'])->name('locale.english');
-Route::get('/de', [LocaleController::class, 'german'])->name('locale.german');
+Route::get('/', [LocaleController::class, 'chinese'])->name('home');
+Route::get('/en', [LocaleController::class, 'english'])->name('home');
+Route::get('/de', [LocaleController::class, 'german'])->name('home');
+Route::get('/worships', [WorshipController::class, 'list'])->name('worships.list');
+Route::get('/en/worships', [WorshipController::class, 'list'])->name('worships.list');
+Route::get('/de/worships', [WorshipController::class, 'list'])->name('worships.list');
+Route::get('/zh/worships', [WorshipController::class, 'list'])->name('worships.list');
 Route::get('/posts/{slug}', [PostController::class, 'get'])->name('posts.get');
 Route::get('/events', [EventController::class, 'list'])->name('events.list');
 Route::get('/en/events', [EventController::class, 'list'])->name('events.list');

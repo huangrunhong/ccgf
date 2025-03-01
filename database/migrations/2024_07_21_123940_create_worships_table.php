@@ -19,6 +19,9 @@ return new class extends Migration
             $table->dateTime("date");
             $table->date("location");
             $table->string("title")->nullable();
+            $table->string('cover')->nullable();
+            $table->string("speaker")->nullable();
+            $table->string('description')->nullable();
             $table->boolean('regular')->nullable();
             $table->boolean("dinner")->nullable();
             $table->boolean("baptism")->nullable();

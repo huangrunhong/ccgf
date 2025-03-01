@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use App\Models\Fellowship;
 use App\Models\Worship;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -46,7 +45,6 @@ class LocaleController extends Controller
     private function renderHomePage()
     {
         return view("home", [
-            'fellowships' => Fellowship::all(),
             'events' => Event::orderByDesc('date')->limit(5)->get(),
             'worship' => $this->findUpcomingWorship(),
         ]);

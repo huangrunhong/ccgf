@@ -1,11 +1,9 @@
-@php
-    $title = $post['title'];
-@endphp
-
 <x-layout :title="$title">
-    <x-header></x-header>
+    <x-slot:stylesheets>
+        <link href="/assets/styles/post.css" rel="stylesheet">
+    </x-slot:stylesheets>
+    <x-header :title="$title"></x-header>
     <main class="post">
-        <h1>{{ $title }}</h1>
         <div class="content">{!! $post['content'] !!}</div>
     </main>
 </x-layout>

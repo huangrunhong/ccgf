@@ -1,4 +1,4 @@
-import { PageProps, Worship } from "@/types";
+import { PageProps, PhotoMetadata, Worship } from "@/types";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import SiteHead from "@/components/base/SiteHead";
 import WorshipForm from "@/components/WorshipForm";
@@ -6,9 +6,10 @@ import useMessage from "@/hooks/useMessage";
 
 interface EditWorShipProps extends PageProps {
   worship: Worship;
+  photos: PhotoMetadata[];
 }
 
-const EditWorShip = ({ worship }: EditWorShipProps) => {
+const EditWorShip = ({ photos, worship }: EditWorShipProps) => {
   const message = useMessage();
 
   const heading = worship.regular
@@ -18,7 +19,7 @@ const EditWorShip = ({ worship }: EditWorShipProps) => {
   return (
     <AuthenticatedLayout currentPath="dashboard">
       <SiteHead title={heading} />
-      <WorshipForm heading={heading} worship={worship} />
+      <WorshipForm heading={heading} worship={worship} photos={photos} />
     </AuthenticatedLayout>
   );
 };

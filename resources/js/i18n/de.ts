@@ -1,4 +1,3 @@
-import { error } from "console";
 import { Day } from "date-fns";
 
 const de = {
@@ -15,17 +14,18 @@ const de = {
   },
   common: {
     day: {
-      0: "Montag",
-      1: "Dienstag",
-      2: "Mittwoch",
-      3: "Donnerstag",
-      4: "Freitag",
-      5: "Samstag",
-      6: "Sonntag",
+      0: "Sonntag",
+      1: "Montag",
+      2: "Dienstag",
+      3: "Mittwoch",
+      4: "Donnerstag",
+      5: "Freitag",
+      6: "Samstag",
     } as Record<Day, string>,
     frequency: {
-      1: "Jeden",
-      2: "Jeden zweiten",
+      "every.week": "Jede Woche",
+      "every.two.weeks": "Jede zwei Wochen",
+      "every.month": "Jeden Monat",
     },
   },
 
@@ -109,6 +109,9 @@ const de = {
       type: "Typ",
       date: "Datum",
       title: "Titel (optional)",
+      description: "Beschreibung (optional)",
+      cover: "Titelbild (optional)",
+      speaker: "Redner (optional)",
       location: "Standort",
       baptism: "Taufe",
       eucharist: "Eucharistie",
@@ -117,11 +120,11 @@ const de = {
       special: "sonderlicher Gottesdienst",
     },
     events: {
-      date: "Datum",
-      location: "Ort",
+      date: "Datum (optional)",
+      location: "Ort (optional)",
       title: "Titel",
       description: "Beschreibung",
-      cover: "Titelbild",
+      cover: "Titelbild (optional)",
     },
     posts: {
       title: "Titel",
