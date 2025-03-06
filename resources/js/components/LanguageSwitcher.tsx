@@ -1,20 +1,17 @@
-import { Link } from "@inertiajs/react";
-import { RiGlobeLine } from "@remixicon/react";
+import { Link } from '@inertiajs/react';
+import { RiGlobeLine } from '@remixicon/react';
 
-import { SupportedLanguage } from "@/types";
-import Dropdown from "@/components/base/Dropdown";
-import useLanguage from "@/hooks/useLanguage";
+import { SupportedLanguage } from '@/types';
+import Dropdown from '@/components/base/Dropdown';
+import useLanguage from '@/hooks/useLanguage';
 
 const languages: Record<SupportedLanguage, string> = {
-  en: "English",
-  de: "Deutsch",
-  zh: "中文",
+  en: 'English',
+  de: 'Deutsch',
+  zh: '中文',
 } as const;
 
-const switchLanguage = (
-  lang: SupportedLanguage,
-  event: React.MouseEvent<HTMLAnchorElement>
-) => {
+const switchLanguage = (lang: SupportedLanguage, event: React.MouseEvent<HTMLAnchorElement>) => {
   event.currentTarget.blur();
   document.documentElement.lang = lang;
 };
@@ -33,8 +30,8 @@ const LanguageSwitcher = () => {
           as="button"
           method="post"
           className="button"
-          href={route("locale.update", { locale: "zh" })}
-          onClick={(e) => switchLanguage("zh", e)}
+          href={route('locale.update', { locale: 'zh' })}
+          onClick={(e) => switchLanguage('zh', e)}
         >
           {languages.zh}
         </Link>
@@ -42,8 +39,8 @@ const LanguageSwitcher = () => {
           as="button"
           method="post"
           className="button"
-          href={route("locale.update", { locale: "de" })}
-          onClick={(e) => switchLanguage("de", e)}
+          href={route('locale.update', { locale: 'de' })}
+          onClick={(e) => switchLanguage('de', e)}
         >
           {languages.de}
         </Link>
@@ -51,8 +48,8 @@ const LanguageSwitcher = () => {
           as="button"
           method="post"
           className="button"
-          href={route("locale.update", { locale: "en" })}
-          onClick={(e) => switchLanguage("en", e)}
+          href={route('locale.update', { locale: 'en' })}
+          onClick={(e) => switchLanguage('en', e)}
         >
           {languages.en}
         </Link>

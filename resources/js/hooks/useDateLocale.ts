@@ -1,6 +1,6 @@
-import { enUS, de, zhCN } from "date-fns/locale";
+import { enUS, de, zhCN } from 'date-fns/locale';
 
-import useLanguage from "./useLanguage";
+import useLanguage from './useLanguage';
 
 const locales = { en: enUS, de, zh: zhCN };
 

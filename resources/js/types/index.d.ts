@@ -1,5 +1,5 @@
-import { Day } from "date-fns";
-import { Config } from "ziggy-js";
+import { Day } from 'date-fns';
+import { Config } from 'ziggy-js';
 
 export interface User {
   id: number;
@@ -20,11 +20,11 @@ export interface InertiaForm {
   errors?: Record<string, string>;
 }
 
-export type PostStatus = "published" | "archived" | "draft";
+export type PostStatus = 'published' | 'archived' | 'draft';
 
-export type ResponseStatus = "success" | "warning" | "error";
+export type ResponseStatus = 'success' | 'warning' | 'error';
 
-export type SupportedLanguage = "en" | "de" | "zh";
+export type SupportedLanguage = 'en' | 'de' | 'zh';
 
 export interface Worship {
   id: number;
@@ -55,7 +55,7 @@ export interface Fellowship {
   name: string;
   hour: string;
   day: Day;
-  frequency: "every.week" | "every.two.weeks" | "every.month";
+  frequency: 'every.week' | 'every.two.weeks' | 'every.month';
   contact: string | null;
   location: string;
   description: string;

@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { RiLink } from "@remixicon/react";
-import { Editor } from "@tiptap/react";
+import { useEffect, useState } from 'react';
+import { RiLink } from '@remixicon/react';
+import { Editor } from '@tiptap/react';
 
-import useMessage from "@/hooks/useMessage";
-import Dropdown from "@/components/base/Dropdown";
+import useMessage from '@/hooks/useMessage';
+import Dropdown from '@/components/base/Dropdown';
 
-const createLink = (editor: Editor) =>
-  editor.chain().focus().extendMarkRange("link");
+const createLink = (editor: Editor) => editor.chain().focus().extendMarkRange('link');
 
 interface EditLinkDropdownProps {
   editor: Editor;
@@ -14,16 +13,16 @@ interface EditLinkDropdownProps {
 
 const EditLinkDropdown = ({ editor }: EditLinkDropdownProps) => {
   const message = useMessage();
-  const [link, setLink] = useState("");
+  const [link, setLink] = useState('');
 
-  const node = editor.getAttributes("link");
+  const node = editor.getAttributes('link');
 
   useEffect(() => {
-    node.href ? setLink(node.href) : setLink("");
+    node.href ? setLink(node.href) : setLink('');
   }, [node.href]);
 
   const onClick = () => {
-    const isLink = editor.isActive("link");
+    const isLink = editor.isActive('link');
 
     if (!link && !isLink) {
       return editor.commands.focus();

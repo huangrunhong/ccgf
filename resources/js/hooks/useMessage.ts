@@ -1,8 +1,8 @@
-import de from "@/i18n/de";
-import en from "@/i18n/en";
-import zh from "@/i18n/zh";
-import { SupportedLanguage } from "@/types";
-import useLanguage from "@/hooks/useLanguage";
+import de from '@/i18n/de';
+import en from '@/i18n/en';
+import zh from '@/i18n/zh';
+import { SupportedLanguage } from '@/types';
+import useLanguage from '@/hooks/useLanguage';
 
 const locales: Record<SupportedLanguage, typeof de> = { de, en, zh };
 

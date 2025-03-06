@@ -1,6 +1,6 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-import { InertiaForm } from "@/types";
+import { InertiaForm } from '@/types';
 
 const FormContext = createContext<InertiaForm>({
   data: {},

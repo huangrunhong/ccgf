@@ -1,19 +1,18 @@
-import { useForm } from "@inertiajs/react";
+import { useForm } from '@inertiajs/react';
 
-import Form from "@/components/form/Form";
-import GuestLayout from "@/layouts/GuestLayout";
-import Input from "@/components/form/Input";
-import SiteHead from "@/components/base/SiteHead";
-import useMessage from "@/hooks/useMessage";
+import Form from '@/components/form/Form';
+import GuestLayout from '@/layouts/GuestLayout';
+import Input from '@/components/form/Input';
+import SiteHead from '@/components/base/SiteHead';
+import useMessage from '@/hooks/useMessage';
 
 const ForgotPassword = () => {
   const form = useForm({
-    email: "",
+    email: '',
   });
   const message = useMessage();
 
-  const submit: React.FormEventHandler = () =>
-    form.post(route("password.email"));
+  const submit: React.FormEventHandler = () => form.post(route('password.email'));
 
   return (
     <GuestLayout>

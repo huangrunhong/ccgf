@@ -1,28 +1,28 @@
-@use "normalize.css";
-@use "/node_modules/react-day-picker/src/style.css";
+@use 'normalize.css';
+@use '/node_modules/react-day-picker/src/style.css';
 
-@use "authenticated-layout";
-@use "badge";
-@use "calendar";
-@use "dialog";
-@use "dropdown";
-@use "form";
-@use "guest-layout";
-@use "informative";
-@use "photo-library";
-@use "page-layout";
-@use "rich-text-editor";
-@use "tooltip";
-@use "utils/flex.scss";
-@use "utils/layout.scss";
-@use "utils/spacing.scss";
-@use "utils/text.scss";
+@use 'authenticated-layout';
+@use 'badge';
+@use 'calendar';
+@use 'dialog';
+@use 'dropdown';
+@use 'form';
+@use 'guest-layout';
+@use 'informative';
+@use 'photo-library';
+@use 'page-layout';
+@use 'rich-text-editor';
+@use 'tooltip';
+@use 'utils/flex.scss';
+@use 'utils/layout.scss';
+@use 'utils/spacing.scss';
+@use 'utils/text.scss';
 
 :root {
   --foreground: #161618;
   --foreground-hover: #2e353e;
   --foreground-muted: #9ca3af;
-  --foreground-primary: #2E5482;
+  --foreground-primary: #2e5482;
   --background: #fff;
   --background-focus: #f6f8fa;
   --background-hover: #f6f8fa;
@@ -32,7 +32,7 @@
   --background-warning: #f59e0b;
   --background-success: #84cc16;
   --screen-desktop: 1440px;
-  --font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+  --font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
   --h1-font-size: 4rem;
   --h1-line-height: 1.5;
   --h2-font-size: 3rem;
@@ -157,5 +157,5 @@ table {
 .dialog-line {
   width: 1px;
   background-color: var(--foreground);
-  transform: skew(-20deg)
+  transform: skew(-20deg);
 }

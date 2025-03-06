@@ -1,6 +1,6 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import { ResponseStatus } from "@/types";
+import { ResponseStatus } from '@/types';
 
 interface BadgeProps {
   content: string;
@@ -8,7 +8,7 @@ interface BadgeProps {
 }
 
 const Badge = ({ content, status }: BadgeProps) => (
-  <div className={clsx("badge", status)}>{content}</div>
+  <div className={clsx('badge', status)}>{content}</div>
 );
 
 export default Badge;

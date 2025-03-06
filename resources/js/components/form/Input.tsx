@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 
-import FormContext from "@/contexts/FormContext";
-import Field from "@/components/form/Field";
+import FormContext from '@/contexts/FormContext';
+import Field from '@/components/form/Field';
 
 type InputAttributes = React.InputHTMLAttributes<HTMLInputElement>;
 
@@ -23,7 +23,7 @@ const Input = ({ label, name, suffix, type, ...props }: InputProps) => {
           id={name}
           name={name}
           type={type}
-          value={form.data[name] ?? ""}
+          value={form.data[name] ?? ''}
           onChange={(e) => form.setData(name, e.target.value)}
         />
         {suffix}

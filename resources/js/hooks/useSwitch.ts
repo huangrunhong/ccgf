@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const useSwitch = (): [boolean, () => void, () => void] => {
   const [enabled, setEnabled] = useState(false);

@@ -1,23 +1,23 @@
-import { Link, useForm } from "@inertiajs/react";
+import { Link, useForm } from '@inertiajs/react';
 
-import { PhotoMetadata, Worship } from "@/types";
-import Checkbox from "@/components/form/Checkbox";
-import DatetimePicker from "@/components/form/DateTimePicker";
-import PhotoInput from "@/components/form/PhotoInput";
-import Form from "@/components/form/Form";
-import Input from "@/components/form/Input";
-import RichTextEditor from "@/components/form/RichTextEditor";
-import Informative from "@/components/base/Informative";
-import nextSunday from "@/lib/nextSunday";
-import useMessage from "@/hooks/useMessage";
+import { PhotoMetadata, Worship } from '@/types';
+import Checkbox from '@/components/form/Checkbox';
+import DatetimePicker from '@/components/form/DateTimePicker';
+import PhotoInput from '@/components/form/PhotoInput';
+import Form from '@/components/form/Form';
+import Input from '@/components/form/Input';
+import RichTextEditor from '@/components/form/RichTextEditor';
+import Informative from '@/components/base/Informative';
+import nextSunday from '@/lib/nextSunday';
+import useMessage from '@/hooks/useMessage';
 
 const getInitialValues = (worship?: Worship) => ({
-  title: worship?.title ?? "",
+  title: worship?.title ?? '',
   cover: worship?.cover ?? null,
   speaker: worship?.speaker ?? null,
   description: worship?.description ?? null,
   date: worship?.date ?? nextSunday().toISOString(),
-  location: worship?.location ?? "",
+  location: worship?.location ?? '',
   dinner: worship?.dinner ?? false,
   baptism: worship?.baptism ?? false,
   eucharist: worship?.eucharist ?? false,
@@ -35,8 +35,8 @@ const WorshipForm = ({ heading, photos, worship }: WorshipFormProps) => {
 
   const submit = () =>
     worship
-      ? form.post(route("worships.update", { id: worship.id }))
-      : form.post(route("worships.store"));
+      ? form.post(route('worships.update', { id: worship.id }))
+      : form.post(route('worships.store'));
 
   return (
     <Form form={form} onSubmit={submit}>
@@ -44,16 +44,12 @@ const WorshipForm = ({ heading, photos, worship }: WorshipFormProps) => {
       <DatetimePicker
         name="date"
         label={message.admin.worships.date}
-        dateformat={worship?.regular ? "eeee" : undefined}
+        dateformat={worship?.regular ? 'eeee' : undefined}
       />
       <Input label={message.admin.worships.location} name="location" />
       <Input label={message.admin.worships.title} name="title" />
       <Input label={message.admin.worships.speaker} name="speaker" />
-      <PhotoInput
-        name="cover"
-        photos={photos}
-        label={message.admin.worships.cover}
-      />
+      <PhotoInput name="cover" photos={photos} label={message.admin.worships.cover} />
       <RichTextEditor
         name="description"
         photos={photos}
@@ -65,7 +61,7 @@ const WorshipForm = ({ heading, photos, worship }: WorshipFormProps) => {
         <Checkbox label={message.admin.worships.dinner} name="dinner" />
       </div>
       <div className="flex gap justify-end mt-2">
-        <Link className="button action" href={route("dashboard")}>
+        <Link className="button action" href={route('dashboard')}>
           {message.cancel}
         </Link>
         <button className="primary"> {message.admin.post.publish}</button>

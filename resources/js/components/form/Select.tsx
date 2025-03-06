@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 
-import { SelectOption } from "@/types";
-import Dropdown from "@/components/base/Dropdown";
-import FormContext from "@/contexts/FormContext";
-import Field from "@/components/form/Field";
+import { SelectOption } from '@/types';
+import Dropdown from '@/components/base/Dropdown';
+import FormContext from '@/contexts/FormContext';
+import Field from '@/components/form/Field';
 
 const getLabel = <T extends string>(options: SelectOption<T>[], value: T) =>
   options.find((option) => option.value === value)?.label ?? value;

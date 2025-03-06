@@ -1,17 +1,17 @@
-import { useCallback, useEffect, useState } from "react";
-import { RiMoonClearLine, RiSunLine } from "@remixicon/react";
+import { useCallback, useEffect, useState } from 'react';
+import { RiMoonClearLine, RiSunLine } from '@remixicon/react';
 
-const LIGHT = "light";
-const DARK = "dark";
-const SYSTEM = "system";
-const MEDIA = "(prefers-color-scheme: dark)";
+const LIGHT = 'light';
+const DARK = 'dark';
+const SYSTEM = 'system';
+const MEDIA = '(prefers-color-scheme: dark)';
 
 const getTheme = (theme: string | null) =>
   theme && [LIGHT, DARK, SYSTEM].includes(theme) ? theme : LIGHT;
 
 const getPersistedTheme = () => {
   try {
-    return getTheme(localStorage.getItem("theme"));
+    return getTheme(localStorage.getItem('theme'));
   } catch (error) {
     return LIGHT;
   }
@@ -19,7 +19,7 @@ const getPersistedTheme = () => {
 
 const setPersistedTheme = (theme: string) => {
   try {
-    return localStorage.setItem("theme", theme);
+    return localStorage.setItem('theme', theme);
   } catch (error) {}
 };
 
@@ -49,9 +49,9 @@ const ThemeSwitcher = () => {
     const handleMediaQuery = (event: MediaQueryListEvent) =>
       setPreferDark(handlePreferredTheme(event));
 
-    query.addEventListener("change", handleMediaQuery);
+    query.addEventListener('change', handleMediaQuery);
 
-    return () => query.removeEventListener("change", handleMediaQuery);
+    return () => query.removeEventListener('change', handleMediaQuery);
   }, [setPreferDark]);
 
   const toggle = useCallback(() => {
@@ -59,9 +59,7 @@ const ThemeSwitcher = () => {
     const darkTheme = media.matches ? SYSTEM : DARK;
     const lightTheme = media.matches ? LIGHT : SYSTEM;
 
-    setPreferDark((dark) =>
-      handlePreferredTheme(media, dark ? lightTheme : darkTheme)
-    );
+    setPreferDark((dark) => handlePreferredTheme(media, dark ? lightTheme : darkTheme));
   }, [setPreferDark]);
 
   return (

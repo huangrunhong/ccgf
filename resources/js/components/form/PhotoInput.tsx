@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { RiDeleteBinLine, RiImageAddLine } from "@remixicon/react";
+import { useContext } from 'react';
+import { RiDeleteBinLine, RiImageAddLine } from '@remixicon/react';
 
-import { PhotoMetadata } from "@/types";
-import Field from "@/components/form/Field";
-import FormContext from "@/contexts/FormContext";
-import PhotoLibraryDialog from "@/components/PhotoLibraryDialog";
-import useMessage from "@/hooks/useMessage";
-import useSwitch from "@/hooks/useSwitch";
+import { PhotoMetadata } from '@/types';
+import Field from '@/components/form/Field';
+import FormContext from '@/contexts/FormContext';
+import PhotoLibraryDialog from '@/components/PhotoLibraryDialog';
+import useMessage from '@/hooks/useMessage';
+import useSwitch from '@/hooks/useSwitch';
 
 interface PhotoInputProps {
   label: string;

@@ -1,6 +1,6 @@
-import { Day } from "date-fns";
+import { Day } from 'date-fns';
 
-import useMessage from "@/hooks/useMessage";
+import useMessage from '@/hooks/useMessage';
 
 interface ScheduleProps {
   day: Day;

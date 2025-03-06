@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { RiCheckLine } from "@remixicon/react";
+import { useContext } from 'react';
+import { RiCheckLine } from '@remixicon/react';
 
-import FormContext from "@/contexts/FormContext";
-import Field from "@/components/form/Field";
+import FormContext from '@/contexts/FormContext';
+import Field from '@/components/form/Field';
 
 interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;

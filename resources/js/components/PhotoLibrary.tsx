@@ -1,18 +1,14 @@
-import { useEffect, useState } from "react";
-import {
-  RiDeleteBinLine,
-  RiUploadCloud2Line,
-  RiZoomInLine,
-} from "@remixicon/react";
-import { useForm } from "@inertiajs/react";
-import { filesize } from "filesize";
-import clsx from "clsx";
+import { useEffect, useState } from 'react';
+import { RiDeleteBinLine, RiUploadCloud2Line, RiZoomInLine } from '@remixicon/react';
+import { useForm } from '@inertiajs/react';
+import { filesize } from 'filesize';
+import clsx from 'clsx';
 
-import { PhotoMetadata } from "@/types";
-import Informative from "@/components/base/Informative";
-import FormattedDate from "@/components/base/FormattedDate";
-import Dialog from "@/components/base/Dialog";
-import useMessage from "@/hooks/useMessage";
+import { PhotoMetadata } from '@/types';
+import Informative from '@/components/base/Informative';
+import FormattedDate from '@/components/base/FormattedDate';
+import Dialog from '@/components/base/Dialog';
+import useMessage from '@/hooks/useMessage';
 
 interface PhotosProps {
   photos: PhotoMetadata[];
@@ -22,19 +18,13 @@ interface PhotosProps {
   onSelect?: (filename: string | null) => void;
 }
 
-const accept = "image/jpeg, image/png, image/svg+xml, image/webp";
+const accept = 'image/jpeg, image/png, image/svg+xml, image/webp';
 
-const Photos = ({
-  photos,
-  selected,
-  onDelete,
-  onSelect,
-  onZoomIn,
-}: PhotosProps) =>
+const Photos = ({ photos, selected, onDelete, onSelect, onZoomIn }: PhotosProps) =>
   photos.map((photo) => (
     <div key={photo.name} className="flex-column gap">
       <div
-        className={clsx("photo-thumbnail", {
+        className={clsx('photo-thumbnail', {
           selectable: onSelect,
           selected: photo.name === selected,
         })}
@@ -50,18 +40,10 @@ const Photos = ({
           </small>
         </div>
         <div className="flex gap">
-          <button
-            type="button"
-            className="icon"
-            onClick={() => onZoomIn(photo.name)}
-          >
+          <button type="button" className="icon" onClick={() => onZoomIn(photo.name)}>
             <RiZoomInLine size={18} />
           </button>
-          <button
-            type="button"
-            className="icon"
-            onClick={() => onDelete(photo.name)}
-          >
+          <button type="button" className="icon" onClick={() => onDelete(photo.name)}>
             <RiDeleteBinLine size={18} />
           </button>
         </div>
@@ -69,8 +51,7 @@ const Photos = ({
     </div>
   ));
 
-const fileRoute = (file: string) =>
-  route("photoLibrary.destroy", { file: file.split("/").at(-1) });
+const fileRoute = (file: string) => route('photoLibrary.destroy', { file: file.split('/').at(-1) });
 
 interface PhotoLibraryProps {
   photos: PhotoMetadata[];
@@ -81,13 +62,13 @@ interface PhotoLibraryProps {
 const PhotoLibrary = ({ photos, selected, setSelected }: PhotoLibraryProps) => {
   const message = useMessage();
   const form = useForm({ file: null as File | null });
-  const [zoomIn, setZoomIn] = useState("");
-  const [deleted, setDeleted] = useState("");
+  const [zoomIn, setZoomIn] = useState('');
+  const [deleted, setDeleted] = useState('');
 
   useEffect(() => {
     if (!form.data.file) return;
 
-    form.post(route("photoLibrary.upload"));
+    form.post(route('photoLibrary.upload'));
     form.reset();
   }, [form.data.file]);
 
@@ -96,12 +77,12 @@ const PhotoLibrary = ({ photos, selected, setSelected }: PhotoLibraryProps) => {
     event.target.files.length &&
     form.setData({ file: event.target.files.item(0) });
 
-  const dismissZoomInPhoto = () => setZoomIn("");
-  const dismissDeletePhoto = () => setDeleted("");
+  const dismissZoomInPhoto = () => setZoomIn('');
+  const dismissDeletePhoto = () => setDeleted('');
   const onDeletePhoto = () => deleted && form.delete(fileRoute(deleted));
 
   const error = form.errors.file;
-  const classNames = clsx("dialog", { visible: zoomIn });
+  const classNames = clsx('dialog', { visible: zoomIn });
 
   return (
     <div className="flex-1 flex-column gap-2 overflow">
@@ -112,13 +93,7 @@ const PhotoLibrary = ({ photos, selected, setSelected }: PhotoLibraryProps) => {
               <RiUploadCloud2Line size={18} />
               {message.upload}
             </label>
-            <input
-              id="photo"
-              type="file"
-              className="d-none"
-              accept={accept}
-              onChange={onChange}
-            />
+            <input id="photo" type="file" className="d-none" accept={accept} onChange={onChange} />
           </div>
           <span className="muted">{message.admin.photoLibrary.info}</span>
         </div>
@@ -139,9 +114,7 @@ const PhotoLibrary = ({ photos, selected, setSelected }: PhotoLibraryProps) => {
         dismiss={dismissDeletePhoto}
         onConfirm={onDeletePhoto}
       >
-        <Informative>
-          {message.admin.photoLibrary.deleteFileModal.info}
-        </Informative>
+        <Informative>{message.admin.photoLibrary.deleteFileModal.info}</Informative>
       </Dialog>
       <div className={classNames} onClick={dismissZoomInPhoto}>
         <img className="photo-preview" src={zoomIn} alt="preview" />

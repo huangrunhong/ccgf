@@ -1,11 +1,11 @@
-import { Link } from "@inertiajs/react";
-import { RiAddFill, RiDeleteBinLine, RiEditLine } from "@remixicon/react";
+import { Link } from '@inertiajs/react';
+import { RiAddFill, RiDeleteBinLine, RiEditLine } from '@remixicon/react';
 
-import { PageProps, Event } from "@/types";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import FormattedDate from "@/components/base/FormattedDate";
-import SiteHead from "@/components/base/SiteHead";
-import useMessage from "@/hooks/useMessage";
+import { PageProps, Event } from '@/types';
+import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
+import FormattedDate from '@/components/base/FormattedDate';
+import SiteHead from '@/components/base/SiteHead';
+import useMessage from '@/hooks/useMessage';
 
 interface EventsProps extends PageProps {
   events: Event[];
@@ -19,7 +19,7 @@ const Events = ({ events }: EventsProps) => {
       <SiteHead title={message.page.events} />
       <div className="flex items-center justify-between mb-2">
         <span className="ml-1">{events.length} Items</span>
-        <Link className="button solid" href={route("events.create")}>
+        <Link className="button solid" href={route('events.create')}>
           <RiAddFill size={18} />
           {message.page.createEvent}
         </Link>
@@ -46,14 +46,11 @@ const Events = ({ events }: EventsProps) => {
                     as="button"
                     method="delete"
                     className="icon"
-                    href={route("events.destroy", { id: event.id })}
+                    href={route('events.destroy', { id: event.id })}
                   >
                     <RiDeleteBinLine size={18} />
                   </Link>
-                  <Link
-                    className="button icon"
-                    href={route("events.edit", { id: event.id })}
-                  >
+                  <Link className="button icon" href={route('events.edit', { id: event.id })}>
                     <RiEditLine size={18} />
                   </Link>
                 </div>

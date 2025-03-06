@@ -1,6 +1,6 @@
-import { format as formatDate } from "date-fns/format";
+import { format as formatDate } from 'date-fns/format';
 
-import useDateLocale from "@/hooks/useDateLocale";
+import useDateLocale from '@/hooks/useDateLocale';
 
 interface FormattedDateProps extends React.HTMLAttributes<HTMLSpanElement> {
   date: string | Date;

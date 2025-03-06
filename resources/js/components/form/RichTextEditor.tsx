@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 import {
   RiBold,
   RiH2,
@@ -8,19 +8,19 @@ import {
   RiItalic,
   RiListOrdered,
   RiListUnordered,
-} from "@remixicon/react";
-import { Editor, EditorProvider, useCurrentEditor } from "@tiptap/react";
-import Image from "@tiptap/extension-image";
-import Link from "@tiptap/extension-link";
-import StarterKit from "@tiptap/starter-kit";
+} from '@remixicon/react';
+import { Editor, EditorProvider, useCurrentEditor } from '@tiptap/react';
+import Image from '@tiptap/extension-image';
+import Link from '@tiptap/extension-link';
+import StarterKit from '@tiptap/starter-kit';
 
-import { PhotoMetadata } from "@/types";
-import FormContext from "@/contexts/FormContext";
-import EditLinkDropdown from "@/components/form/EditLinkDropdown";
-import PhotoLibraryDialog from "@/components/PhotoLibraryDialog";
-import Field from "@/components/form/Field";
-import useSwitch from "@/hooks/useSwitch";
-import useMessage from "@/hooks/useMessage";
+import { PhotoMetadata } from '@/types';
+import FormContext from '@/contexts/FormContext';
+import EditLinkDropdown from '@/components/form/EditLinkDropdown';
+import PhotoLibraryDialog from '@/components/PhotoLibraryDialog';
+import Field from '@/components/form/Field';
+import useSwitch from '@/hooks/useSwitch';
+import useMessage from '@/hooks/useMessage';
 
 const extensions = [
   StarterKit,
@@ -115,12 +115,7 @@ const Toolbar = ({ photos }: ToolbarProps) => {
       >
         <RiListOrdered size={18} />
       </button>
-      <button
-        type="button"
-        className="icon"
-        data-tooltip={message.editor.image}
-        onClick={enable}
-      >
+      <button type="button" className="icon" data-tooltip={message.editor.image} onClick={enable}>
         <RiImageAddLine size={18} />
       </button>
       <PhotoLibraryDialog
@@ -147,7 +142,7 @@ const RichTextEditor = ({ name, label, photos }: RichTextEditorProps) => {
           extensions={extensions}
           content={form.data[name]}
           onUpdate={({ editor }) =>
-            form.setData(name, editor.getHTML().replace(/<p><\/p>/g, "<br>"))
+            form.setData(name, editor.getHTML().replace(/<p><\/p>/g, '<br>'))
           }
         />
       </div>

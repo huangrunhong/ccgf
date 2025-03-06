@@ -1,5 +1,5 @@
-import { InertiaForm } from "@/types";
-import FormContext from "@/contexts/FormContext";
+import { InertiaForm } from '@/types';
+import FormContext from '@/contexts/FormContext';
 
 interface FormProps {
   children: React.ReactNode;

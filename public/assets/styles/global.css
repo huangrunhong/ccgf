@@ -6,9 +6,9 @@
   --background-border: #d8dde3;
   --gray-100: #f7f7f7;
   --emerald-100: #e7f3ee;
-  --font-serif: "Source Serif 4", serif;
-  --font-sans: "Lexend", sans-serif;
-  --font-mono: "Space Mono", monospace;
+  --font-serif: 'Source Serif 4', serif;
+  --font-sans: 'Lexend', sans-serif;
+  --font-mono: 'Space Mono', monospace;
   --screen-sm: 325px;
 }
 
@@ -225,8 +225,8 @@ header .header-dropdown-menu .header-navigation {
     display: block;
   }
 
-  header nav>.header-right,
-  header>.header-navigation {
+  header nav > .header-right,
+  header > .header-navigation {
     display: none;
   }
 

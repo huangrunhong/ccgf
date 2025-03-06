@@ -1,8 +1,8 @@
-import { RiCloseLine } from "@remixicon/react";
-import clsx from "clsx";
+import { RiCloseLine } from '@remixicon/react';
+import clsx from 'clsx';
 
-import noop from "@/lib/noop";
-import useMessage from "@/hooks/useMessage";
+import noop from '@/lib/noop';
+import useMessage from '@/hooks/useMessage';
 
 interface DialogProps {
   children?: React.ReactNode;
@@ -29,8 +29,8 @@ const Dialog = ({
   const confirm = () => (dismiss(false), onConfirm());
 
   return (
-    <div className={clsx("dialog", className, { visible })}>
-      <div className={clsx("dialog-body", { fullscreen })}>
+    <div className={clsx('dialog', className, { visible })}>
+      <div className={clsx('dialog-body', { fullscreen })}>
         <button type="button" className="close icon" onClick={close}>
           <RiCloseLine size={18} />
         </button>

@@ -1,8 +1,8 @@
-import { PhotoMetadata } from "@/types";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import PostForm from "@/components/PostForm";
-import SiteHead from "@/components/base/SiteHead";
-import useMessage from "@/hooks/useMessage";
+import { PhotoMetadata } from '@/types';
+import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
+import PostForm from '@/components/PostForm';
+import SiteHead from '@/components/base/SiteHead';
+import useMessage from '@/hooks/useMessage';
 
 interface CreatePostProps {
   photos: PhotoMetadata[];

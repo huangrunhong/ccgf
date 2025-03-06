@@ -1,8 +1,8 @@
-import { PhotoMetadata, Post, PageProps } from "@/types";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import SiteHead from "@/components/base/SiteHead";
-import useMessage from "@/hooks/useMessage";
-import PostForm from "@/components/PostForm";
+import { PhotoMetadata, Post, PageProps } from '@/types';
+import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
+import SiteHead from '@/components/base/SiteHead';
+import useMessage from '@/hooks/useMessage';
+import PostForm from '@/components/PostForm';
 
 interface EditPostProps extends PageProps {
   post: Post;

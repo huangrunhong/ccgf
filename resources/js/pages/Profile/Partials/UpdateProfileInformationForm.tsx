@@ -1,10 +1,10 @@
-import { Link, useForm } from "@inertiajs/react";
+import { Link, useForm } from '@inertiajs/react';
 
-import { User } from "@/types";
-import Form from "@/components/form/Form";
-import Input from "@/components/form/Input";
-import useMessage from "@/hooks/useMessage";
-import { toast } from "react-toastify";
+import { User } from '@/types';
+import Form from '@/components/form/Form';
+import Input from '@/components/form/Input';
+import useMessage from '@/hooks/useMessage';
+import { toast } from 'react-toastify';
 
 interface UpdateProfileInformationProps {
   user: User;
@@ -24,20 +24,14 @@ const UpdateProfileInformation = ({
   const message = useMessage();
 
   const submit = () =>
-    form.patch(route("profile.update"), {
+    form.patch(route('profile.update'), {
       onError: () => toast.error(message.notification.error),
-      onSuccess: () =>
-        toast.success(message.notification.success.updateProfile),
+      onSuccess: () => toast.success(message.notification.success.updateProfile),
     });
 
   return (
     <Form form={form} onSubmit={submit}>
-      <Input
-        required
-        label={message.profile.updateProfile.name}
-        name="name"
-        autoComplete="name"
-      />
+      <Input required label={message.profile.updateProfile.name} name="name" autoComplete="name" />
       <Input
         required
         label={message.profile.updateProfile.email}
@@ -46,18 +40,11 @@ const UpdateProfileInformation = ({
       />
       {mustVerifyEmail && !user.email_verified_at && (
         <div className="flex-column gap">
-          <small className="muted">
-            {message.profile.updateProfile.verifyEmail.info}
-          </small>
-          <Link
-            as="button"
-            method="post"
-            className="solid"
-            href={route("verification.send")}
-          >
+          <small className="muted">{message.profile.updateProfile.verifyEmail.info}</small>
+          <Link as="button" method="post" className="solid" href={route('verification.send')}>
             {message.profile.updateProfile.verifyEmail.resendVerificationEmail}
           </Link>
-          {status === "verification-link-sent" && (
+          {status === 'verification-link-sent' && (
             <small className="muted">
               {message.profile.updateProfile.verifyEmail.newVerificationLink}
             </small>

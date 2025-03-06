@@ -1,9 +1,9 @@
-import { PageProps, PhotoMetadata } from "@/types";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import SiteHead from "@/components/base/SiteHead";
-import PhotoLibrary from "@/components/PhotoLibrary";
-import useMessage from "@/hooks/useMessage";
-import Informative from "@/components/base/Informative";
+import { PageProps, PhotoMetadata } from '@/types';
+import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
+import SiteHead from '@/components/base/SiteHead';
+import PhotoLibrary from '@/components/PhotoLibrary';
+import useMessage from '@/hooks/useMessage';
+import Informative from '@/components/base/Informative';
 
 interface PhotoLibraryProps extends PageProps {
   photos: PhotoMetadata[];

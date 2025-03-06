@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { PhotoMetadata } from "@/types";
-import Dialog from "@/components/base/Dialog";
-import PhotoLibrary from "@/components/PhotoLibrary";
-import useMessage from "@/hooks/useMessage";
+import { PhotoMetadata } from '@/types';
+import Dialog from '@/components/base/Dialog';
+import PhotoLibrary from '@/components/PhotoLibrary';
+import useMessage from '@/hooks/useMessage';
 
 interface PhotoLibraryDialogProps {
   photos: PhotoMetadata[];
@@ -13,12 +13,7 @@ interface PhotoLibraryDialogProps {
   onSelect: (filename: string) => void;
 }
 
-const PhotoLibraryDialog = ({
-  enabled,
-  disable,
-  photos,
-  onSelect,
-}: PhotoLibraryDialogProps) => {
+const PhotoLibraryDialog = ({ enabled, disable, photos, onSelect }: PhotoLibraryDialogProps) => {
   const message = useMessage();
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -36,11 +31,7 @@ const PhotoLibraryDialog = ({
       onConfirm={onConfirm}
       title={message.admin.photoLibrary.open}
     >
-      <PhotoLibrary
-        photos={photos}
-        selected={selected}
-        setSelected={setSelected}
-      />
+      <PhotoLibrary photos={photos} selected={selected} setSelected={setSelected} />
     </Dialog>
   );
 };

@@ -1,9 +1,9 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import useLanguage from "@/hooks/useLanguage";
-import FormattedDate from "@/components/base/FormattedDate";
+import useLanguage from '@/hooks/useLanguage';
+import FormattedDate from '@/components/base/FormattedDate';
 
-const format = { month: "short", day: "numeric" } as const;
+const format = { month: 'short', day: 'numeric' } as const;
 
 interface EventScheduleProps {
   children?: React.ReactNode;
@@ -25,15 +25,13 @@ const EventSchedule = ({
   const locale = useLanguage();
 
   return (
-    <div className={clsx(className, "flex-column gap-2 justify-between")}>
+    <div className={clsx(className, 'flex-column gap-2 justify-between')}>
       <div className="flex-column gap-2">
         <div className="flex-column gap-1">
           <div className="flex gap">
             <div className="flex-column">
               <span className="h3">{date.getFullYear()}</span>
-              <strong className="h2">
-                {date.toLocaleString(locale, format)}
-              </strong>
+              <strong className="h2">{date.toLocaleString(locale, format)}</strong>
             </div>
             <div className="dialog-line ml-4 mr-2 mt-1 mb-2" />
             <div className="flex-column items-end">

@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import clsx from "clsx";
+import { useContext } from 'react';
+import clsx from 'clsx';
 
-import FormContext from "@/contexts/FormContext";
+import FormContext from '@/contexts/FormContext';
 
 interface FieldProps {
   name: string;
@@ -13,7 +13,7 @@ const Field = ({ name, className, children }: FieldProps) => {
   const errors = useContext(FormContext).errors ?? {};
 
   return (
-    <div className={clsx("flex-column gap", className)}>
+    <div className={clsx('flex-column gap', className)}>
       {children}
       {errors[name] && <small className="danger">{errors[name]}</small>}
     </div>

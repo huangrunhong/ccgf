@@ -1,4 +1,4 @@
-import ApplicationLogo from "@/components/ApplicationLogo";
+import ApplicationLogo from '@/components/ApplicationLogo';
 
 const GuestLayout = ({ children }: React.PropsWithChildren) => (
   <div className="guest-layout">

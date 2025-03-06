@@ -1,10 +1,10 @@
-import { Link } from "@inertiajs/react";
-import { RiAddFill, RiDeleteBinLine, RiEditLine } from "@remixicon/react";
+import { Link } from '@inertiajs/react';
+import { RiAddFill, RiDeleteBinLine, RiEditLine } from '@remixicon/react';
 
-import { PageProps, Post } from "@/types";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import SiteHead from "@/components/base/SiteHead";
-import useMessage from "@/hooks/useMessage";
+import { PageProps, Post } from '@/types';
+import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
+import SiteHead from '@/components/base/SiteHead';
+import useMessage from '@/hooks/useMessage';
 
 interface PostProps extends PageProps {
   posts: Post[];
@@ -18,7 +18,7 @@ const Posts = ({ posts }: PostProps) => {
       <SiteHead title={message.page.posts} />
       <div className="flex items-center justify-between mb-2">
         <span className="ml-1">{posts.length} Items</span>
-        <Link className="button solid" href={route("posts.create")}>
+        <Link className="button solid" href={route('posts.create')}>
           <RiAddFill size={18} />
           {message.page.createPost}
         </Link>
@@ -41,14 +41,11 @@ const Posts = ({ posts }: PostProps) => {
                     as="button"
                     method="delete"
                     className="icon"
-                    href={route("posts.destroy", { id: post.id })}
+                    href={route('posts.destroy', { id: post.id })}
                   >
                     <RiDeleteBinLine size={18} />
                   </Link>
-                  <Link
-                    className="button icon"
-                    href={route("posts.edit", { id: post.id })}
-                  >
+                  <Link className="button icon" href={route('posts.edit', { id: post.id })}>
                     <RiEditLine size={18} />
                   </Link>
                 </div>

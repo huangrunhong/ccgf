@@ -1,12 +1,12 @@
-import { PageProps } from "@/types";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import Informative from "@/components/base/Informative";
-import SiteHead from "@/components/base/SiteHead";
-import useMessage from "@/hooks/useMessage";
+import { PageProps } from '@/types';
+import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
+import Informative from '@/components/base/Informative';
+import SiteHead from '@/components/base/SiteHead';
+import useMessage from '@/hooks/useMessage';
 
-import DeleteUserForm from "./Partials/DeleteUserForm";
-import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
-import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
+import DeleteUserForm from './Partials/DeleteUserForm';
+import UpdatePasswordForm from './Partials/UpdatePasswordForm';
+import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
 
 interface EditProfileProps extends PageProps {
   status?: string;
@@ -19,10 +19,7 @@ const Edit = ({ auth, mustVerifyEmail, status }: EditProfileProps) => {
   return (
     <AuthenticatedLayout currentPath="profile.edit">
       <SiteHead title={message.page.profile} />
-      <Informative
-        className="mb-4"
-        header={message.profile.updateProfile.header}
-      >
+      <Informative className="mb-4" header={message.profile.updateProfile.header}>
         {message.profile.updateProfile.subheader}
       </Informative>
       <UpdateProfileInformationForm
@@ -31,18 +28,12 @@ const Edit = ({ auth, mustVerifyEmail, status }: EditProfileProps) => {
         mustVerifyEmail={mustVerifyEmail}
       />
       <hr className="my-4" />
-      <Informative
-        className="mb-4"
-        header={message.profile.updatePassword.header}
-      >
+      <Informative className="mb-4" header={message.profile.updatePassword.header}>
         {message.profile.updatePassword.subheader}
       </Informative>
       <UpdatePasswordForm />
       <hr className="my-4" />
-      <Informative
-        className="mb-4"
-        header={message.profile.deleteAccount.header}
-      >
+      <Informative className="mb-4" header={message.profile.deleteAccount.header}>
         {message.profile.deleteAccount.subheader}
       </Informative>
       <DeleteUserForm />

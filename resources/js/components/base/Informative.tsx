@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 interface InformativeProps {
   header?: string;
@@ -7,7 +7,7 @@ interface InformativeProps {
 }
 
 const Informative = ({ header, className, children }: InformativeProps) => (
-  <div className={clsx("informative", className)}>
+  <div className={clsx('informative', className)}>
     {header && <h3>{header}</h3>}
     {children}
   </div>

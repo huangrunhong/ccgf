@@ -1,8 +1,8 @@
-import { Fellowship, PhotoMetadata } from "@/types";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import FellowshipForm from "@/components/FellowshipForm";
-import SiteHead from "@/components/base/SiteHead";
-import useMessage from "@/hooks/useMessage";
+import { Fellowship, PhotoMetadata } from '@/types';
+import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
+import FellowshipForm from '@/components/FellowshipForm';
+import SiteHead from '@/components/base/SiteHead';
+import useMessage from '@/hooks/useMessage';
 
 interface EditFellowShipProps {
   fellowship: Fellowship;

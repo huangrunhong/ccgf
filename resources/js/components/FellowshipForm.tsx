@@ -1,24 +1,21 @@
-import { Link, useForm } from "@inertiajs/react";
+import { Link, useForm } from '@inertiajs/react';
 
-import { Fellowship, PhotoMetadata, SelectOption } from "@/types";
-import Form from "@/components/form/Form";
-import PhotoInput from "@/components/form/PhotoInput";
-import Informative from "@/components/base/Informative";
-import Input from "@/components/form/Input";
-import RichTextEditor from "@/components/form/RichTextEditor";
-import Select from "@/components/form/Select";
-import TimePicker from "@/components/form/TimePicker";
-import useMessage from "@/hooks/useMessage";
+import { Fellowship, PhotoMetadata, SelectOption } from '@/types';
+import Form from '@/components/form/Form';
+import PhotoInput from '@/components/form/PhotoInput';
+import Informative from '@/components/base/Informative';
+import Input from '@/components/form/Input';
+import RichTextEditor from '@/components/form/RichTextEditor';
+import Select from '@/components/form/Select';
+import TimePicker from '@/components/form/TimePicker';
+import useMessage from '@/hooks/useMessage';
 
-const getOptions = ([value, label]: [
-  string,
-  string
-]): SelectOption<string> => ({ value, label });
+const getOptions = ([value, label]: [string, string]): SelectOption<string> => ({ value, label });
 
-const getWeekdayOptions = ([value, label]: [
-  string,
-  string
-]): SelectOption<number> => ({ value: parseInt(value), label });
+const getWeekdayOptions = ([value, label]: [string, string]): SelectOption<number> => ({
+  value: parseInt(value),
+  label,
+});
 
 interface FellowshipFormProps {
   heading: string;
@@ -26,40 +23,36 @@ interface FellowshipFormProps {
   fellowship?: Fellowship;
 }
 
-const FellowshipForm = ({
-  photos,
-  fellowship,
-  heading,
-}: FellowshipFormProps) => {
+const FellowshipForm = ({ photos, fellowship, heading }: FellowshipFormProps) => {
   const form = useForm({
-    name: fellowship?.name ?? "",
-    status: fellowship?.status ?? "draft",
-    hour: fellowship?.hour ?? "15:00",
-    contact: fellowship?.contact ?? "",
+    name: fellowship?.name ?? '',
+    status: fellowship?.status ?? 'draft',
+    hour: fellowship?.hour ?? '15:00',
+    contact: fellowship?.contact ?? '',
     day: fellowship?.day ?? 6,
-    frequency: fellowship?.frequency ?? "every.week",
+    frequency: fellowship?.frequency ?? 'every.week',
     cover: fellowship?.cover ?? null,
     zoom: fellowship?.zoom ?? undefined,
-    location: fellowship?.location ?? "",
-    description: fellowship?.description ?? "",
+    location: fellowship?.location ?? '',
+    description: fellowship?.description ?? '',
   });
   const message = useMessage();
 
   const submit = () => {
     const url = fellowship
-      ? route("fellowships.update", { id: fellowship.id })
-      : route("fellowships.store");
+      ? route('fellowships.update', { id: fellowship.id })
+      : route('fellowships.store');
 
     form.post(url);
   };
 
   const saveDraft = () => {
-    form.data.status = "draft";
+    form.data.status = 'draft';
     submit();
   };
 
   const publish = () => {
-    form.data.status = "published";
+    form.data.status = 'published';
     submit();
   };
 
@@ -81,18 +74,14 @@ const FellowshipForm = ({
       <Input label={message.admin.fellowships.contact} name="contact" />
       <Input label={message.admin.fellowships.location} name="location" />
       <Input label={message.admin.fellowships.zoom} name="zoom" />
-      <PhotoInput
-        name="cover"
-        photos={photos}
-        label={message.admin.fellowships.cover}
-      />
+      <PhotoInput name="cover" photos={photos} label={message.admin.fellowships.cover} />
       <RichTextEditor
         name="description"
         photos={photos}
         label={message.admin.fellowships.description}
       />
       <div className="flex gap justify-end mt-2">
-        <Link className="button action" href={route("fellowships")}>
+        <Link className="button action" href={route('fellowships')}>
           {message.cancel}
         </Link>
         <button type="button" className="action" onClick={saveDraft}>
