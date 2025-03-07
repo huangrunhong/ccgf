@@ -1,9 +1,11 @@
 import { Day } from 'date-fns';
 import { Config } from 'ziggy-js';
+import { PageProps as InertiaPageProps } from '@inertiajs/core';
 
 export interface User {
   id: number;
   name: string;
+  admin: boolean;
   email: string;
   email_verified_at: string;
 }
@@ -75,7 +77,7 @@ export interface SelectOption<T extends string | number = string> {
   label: string;
 }
 
-export interface PageProps {
+export interface PageProps extends InertiaPageProps {
   auth: {
     user: User;
   };

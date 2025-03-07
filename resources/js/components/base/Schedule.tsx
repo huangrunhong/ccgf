@@ -1,12 +1,13 @@
 import { Day } from 'date-fns';
 
 import useMessage from '@/hooks/useMessage';
+import { Fellowship } from '@/types';
 
 interface ScheduleProps {
+  className?: string;
   day: Day;
   hour: string;
-  frequency: 1 | 2;
-  className?: string;
+  frequency: Fellowship['frequency'];
 }
 
 const Schedule = ({ className, day, hour, frequency }: ScheduleProps) => {

@@ -4,7 +4,10 @@ const en = {
   cancel: 'Cancel',
   confirm: 'Confirm',
   upload: 'Upload',
-  delete: 'Delete',
+  delete: {
+    header: 'Are you sure you want to delete?',
+    button: 'Delete',
+  },
   notification: {
     error: 'An error occurred, please try it again.',
     success: {
@@ -28,7 +31,6 @@ const en = {
       'every.month': 'Every Month',
     },
   },
-
   editor: {
     heading2: 'Heading 2',
     heading3: 'Heading 3',
@@ -57,6 +59,7 @@ const en = {
     events: 'Events',
     fellowships: 'Fellowships',
     posts: 'Posts',
+    users: 'Users',
     confirmPassword: 'Confirm Password',
     forgetPassword: 'Forget Password',
     resetPassword: 'Reset Password',
@@ -82,9 +85,10 @@ const en = {
       fellowship: 'Fellowships',
       event: 'Events',
       post: 'Posts',
-      profile: 'Profile',
+      user: 'Users',
       photoLibrary: 'Photo Library',
       signOut: 'Sign out',
+      admin: 'Admin',
     },
     fellowships: {
       name: 'Name',
@@ -129,6 +133,11 @@ const en = {
     posts: {
       title: 'Title',
       content: 'Content',
+    },
+    users: {
+      name: 'Name',
+      email: 'Email',
+      admin: 'Admin',
     },
     photoLibrary: {
       info: 'Maximum upload file size: 2MB',

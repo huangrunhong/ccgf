@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FellowshipController;
 use App\Http\Controllers\LocaleController;
@@ -39,7 +40,7 @@ Route::get('/de/fellowships/{id}', [FellowshipController::class, 'get'])->name('
 
 Route::post('locale/{locale}', [LocaleController::class, 'update'])->name('locale.update');
 
-Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->group(function () {
     Route::get('/', [WorshipController::class, 'all'])->name('dashboard');
     Route::get('/worships/create', [WorshipController::class, 'create'])->name('worships.create');
     Route::get('/worships/{id}', [WorshipController::class, 'edit'])->name('worships.edit');
@@ -68,6 +69,11 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
     Route::post('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+    Route::get('/users', [RegisteredUserController::class, 'all'])->name('users');
+    Route::post('/users/{id}/admin', [RegisteredUserController::class, 'admin'])->name('users.admin');
+    Route::post('/users/{id}/member', [RegisteredUserController::class, 'member'])->name('users.member');
+    Route::delete('/users/{id}', [RegisteredUserController::class, 'destroy'])->name('users.destroy');
 
     Route::get('/photo-library', [PhotoLibraryController::class, 'all'])->name('photoLibrary');
     Route::post('/photo-library', [PhotoLibraryController::class, 'upload'])->name('photoLibrary.upload');

@@ -4,7 +4,10 @@ const zh = {
   cancel: '取消',
   confirm: '确认',
   upload: '上传',
-  delete: '删除',
+  delete: {
+    header: '您确定要删除吗？',
+    button: '删除',
+  },
   notification: {
     error: '出错了，请重新尝试.',
     success: {
@@ -56,6 +59,7 @@ const zh = {
     events: '活动',
     fellowships: '团契',
     posts: '页面',
+    users: '用户',
     confirmPassword: '确认密码',
     forgetPassword: '忘记密码',
     resetPassword: '重置密码',
@@ -81,9 +85,10 @@ const zh = {
       fellowship: '团契',
       event: '活动',
       post: '页面',
-      profile: '用户信息',
+      user: '用户',
       photoLibrary: '媒体库',
       signOut: '退出登录',
+      admin: '管理员',
     },
     fellowships: {
       name: '名称',
@@ -128,6 +133,11 @@ const zh = {
     posts: {
       title: '标题',
       content: '内容',
+    },
+    users: {
+      name: '用户名',
+      email: '电子邮箱',
+      admin: '管理员',
     },
     photoLibrary: {
       info: '最大上传文件大小: 2MB',

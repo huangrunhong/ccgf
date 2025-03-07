@@ -1,9 +1,10 @@
 import { Link } from '@inertiajs/react';
-import { RiAddFill, RiDeleteBinLine, RiEditLine } from '@remixicon/react';
+import { RiAddFill, RiEditLine } from '@remixicon/react';
 
 import { PageProps, Worship } from '@/types';
 import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
 import Badge from '@/components/base/Badge';
+import DeleteLink from '@/components/base/DeleteLink';
 import FormattedDate from '@/components/base/FormattedDate';
 import SiteHead from '@/components/base/SiteHead';
 import useMessage from '@/hooks/useMessage';
@@ -53,14 +54,7 @@ const Worships = ({ worships }: WorshipsProps) => {
                 {worship.location}
                 <div className="flex gap">
                   {!worship.regular && (
-                    <Link
-                      as="button"
-                      method="delete"
-                      className="icon"
-                      href={route('worships.destroy', { id: worship.id })}
-                    >
-                      <RiDeleteBinLine size={18} />
-                    </Link>
+                    <DeleteLink href={route('worships.destroy', { id: worship.id })} />
                   )}
                   <Link className="button icon" href={route('worships.edit', { id: worship.id })}>
                     <RiEditLine size={18} />

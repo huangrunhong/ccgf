@@ -6,6 +6,7 @@ use App\Http\Requests\PostCreateRequest;
 use App\Models\Post;
 use App\Traits\PhotoLibraryTrait;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -20,7 +21,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function get(string $slug)
+    public function get(string $slug): View
     {
         return view('post', [
             'post' => Post::where('slug', $slug)->firstOrFail(),

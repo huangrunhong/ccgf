@@ -1,8 +1,9 @@
 import { Link } from '@inertiajs/react';
-import { RiAddFill, RiDeleteBinLine, RiEditLine } from '@remixicon/react';
+import { RiAddFill, RiEditLine } from '@remixicon/react';
 
 import { PageProps, Event } from '@/types';
 import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
+import DeleteLink from '@/components/base/DeleteLink';
 import FormattedDate from '@/components/base/FormattedDate';
 import SiteHead from '@/components/base/SiteHead';
 import useMessage from '@/hooks/useMessage';
@@ -42,14 +43,7 @@ const Events = ({ events }: EventsProps) => {
               <td className="flex gap-1 items-center justify-between">
                 <span>{event.location}</span>
                 <div className="flex gap">
-                  <Link
-                    as="button"
-                    method="delete"
-                    className="icon"
-                    href={route('events.destroy', { id: event.id })}
-                  >
-                    <RiDeleteBinLine size={18} />
-                  </Link>
+                  <DeleteLink href={route('events.destroy', { id: event.id })} />
                   <Link className="button icon" href={route('events.edit', { id: event.id })}>
                     <RiEditLine size={18} />
                   </Link>

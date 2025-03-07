@@ -4,11 +4,11 @@ import EventForm from '@/components/EventForm';
 import SiteHead from '@/components/base/SiteHead';
 import useMessage from '@/hooks/useMessage';
 
-interface CreateWorShipProps {
+interface CreateEventProps {
   photos: PhotoMetadata[];
 }
 
-const CreateWorShip = ({ photos }: CreateWorShipProps) => {
+const CreateEvent = ({ photos }: CreateEventProps) => {
   const message = useMessage();
 
   return (
@@ -19,4 +19,4 @@ const CreateWorShip = ({ photos }: CreateWorShipProps) => {
   );
 };
 
-export default CreateWorShip;
+export default CreateEvent;

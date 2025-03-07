@@ -4,7 +4,10 @@ const de = {
   cancel: 'Abbrechen',
   confirm: 'Bestätigen',
   upload: 'Hochladen',
-  delete: 'Löschen',
+  delete: {
+    header: 'Möchten Sie wirklich löschen',
+    button: 'Löschen',
+  },
   notification: {
     error: 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.',
     success: {
@@ -28,7 +31,6 @@ const de = {
       'every.month': 'Jeden Monat',
     },
   },
-
   editor: {
     heading2: 'Überschrift 2',
     heading3: 'Überschrift 3',
@@ -57,6 +59,7 @@ const de = {
     events: 'Termine',
     fellowships: 'Gemeinschaft',
     posts: 'Beiträge',
+    users: 'Benutzer',
     confirmPassword: 'Passwort bestätigen',
     forgetPassword: 'Passwort vergessen',
     resetPassword: 'Passwort zurücksetzen',
@@ -82,9 +85,10 @@ const de = {
       fellowship: 'Gemeinschaften',
       event: 'Termine',
       post: 'Seiten',
-      profile: 'Profil',
+      user: 'Benutzer',
       photoLibrary: 'Fotogalerie',
       signOut: 'Abmelden',
+      admin: 'Admin',
     },
     fellowships: {
       name: 'Name',
@@ -129,6 +133,11 @@ const de = {
     posts: {
       title: 'Titel',
       content: 'Inhalt',
+    },
+    users: {
+      name: 'Name',
+      email: 'Email',
+      admin: 'Admin',
     },
     photoLibrary: {
       info: 'Maximale Upload-Dateigröße: 2MB',

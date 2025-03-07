@@ -1,0 +1,27 @@
+.switch {
+  position: relative;
+  width: 2rem;
+  height: 1.25rem;
+  background-color: var(--background-border);
+  border-radius: 0.75rem;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0.125rem;
+    left: 0.125rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--background);
+    border-radius: 0.5rem;
+    transition: transform 0.3s;
+  }
+
+  &.checked {
+    background-color: var(--foreground-hover);
+  }
+
+  &.checked::after {
+    transform: translateX(0.75rem);
+  }
+}

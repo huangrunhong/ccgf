@@ -5,27 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Worship;
 use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\View\View;
 
 class LocaleController extends Controller
 {
-    public function chinese(Request $request)
+    public function chinese(Request $request): View
     {
         return $this->setLocale($request, 'zh');
     }
 
-    public function english(Request $request)
+    public function english(Request $request): View
     {
         return $this->setLocale($request, 'en');
     }
 
-    public function german(Request $request)
+    public function german(Request $request): View
     {
         return $this->setLocale($request, 'de');
     }
 
-    public function update(Request $request, string $locale)
+    public function update(Request $request, string $locale): RedirectResponse
     {
         App::setLocale($locale);
         $request->session()->put('locale', $locale);
@@ -33,7 +35,7 @@ class LocaleController extends Controller
         return redirect()->back();
     }
 
-    public function setLocale(Request $request, string $locale)
+    public function setLocale(Request $request, string $locale): View
     {
         App::setLocale($locale);
         Carbon::setLocale($locale);
@@ -42,7 +44,7 @@ class LocaleController extends Controller
         return $this->renderHomePage();
     }
 
-    private function renderHomePage()
+    private function renderHomePage(): View
     {
         return view("home", [
             'events' => Event::orderByDesc('date')->limit(5)->get(),

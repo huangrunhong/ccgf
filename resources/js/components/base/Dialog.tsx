@@ -7,6 +7,7 @@ import useMessage from '@/hooks/useMessage';
 interface DialogProps {
   children?: React.ReactNode;
   className?: string;
+  confirmButton?: React.ReactNode;
   fullscreen?: boolean;
   onConfirm?: () => void;
   dismiss: (open: false) => void;
@@ -18,6 +19,7 @@ const Dialog = ({
   title,
   children,
   className,
+  confirmButton,
   fullscreen,
   dismiss,
   visible,
@@ -40,9 +42,11 @@ const Dialog = ({
           <button type="button" className="action" onClick={close}>
             {message.cancel}
           </button>
-          <button type="button" className="primary" onClick={confirm}>
-            {message.confirm}
-          </button>
+          {confirmButton || (
+            <button type="button" className="primary" onClick={confirm}>
+              {message.confirm}
+            </button>
+          )}
         </div>
       </div>
     </div>

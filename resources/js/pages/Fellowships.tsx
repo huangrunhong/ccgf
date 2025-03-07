@@ -1,9 +1,10 @@
 import { Link } from '@inertiajs/react';
-import { RiAddFill, RiArchiveLine, RiDeleteBinLine, RiEditLine } from '@remixicon/react';
+import { RiAddFill, RiArchiveLine, RiEditLine } from '@remixicon/react';
 
 import { Fellowship, PageProps, PostStatus, ResponseStatus } from '@/types';
 import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
 import Badge from '@/components/base/Badge';
+import DeleteLink from '@/components/base/DeleteLink';
 import Schedule from '@/components/base/Schedule';
 import SiteHead from '@/components/base/SiteHead';
 import useMessage from '@/hooks/useMessage';
@@ -62,14 +63,7 @@ const Fellowships = ({ fellowships }: FellowshipsProps) => {
               <td className="flex gap-1 items-center justify-between">
                 {fellowship.contact}
                 <div className="flex gap">
-                  <Link
-                    as="button"
-                    method="delete"
-                    className="icon"
-                    href={route('fellowships.destroy', { id: fellowship.id })}
-                  >
-                    <RiDeleteBinLine size={18} />
-                  </Link>
+                  <DeleteLink href={route('fellowships.destroy', { id: fellowship.id })} />
                   <Link
                     as="button"
                     method="patch"
