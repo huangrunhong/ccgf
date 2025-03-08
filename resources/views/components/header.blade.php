@@ -5,7 +5,7 @@
             <strong>{!! __('logo') !!}</strong>
         </a>
         <x-header-right />
-        <div class="header-menu">
+        <div class="header-menu" tabindex="0">
             <button class="header-burger-menu">
                 <x-icons.menu />
             </button>

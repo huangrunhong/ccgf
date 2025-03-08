@@ -8,8 +8,8 @@
   &::after {
     position: absolute;
     content: '';
-    top: 0.125rem;
-    left: 0.125rem;
+    top: 1px;
+    left: 1px;
     width: 1rem;
     height: 1rem;
     background-color: var(--background);
