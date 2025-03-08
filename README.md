@@ -1,4 +1,47 @@
-![screenshot](./screenshot.png)
+## Project Deployment Guide
+
+This guide provides instructions on how to deploy the project to a PHP server using an SFTP client and run necessary migrations.
+
+### 1. Upload Project via SFTP
+
+To upload your project to a PHP server, use an SFTP client. If you're using **Visual Studio Code**, follow these steps:
+
+1. Install the **SFTP plugin** in VS Code.
+2. Create an SFTP configuration file at `.vscode/sftp.json` with the following settings:
+
+   ```json
+   {
+     "name": "ccgf.de",
+     "host": "",
+     "protocol": "sftp",
+     "port": 22,
+     "secure": true,
+     "username": "",
+     "remotePath": "",
+     "password": "",
+     "uploadOnSave": false,
+     "ignore": [".vscode", ".git", ".DS_Store", "node_modules"]
+   }
+   ```
+
+3. Fill in the **host**, **username**, **remotePath**, and **password** fields as per your server configuration.
+4. Use the SFTP plugin to upload your project files.
+
+### 2. Run Migration Scripts
+
+Once the project is uploaded, connect to your server and run the following commands:
+
+```bash
+php artisan migrate
+php artisan storage:link
+php artisan optimize
+```
+
+#### Explanation
+
+- `php artisan migrate` – Runs database migrations.
+- `php artisan storage:link` – Creates a symbolic link to the storage directory.
+- `php artisan optimize` – Optimizes the application for better performance.
 
 ## About Laravel
 
