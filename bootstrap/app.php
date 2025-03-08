@@ -3,7 +3,6 @@
 use App\Http\Middleware\EnsureUserIsAdmin;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\HandleLocale;
-use App\Http\Middleware\HandleMigrationStatus;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -16,10 +15,6 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->web(prepend: [
-            HandleMigrationStatus::class,
-        ]);
-
         $middleware->web(append: [
             HandleLocale::class,
             HandleInertiaRequests::class,
