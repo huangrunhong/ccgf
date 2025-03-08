@@ -43,7 +43,7 @@
                 @endif
             </div>
             @if ($worship['regular'])
-                <a href="#" class="button">
+                <a href="https://www.youtube.com/@ccgf" class="button">
                     <x-icons.youtube width="20" />
                     {{ __('live') }}
                 </a>
