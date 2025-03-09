@@ -10,4 +10,9 @@ export default defineConfig({
     }),
     react(),
   ],
+  server: {
+    cors: {
+      origin: ['http://ccgf.test'],
+    },
+  },
 });
