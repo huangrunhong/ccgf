@@ -138,6 +138,7 @@ const zh = {
       name: '用户名',
       email: '电子邮箱',
       admin: '管理员',
+      adminToggleDisabled: '您无法将自己权限更改为普通用户。',
     },
     photoLibrary: {
       info: '最大上传文件大小: 2MB',

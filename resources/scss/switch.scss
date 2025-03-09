@@ -17,11 +17,20 @@
     transition: transform 0.3s;
   }
 
-  &.checked {
+  &:hover {
+    background-color: var(--background-border);
+  }
+
+  &.checked,
+  &.checked:hover {
     background-color: var(--foreground-hover);
   }
 
   &.checked::after {
     transform: translateX(0.75rem);
+  }
+
+  &:disabled {
+    background-color: var(--foreground-muted);
   }
 }

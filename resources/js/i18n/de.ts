@@ -138,6 +138,8 @@ const de = {
       name: 'Name',
       email: 'Email',
       admin: 'Admin',
+      adminToggleDisabled:
+        'Sie können Ihre Berechtigungen nicht auf einen normalen Benutzer ändern',
     },
     photoLibrary: {
       info: 'Maximale Upload-Dateigröße: 2MB',

@@ -138,6 +138,7 @@ const en = {
       name: 'Name',
       email: 'Email',
       admin: 'Admin',
+      adminToggleDisabled: 'You cannot change your permissions to a normal user',
     },
     photoLibrary: {
       info: 'Maximum upload file size: 2MB',

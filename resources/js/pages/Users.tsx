@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react';
+import { RiQuestionLine } from '@remixicon/react';
 import clsx from 'clsx';
 
 import { PageProps, User } from '@/types';
@@ -7,11 +8,11 @@ import SiteHead from '@/components/base/SiteHead';
 import DeleteLink from '@/components/base/DeleteLink';
 import useMessage from '@/hooks/useMessage';
 
-interface PostProps extends PageProps {
+interface UsersProps extends PageProps {
   users: User[];
 }
 
-const Users = ({ users }: PostProps) => {
+const Users = ({ auth, users }: UsersProps) => {
   const message = useMessage();
 
   return (
@@ -34,11 +35,19 @@ const Users = ({ users }: PostProps) => {
               <td>{name}</td>
               <td>{email}</td>
               <td className="flex gap-1 items-center justify-between">
-                <Link
-                  method="post"
-                  className={clsx('switch', { checked: admin })}
-                  href={route(admin ? 'users.member' : 'users.admin', { id })}
-                />
+                <div className="flex gap-1 items-center">
+                  <Link
+                    method="post"
+                    disabled={!!admin && auth.user.id === id}
+                    className={clsx('switch', { checked: admin })}
+                    href={route(admin ? 'users.member' : 'users.admin', { id })}
+                  />
+                  {!!admin && auth.user.id === id && (
+                    <div className="flex" data-tooltip={message.admin.users.adminToggleDisabled}>
+                      <RiQuestionLine size={18} />
+                    </div>
+                  )}
+                </div>
                 <DeleteLink href={route('users.destroy', { id })} />
               </td>
             </tr>
