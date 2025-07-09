@@ -225,8 +225,8 @@ header .header-dropdown-menu .header-navigation {
     display: block;
   }
 
-  header nav > .header-right,
-  header > .header-navigation {
+  header nav>.header-right,
+  header>.header-navigation {
     display: none;
   }
 
@@ -294,6 +294,10 @@ footer .claims {
   color: var(--foreground-muted);
 }
 
+footer .claims a {
+  text-decoration: underline;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -330,8 +334,8 @@ footer .claims {
   text-decoration: underline;
 }
 
-.post br {
-  margin-bottom: 1.5rem;
+.post>p {
+  margin: 1.5rem 0;
 }
 
 .post ul,
@@ -343,10 +347,4 @@ footer .claims {
 .post h3,
 .post h4 {
   font-family: var(--font-sans);
-}
-
-@media (max-width: 768px) {
-  .post {
-    columns: 1;
-  }
 }

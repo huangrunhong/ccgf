@@ -9,7 +9,7 @@ import {
   RiListOrdered,
   RiListUnordered,
 } from '@remixicon/react';
-import { Editor, EditorProvider, useCurrentEditor } from '@tiptap/react';
+import { EditorProvider, useCurrentEditor } from '@tiptap/react';
 import Image from '@tiptap/extension-image';
 import Link from '@tiptap/extension-link';
 import StarterKit from '@tiptap/starter-kit';
@@ -58,7 +58,7 @@ const Toolbar = ({ photos }: ToolbarProps) => {
   const onSelectFile = (src: string) => focus().setImage({ src }).run();
 
   return (
-    <div className="flex gap mb-1">
+    <div className="toolbar">
       <button
         type="button"
         className="icon"
@@ -141,9 +141,7 @@ const RichTextEditor = ({ name, label, photos }: RichTextEditorProps) => {
           slotBefore={<Toolbar photos={photos} />}
           extensions={extensions}
           content={form.data[name]}
-          onUpdate={({ editor }) =>
-            form.setData(name, editor.getHTML().replace(/<p><\/p>/g, '<br>'))
-          }
+          onUpdate={({ editor }) => form.setData(name, editor.getHTML())}
         />
       </div>
     </Field>

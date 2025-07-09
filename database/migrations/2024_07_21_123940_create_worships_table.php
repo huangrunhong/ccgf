@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->dateTime("date");
-            $table->date("location");
+            $table->string("location");
             $table->string("title")->nullable();
             $table->string('cover')->nullable();
             $table->string("speaker")->nullable();

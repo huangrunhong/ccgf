@@ -42,12 +42,13 @@
         </div>
         <div class="claims">
             <small>
-                Design and build by Runhong Huang and Diao Liu
+                Design and build with ❤️ by Runhong Huang and Diao Liu
                 <br />
-                This is an open source project hosted on https://github.com/huangrunhong/ccgf
+                This is an open source project hosted on <a href="https://github.com/huangrunhong/ccgf">Github
+                    Repository</a>
                 <br />
                 <br />
-                © {{ Carbon::now()->format('Y') }} Runhong Huang and Diao Liu.
+                © {{ Carbon::now()->format('Y') }} {{ strip_tags(__('logo')) }}
             </small>
         </div>
     </footer>

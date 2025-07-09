@@ -49,6 +49,9 @@
                 </a>
             @endif
         </div>
+        @if ($worship['title'])
+            <h3>{{ $worship['title'] }}</h3>
+        @endif
         @if ($worship['description'])
             <article>
                 {!! strip_tags($worship['description']) !!}

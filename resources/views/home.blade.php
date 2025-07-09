@@ -19,7 +19,7 @@
                 <strong>{{ __('members') }}</strong>
                 <strong>{{ __('fellowships') }}</strong>
                 <strong>{{ __('years') }}</strong>
-                <code>200+</code>
+                <code>100+</code>
                 <code>08+</code>
                 <code>30+</code>
             </div>

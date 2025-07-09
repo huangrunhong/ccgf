@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import { format } from 'date-fns/format';
-import { parseISO } from 'date-fns/parseISO';
 
 import FormContext from '@/contexts/FormContext';
 import DatePicker from '@/components/form/DatePicker';
@@ -29,7 +28,7 @@ const DatetimePicker = ({ name, label, dateformat }: DatetimePickerProps) => {
             const next = { ...datetime, [key]: value };
 
             setDatetime(next);
-            form.setData(name, parseISO(`${next.date}T${next.time}`));
+            form.setData(name, `${next.date} ${next.time}:00`);
           },
         }}
       >
