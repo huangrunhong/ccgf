@@ -17,7 +17,7 @@ class WorshipController extends Controller
     public function all(): Response
     {
         return Inertia::render('Worships', [
-            'worships' => Worship::all()
+            'worships' => Worship::orderByDesc('date')->get()
         ]);
     }
 
@@ -65,12 +65,7 @@ class WorshipController extends Controller
 
     public function destroy(string $id): RedirectResponse
     {
-        $count = Worship::count();
-        $worship = Worship::find($id);
-
-        if ($count > 1 && $worship) {
-            $worship->delete();
-        }
+        Worship::find($id)->delete();
 
         return redirect()->route('dashboard');
     }

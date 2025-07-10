@@ -54,12 +54,9 @@ class LocaleController extends Controller
 
     private function findUpcomingWorship()
     {
-        $worship = Worship
-            ::whereNull('regular')
-            ->whereDate('date', '>=', Carbon::now())
+        return Worship
+            ::whereDate('date', '>=', Carbon::now())
             ->whereDate('date', '<', Carbon::parse('next monday'))
             ->first();
-
-        return $worship ?? Worship::where('regular', true)->first();
     }
 }

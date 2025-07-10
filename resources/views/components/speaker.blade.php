@@ -8,7 +8,7 @@
             @endif
         </div>
         <div class="username">
-            <small>{{ $name }}</small>
+            <span>{{ $name }}</span>
             <small>{{ __($role) }}</small>
         </div>
     </div>
@@ -19,4 +19,7 @@
         <span>{{ $email }}</span>
     </div>
     <p class="intro">{{ $slot }}</p>
+    @isset($slug)
+        <a class="button" href="{{ route('posts.get.' . app()->getLocale(), ['slug' => $slug]) }}">{{ __('read.more') }}</a>
+    @endisset
 </div>

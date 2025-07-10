@@ -46,9 +46,8 @@ const en = {
   },
   page: {
     home: 'Home',
-    editRegularWorship: 'Edit regular Worship',
-    editSpecialWorship: 'Edit special Worship',
-    createSpecialWorship: 'Create special Worship',
+    editWorship: 'Edit Worship',
+    createWorship: 'Create Worship',
     createFellowship: 'Create Fellowship',
     editFellowship: 'Edit Fellowship',
     createEvent: 'Create Event',
@@ -110,7 +109,6 @@ const en = {
       },
     },
     worships: {
-      type: 'Type',
       date: 'Date',
       title: 'Title (optional)',
       description: 'Description (optional)',
@@ -120,8 +118,6 @@ const en = {
       baptism: 'Baptism',
       eucharist: 'Eucharist',
       dinner: 'Dinner',
-      regular: 'Regular worship',
-      special: 'Special worship',
     },
     events: {
       date: 'Date (optional)',

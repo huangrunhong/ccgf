@@ -46,9 +46,8 @@ const de = {
   },
   page: {
     home: 'Startseite',
-    editRegularWorship: 'Regelmäßigen Gottesdienst bearbeiten',
-    editSpecialWorship: 'Sonderlichen Gottesdienst bearbeiten',
-    createSpecialWorship: 'Temporären Gottesdienst hinzufügen',
+    editWorship: 'Gottesdienst bearbeiten',
+    createWorship: 'Gottesdienst hinzufügen',
     createFellowship: 'Gemeinschaft hinzufügen',
     editFellowship: 'Gemeinschaft bearbeiten',
     createEvent: 'Termin hinzufügen',
@@ -110,7 +109,6 @@ const de = {
       },
     },
     worships: {
-      type: 'Typ',
       date: 'Datum',
       title: 'Titel (optional)',
       description: 'Beschreibung (optional)',
@@ -120,8 +118,6 @@ const de = {
       baptism: 'Taufe',
       eucharist: 'Eucharistie',
       dinner: 'Abendessen',
-      regular: 'regelmäßiger Gottesdienst',
-      special: 'sonderlicher Gottesdienst',
     },
     events: {
       date: 'Datum (optional)',

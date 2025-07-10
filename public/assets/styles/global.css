@@ -101,6 +101,7 @@ button,
   color: var(--background);
   background-color: var(--foreground);
   padding: 0 1rem;
+  width: fit-content;
   height: 2rem;
   border-width: 0;
   border-radius: 0.3rem;
@@ -327,7 +328,8 @@ footer .claims a {
 }
 
 .post img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .post a {

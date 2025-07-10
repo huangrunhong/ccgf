@@ -46,9 +46,8 @@ const zh = {
   },
   page: {
     home: '首页',
-    editRegularWorship: '编辑定期证道',
-    editSpecialWorship: '编辑特别证道',
-    createSpecialWorship: '添加特别证道',
+    editWorship: '编辑证道',
+    createWorship: '添加证道',
     createFellowship: '添加团契',
     editFellowship: '编辑团契',
     createEvent: '添加活动',
@@ -110,7 +109,6 @@ const zh = {
       },
     },
     worships: {
-      type: '类型',
       date: '日期',
       title: '主题 (可选)',
       description: '内容 (可选)',
@@ -120,8 +118,6 @@ const zh = {
       baptism: '洗礼',
       eucharist: '圣餐',
       dinner: '爱宴',
-      regular: '定期证道',
-      special: '特别证道',
     },
     events: {
       date: '日期 (可选)',

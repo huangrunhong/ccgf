@@ -1,9 +1,6 @@
 <div class="worship">
     <img class="cover" src="{{ $worship['cover'] ?? '/assets/images/worship.jpg' }}" alt="poster" />
     <div class="worship-details">
-        <strong class="subheader">
-            <small>{{ $worship['regular'] ? __('worship.regular') : __('worship.special') }}</small>
-        </strong>
         <x-schedule :date="$worship['date']" />
         <div class="metadata">
             @if ($worship['speaker'])
@@ -42,12 +39,12 @@
                     </div>
                 @endif
             </div>
-            @if ($worship['regular'])
+            @isset($upcoming)
                 <a href="https://www.youtube.com/@ccgf" class="button">
                     <x-icons.youtube width="20" />
                     {{ __('live') }}
                 </a>
-            @endif
+            @endisset
         </div>
         @if ($worship['title'])
             <h3>{{ $worship['title'] }}</h3>

@@ -3,7 +3,6 @@ import { RiAddFill, RiEditLine } from '@remixicon/react';
 
 import { PageProps, Worship } from '@/types';
 import AuthenticatedLayout from '@/layouts/AuthenticatedLayout';
-import Badge from '@/components/base/Badge';
 import DeleteLink from '@/components/base/DeleteLink';
 import FormattedDate from '@/components/base/FormattedDate';
 import SiteHead from '@/components/base/SiteHead';
@@ -23,14 +22,14 @@ const Worships = ({ worships }: WorshipsProps) => {
         <span className="ml-1">{worships.length} Items</span>
         <Link className="button solid" href={route('worships.create')}>
           <RiAddFill size={18} />
-          {message.page.createSpecialWorship}
+          {message.page.createWorship}
         </Link>
       </div>
       <table>
         <thead>
           <tr>
-            <th>{message.admin.worships.type}</th>
             <th>{message.admin.worships.date}</th>
+            <th>{message.admin.worships.title}</th>
             <th>{message.admin.worships.location}</th>
           </tr>
         </thead>
@@ -38,24 +37,13 @@ const Worships = ({ worships }: WorshipsProps) => {
           {worships.map((worship) => (
             <tr key={worship.id}>
               <td>
-                <Badge
-                  content={
-                    worship.regular
-                      ? message.admin.worships.regular
-                      : message.admin.worships.special
-                  }
-                  status={worship.regular ? undefined : 'warning'}
-                />
+                <FormattedDate date={worship.date} format="PPPPp" />
               </td>
-              <td>
-                <FormattedDate date={worship.date} format={worship.regular ? 'eeee p' : 'PPPPp'} />
-              </td>
+              <td className="ellipsis">{worship.title}</td>
               <td className="flex gap-1 items-center justify-between">
                 {worship.location}
                 <div className="flex gap">
-                  {!worship.regular && (
-                    <DeleteLink href={route('worships.destroy', { id: worship.id })} />
-                  )}
+                  <DeleteLink href={route('worships.destroy', { id: worship.id })} />
                   <Link className="button icon" href={route('worships.edit', { id: worship.id })}>
                     <RiEditLine size={18} />
                   </Link>

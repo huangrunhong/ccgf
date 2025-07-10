@@ -152,6 +152,13 @@ table {
   td {
     padding: 1rem 0.5rem;
     border-bottom: 1px solid var(--background-border);
+
+    &.ellipsis {
+      max-width: 30rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 }
 

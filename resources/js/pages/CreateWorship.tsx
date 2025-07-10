@@ -13,8 +13,8 @@ const CreateWorShip = ({ photos }: CreateWorShipProps) => {
 
   return (
     <AuthenticatedLayout currentPath="dashboard">
-      <SiteHead title={message.page.createSpecialWorship} />
-      <WorshipForm photos={photos} heading={message.page.createSpecialWorship} />
+      <SiteHead title={message.page.createWorship} />
+      <WorshipForm photos={photos} heading={message.page.createWorship} />
     </AuthenticatedLayout>
   );
 };
