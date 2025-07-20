@@ -35,6 +35,7 @@
   "event.createdAt": "Published on",
   "pastor": "Pastor",
   "preacher": "Preacher",
+  "deacon": "deacon",
   "tel": "Tel",
   "email": "Email",
   "dateformat": "d.m.Y"

@@ -26,6 +26,8 @@ export type PostStatus = 'published' | 'archived' | 'draft';
 
 export type ResponseStatus = 'success' | 'warning' | 'error';
 
+export type ContactRole = 'pastor' | 'preacher' | 'deacon';
+
 export type SupportedLanguage = 'en' | 'de' | 'zh';
 
 export interface Worship {
@@ -70,6 +72,16 @@ export interface Post {
   slug: string;
   title: string;
   content: string;
+}
+
+export interface Contact {
+  id: number;
+  name: string;
+  role: ContactRole | null;
+  avatar: string | null;
+  tel: string | null;
+  email: string | null;
+  about: string | null;
 }
 
 export interface SelectOption<T extends string | number = string> {

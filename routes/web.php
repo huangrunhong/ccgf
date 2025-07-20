@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FellowshipController;
 use App\Http\Controllers\LocaleController;
@@ -21,6 +22,11 @@ Route::get('/de/worships', [WorshipController::class, 'list'])->name('worships.l
 Route::get('/posts/{slug}', [PostController::class, 'get'])->name('posts.get.zh');
 Route::get('/en/posts/{slug}', [PostController::class, 'get'])->name('posts.get.en');
 Route::get('/de/posts/{slug}', [PostController::class, 'get'])->name('posts.get.de');
+
+Route::get('/contacts/{id}', [ContactController::class, 'get'])->name('contacts.get.zh');
+Route::get('/en/contacts/{id}', [ContactController::class, 'get'])->name('contacts.get.en');
+Route::get('/de/contacts/{id}', [ContactController::class, 'get'])->name('contacts.get.de');
+
 
 Route::get('/event/{id}', [EventController::class, 'get'])->name('events.get.zh');
 Route::get('/en/event/{id}', [EventController::class, 'get'])->name('events.get.en');
@@ -62,6 +68,13 @@ Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->group(functio
     Route::post('/fellowships/{id}', [FellowshipController::class, 'update'])->name('fellowships.update');
     Route::patch('/fellowships/{id}/archive', [FellowshipController::class, 'archive'])->name('fellowships.archive');
     Route::delete('/fellowships/{id}', [FellowshipController::class, 'destroy'])->name('fellowships.destroy');
+
+    Route::get('/contacts', [ContactController::class, 'all'])->name('contacts');
+    Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
+    Route::get('/contacts/{id}', [ContactController::class, 'edit'])->name('contacts.edit');
+    Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
+    Route::post('/contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');
+    Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
     Route::get('/posts', [PostController::class, 'all'])->name('posts');
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');

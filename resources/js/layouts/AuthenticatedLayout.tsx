@@ -1,6 +1,7 @@
 import {
   RiArticleLine,
   RiCalendarEventLine,
+  RiContactsBookLine,
   RiCrossLine,
   RiGroupLine,
   RiImageLine,
@@ -12,11 +13,11 @@ import { Link, usePage } from '@inertiajs/react';
 import { Bounce, ToastContainer } from 'react-toastify';
 import clsx from 'clsx';
 
+import { PageProps } from '@/types';
 import ApplicationLogo from '@/components/ApplicationLogo';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import useMessage from '@/hooks/useMessage';
-import { PageProps } from '@/types';
 import Badge from '@/components/base/Badge';
 
 interface AuthenticatedLayoutProps {
@@ -70,6 +71,10 @@ const AuthenticatedLayout = ({ children, currentPath }: AuthenticatedLayoutProps
               <PageLink currentPath={currentPath} path="posts">
                 <RiArticleLine size={18} />
                 {message.admin.menu.post}
+              </PageLink>
+              <PageLink currentPath={currentPath} path="contacts">
+                <RiContactsBookLine size={18} />
+                {message.admin.menu.contact}
               </PageLink>
               <PageLink currentPath={currentPath} path="users">
                 <RiGroupLine size={18} />

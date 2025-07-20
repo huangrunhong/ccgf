@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\ContactRole;
+use App\Models\Contact;
 use App\Models\Event;
 use App\Models\Worship;
 use Carbon\Carbon;
@@ -49,6 +51,7 @@ class LocaleController extends Controller
         return view("home", [
             'events' => Event::orderByDesc('date')->limit(5)->get(),
             'worship' => $this->findUpcomingWorship(),
+            'contacts' => Contact::whereIn('role', [ContactRole::Pastor, ContactRole::Preacher])->get()
         ]);
     }
 
