@@ -1,6 +1,6 @@
 <x-layout :title="$fellowship['name']" :narrow="true">
     <x-slot:stylesheets>
-        <link href="/assets/styles/layer.css" rel="stylesheet">
+        <x-style-link path="assets/styles/layer.css" />
     </x-slot:stylesheets>
     <main class="layer">
         <a class="escape" href="{{ route('fellowships.list.' . app()->getLocale()) }}">

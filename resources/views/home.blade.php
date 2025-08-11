@@ -2,9 +2,9 @@
 
 <x-layout title="welcome">
     <x-slot:stylesheets>
-        <link href="/assets/styles/home.css" rel="stylesheet">
-        <link href="/assets/styles/event.css" rel="stylesheet">
-        <link href="/assets/styles/worship.css" rel="stylesheet">
+        <x-style-link path="assets/styles/home.css" />
+        <x-style-link path="assets/styles/event.css" />
+        <x-style-link path="assets/styles/worship.css" />
     </x-slot:stylesheets>
     <x-header />
     <main class="home">

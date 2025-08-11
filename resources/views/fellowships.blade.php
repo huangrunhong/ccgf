@@ -1,6 +1,6 @@
 <x-layout title="fellowships">
     <x-slot:stylesheets>
-        <link href="/assets/styles/fellowship.css" rel="stylesheet">
+        <x-style-link path="assets/styles/fellowship.css" />
     </x-slot:stylesheets>
     <x-header title="fellowships" />
     <main class="fellowships">

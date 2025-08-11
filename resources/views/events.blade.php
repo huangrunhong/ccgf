@@ -1,6 +1,6 @@
 <x-layout title="events">
     <x-slot:stylesheets>
-        <link href="/assets/styles/event.css" rel="stylesheet">
+        <x-style-link path="assets/styles/event.css" />
     </x-slot:stylesheets>
     <x-header title="events" />
     <main class=events>

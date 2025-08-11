@@ -1,6 +1,6 @@
 <x-layout title="worships">
     <x-slot:stylesheets>
-        <link href="/assets/styles/worship.css" rel="stylesheet">
+        <x-style-link path="assets/styles/worship.css" />
     </x-slot:stylesheets>
     <x-header title="worships" />
     <main class="worships">
