@@ -1,5 +1,5 @@
 <header>
-    <nav>
+    <div class="subheader">
         <a class="logo" href="{{ route('home.' . app()->getLocale()) }}">
             <x-logo />
             <strong>{!! __('logo') !!}</strong>
@@ -14,8 +14,10 @@
                 <x-header-right />
             </div>
         </div>
+    </div>
+    <nav>
+        <x-navigation class="header-navigation" />
     </nav>
-    <x-navigation class="header-navigation" />
 </header>
 @isset($title)
     <h1 class="page-title">{{ __($title) }}</h1>

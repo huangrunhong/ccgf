@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-top: 0;
 }
 
 .layer .escape {
@@ -17,7 +17,7 @@
   justify-content: center;
   border-radius: 0.5rem;
   background-color: var(--gray-100);
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .layer img {

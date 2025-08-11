@@ -51,7 +51,7 @@
         @endif
         @if ($worship['description'])
             <article>
-                {!! strip_tags($worship['description']) !!}
+                {!! $worship['description'] !!}
             </article>
         @endif
     </div>

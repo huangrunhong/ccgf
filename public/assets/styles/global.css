@@ -163,7 +163,7 @@ header .header-burger-menu:hover {
   background-color: var(--gray-100);
 }
 
-header nav {
+header .subheader {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,26 +172,26 @@ header nav {
   font-family: var(--font-primary);
 }
 
-header nav ul {
+header ul {
   list-style: none;
 }
 
-header nav ul.locale {
+header ul.locale {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-header nav ul.locale li a {
+header ul.locale li a {
   color: var(--foreground-muted);
 }
 
-header nav ul.locale li a.active {
+header ul.locale li a.active {
   font-weight: 500;
   color: var(--foreground);
 }
 
-header nav .header-menu {
+header .header-menu {
   background-color: var(--background);
 }
 
@@ -226,8 +226,8 @@ header .header-dropdown-menu .header-navigation {
     display: block;
   }
 
-  header nav>.header-right,
-  header>.header-navigation {
+  header .subheader>.header-right,
+  header nav>.header-navigation {
     display: none;
   }
 
